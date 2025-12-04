@@ -2641,25 +2641,45 @@ body.loading {
 /* Phones: up to 600px */
 @media (max-width: 600px) {
     :root {
-        --container-padding: 12px;
+        --container-padding: 1rem;
     }
 
     /* Base container adjustments */
-    .container {
-        padding-left: var(--container-padding);
-        padding-right: var(--container-padding);
+    * {
         max-width: 100%;
+    }
+
+    html {
         overflow-x: hidden;
     }
 
     body {
         overflow-x: hidden;
         font-size: 12px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .container {
+        padding-left: var(--container-padding);
+        padding-right: var(--container-padding);
+        max-width: 100vw;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    section {
+        padding: 2.5rem 0;
+        width: 100%;
+        overflow-x: hidden;
     }
 
     /* Navigation */
     nav {
         padding: 0.5rem 0;
+        width: 100%;
     }
 
     nav .container {
@@ -2891,6 +2911,8 @@ body.loading {
     .experience-card {
         padding: 1rem;
         margin-bottom: 1rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .experience-header h3 {
@@ -2923,10 +2945,13 @@ body.loading {
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+        width: 100%;
     }
 
     .project-card {
         padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .project-card h3 {
@@ -2965,10 +2990,13 @@ body.loading {
     .skills-grid {
         grid-template-columns: 1fr;
         gap: 0.5rem;
+        width: 100%;
     }
 
     .skill-category {
         padding: 0.6rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .skill-category h3 {
@@ -2994,6 +3022,8 @@ body.loading {
     .certification-card {
         padding: 0.6rem;
         gap: 0.6rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .certification-icon {
@@ -3051,10 +3081,13 @@ body.loading {
     .achievements-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+        width: 100%;
     }
 
     .achievement-card {
         padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .achievement-card h3 {
@@ -3079,12 +3112,15 @@ body.loading {
     .sports-grid {
         grid-template-columns: 1fr;
         gap: 0.6rem;
+        width: 100%;
     }
 
     .volunteering-card,
     .life-card,
     .sport-card {
         padding: 0.6rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .volunteering-card h3,
