@@ -2637,3 +2637,99 @@ body.loading {
     }
 }
 
+/* ===== Consolidated Responsive Overrides ===== */
+/* Phones: up to 600px */
+@media (max-width: 600px) {
+    :root {
+        --container-padding: 16px;
+    }
+
+    .container {
+        padding-left: var(--container-padding);
+        padding-right: var(--container-padding);
+    }
+
+    nav .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(0,0,0,0.85);
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+    }
+
+    nav .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+        padding: 2rem 0;
+    }
+
+    .hero-text {
+        width: 100%;
+        text-align: center;
+        order: 2;
+    }
+
+    .hero-image {
+        width: 220px;
+        order: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile-picture-wrapper {
+        width: 220px;
+        height: 220px;
+    }
+
+    .hero-name { font-size: 28px; }
+    .section-title { font-size: 22px; }
+    .about-text p { font-size: 15px; line-height: 1.5; }
+}
+
+/* Tablets: 601px to 1024px */
+@media (min-width: 601px) and (max-width: 1024px) {
+    :root {
+        --container-padding: 24px;
+    }
+
+    .container {
+        padding-left: var(--container-padding);
+        padding-right: var(--container-padding);
+    }
+
+    .hero-content {
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .hero-text { width: 60%; }
+    .hero-image { width: 40%; }
+
+    .profile-picture-wrapper { width: 280px; height: 280px; }
+
+    .hero-name { font-size: 40px; }
+    .section-title { font-size: 32px; }
+}
+
+/* Laptops and larger: 1025px and up */
+@media (min-width: 1025px) {
+    .mobile-menu-toggle { display: none; }
+    nav .nav-links { display: flex !important; }
+    .hero-content { gap: 3rem; }
+}
+
+
