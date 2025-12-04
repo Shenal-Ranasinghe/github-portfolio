@@ -2697,6 +2697,7 @@ body.loading {
         gap: 0;
         padding: 0.75rem 0;
         box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        z-index: 1002;
     }
 
     nav .nav-links li {
@@ -2722,8 +2723,10 @@ body.loading {
     }
 
     .hero-content {
+        display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         gap: 1rem;
         padding: 0;
     }
@@ -2773,11 +2776,20 @@ body.loading {
         order: 1;
         display: flex;
         justify-content: center;
+        align-items: center;
+        margin: 0 auto;
     }
 
     .profile-picture-wrapper {
         width: 180px;
         height: 180px;
+        margin: 0 auto;
+    }
+
+    /* Tweak crop to keep face centered on phones */
+    .profile-picture img {
+        object-fit: cover;
+        object-position: center 20%;
     }
 
     /* Social links and buttons */
