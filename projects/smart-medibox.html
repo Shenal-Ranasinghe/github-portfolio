@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Medibox | Shenal Ranasinghe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .project-detail {
+            min-height: 100vh;
+            padding: 120px 3rem 4rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            margin-bottom: 3rem;
+        }
+        
+        .back-button:hover {
+            transform: translateX(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
+        }
+        
+        .project-hero {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .project-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-hero .status {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            background: rgba(34, 197, 94, 0.15);
+            color: #22c55e;
+            border: 2px solid #22c55e;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+        }
+        
+        .meta-item i {
+            color: var(--accent-primary);
+            font-size: 1.3rem;
+        }
+        
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            margin-bottom: 5rem;
+            padding: 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+        }
+        
+        .content-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--accent-primary);
+        }
+        
+        .content-section h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .content-section p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-tag {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-secondary);
+            border: 1px solid var(--accent-primary);
+            border-radius: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+        
+        .key-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-box {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: var(--transition-smooth);
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+        
+        .feature-box i {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-box h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .feature-box p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="circuit-bg"></div>
+    
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Projects
+        </a>
+        
+        <div class="project-hero">
+            <h1>Smart Medibox</h1>
+            <span class="status completed">Completed</span>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Completed: 2024</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-microchip"></i>
+                    <span>Embedded Systems Module</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-wifi"></i>
+                    <span>IoT Healthcare Device</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-content">
+            <div class="content-section">
+                <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+                <p>
+                    Smart Medibox is an IoT-enabled intelligent medicine dispenser developed as part of the Embedded Systems module. 
+                    The system helps patients maintain their medication schedules with automated reminders, environmental monitoring, 
+                    and real-time dashboard visualization through Node-RED.
+                </p>
+                <p>
+                    Built on the ESP32 microcontroller platform and simulated using Wokwi, this project demonstrates the integration 
+                    of embedded systems, IoT protocols, sensor networks, and user interface design for healthcare applications.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-star"></i> Key Features</h2>
+                <div class="key-features">
+                    <div class="feature-box">
+                        <i class="fas fa-clock"></i>
+                        <h4>Scheduled Reminders</h4>
+                        <p>Configurable medication alarms with visual and audio notifications at prescribed times</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-temperature-high"></i>
+                        <h4>Environmental Monitoring</h4>
+                        <p>Temperature and humidity tracking to ensure optimal medicine storage conditions</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Node-RED Dashboard</h4>
+                        <p>Real-time visualization of sensor data, medication schedule, and system status</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-wifi"></i>
+                        <h4>IoT Connectivity</h4>
+                        <p>WiFi-based remote monitoring and control through MQTT protocol</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-laptop-code"></i>
+                        <h4>Wokwi Simulation</h4>
+                        <p>Complete virtual hardware simulation for testing and demonstration</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-bell"></i>
+                        <h4>Alert System</h4>
+                        <p>Multi-level alerts for missed doses, environmental warnings, and system status</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- System Architecture with Wokwi Simulation -->
+            <div class="content-section">
+                <h2><i class="fas fa-project-diagram"></i> System Architecture & Wokwi Simulation</h2>
+                <p>
+                    The Smart Medibox system was designed and simulated using Wokwi, an online electronics simulator that supports ESP32 and various sensors/actuators.
+                </p>
+                <!-- Wokwi simulation image -->
+                <div style="text-align: center; margin: 2rem 0;">
+                    <img src="../assets/images/projects/smart-medibox/wokwi simulation circuit.jpg" alt="Wokwi Simulation Circuit" style="width: 100%; max-width: 900px; border-radius: 15px; margin: 1rem auto; display: block; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                    <p style="color: var(--text-secondary); margin-top: 1rem;"><strong>Wokwi Simulation Setup</strong><br>
+                    Complete virtual circuit showing ESP32 and all peripheral components with interactive simulation capabilities.</p>
+                </div>
+            </div>
+            
+            <!-- PLACEHOLDER: User will provide hardware details -->
+            <div class="content-section">
+                <h2><i class="fas fa-microchip"></i> Hardware Components</h2>
+                <p>
+                    <em>Details to be added: ESP32 specifications, sensors used, actuators, display modules</em>
+                </p>
+                <h3>Core Components</h3>
+                <ul>
+                    <li><strong>Microcontroller:</strong> ESP32 (WiFi + Bluetooth capabilities)</li>
+                    <li><strong>Sensors:</strong> <em>To be specified (DHT22, LDR, etc.)</em></li>
+                    <li><strong>Actuators:</strong> <em>To be specified (buzzer, LEDs, servo motor)</em></li>
+                    <li><strong>Display:</strong> <em>To be specified (OLED/LCD display)</em></li>
+                    <li><strong>Input Devices:</strong> <em>To be specified (buttons, keypad)</em></li>
+                </ul>
+            </div>
+            
+            <!-- PLACEHOLDER: User will provide software implementation details -->
+            <div class="content-section">
+                <h2><i class="fas fa-code"></i> Software Implementation</h2>
+                
+                <h3>Firmware Development</h3>
+                <p>
+                    <em>Details to be added: Programming approach, libraries used, code structure</em>
+                </p>
+                <ul>
+                    <li><strong>Development Environment:</strong> Arduino IDE / PlatformIO</li>
+                    <li><strong>Programming Language:</strong> C/C++ (Arduino framework)</li>
+                    <li><strong>WiFi Connectivity:</strong> ESP32 WiFi library</li>
+                    <li><strong>MQTT Communication:</strong> PubSubClient library</li>
+                    <li><strong>Time Management:</strong> NTP time synchronization</li>
+                    <li><strong>Sensor Libraries:</strong> <em>To be specified</em></li>
+                </ul>
+                
+                <h3>Node-RED Dashboard</h3>
+                <p>
+                    The Node-RED dashboard provides a visual interface for monitoring and controlling the Smart Medibox system in real-time.
+                </p>
+                <!-- Node-RED dashboard image -->
+                <div style="text-align: center; margin: 2rem 0;">
+                    <img src="../assets/images/projects/smart-medibox/node red dashboard.png" alt="Node-RED Dashboard" style="width: 100%; max-width: 900px; border-radius: 15px; margin: 1rem auto; display: block; box-shadow: 0 10px 40px rgba(168, 85, 247, 0.2);">
+                    <p style="color: var(--text-secondary); margin-top: 1rem;"><strong>Node-RED Dashboard Interface</strong><br>
+                    Real-time monitoring dashboard showing sensor data visualization and system control interface.</p>
+                </div>
+            </div>
+            
+            <!-- PLACEHOLDER: User will provide medication scheduling algorithm -->
+            <div class="content-section">
+                <h2><i class="fas fa-calendar-check"></i> Medication Scheduling System</h2>
+                <p>
+                    <em>Details to be added: Alarm configuration, schedule storage, reminder logic</em>
+                </p>
+                <ul>
+                    <li><strong>Time-based Alarms:</strong> RTC or NTP-based scheduling</li>
+                    <li><strong>Multiple Slots:</strong> Support for multiple daily medication times</li>
+                    <li><strong>Snooze Function:</strong> Temporary alarm postponement</li>
+                    <li><strong>Missed Dose Tracking:</strong> Alert system for skipped medications</li>
+                </ul>
+            </div>
+            
+            <!-- PLACEHOLDER: User will provide environmental monitoring details -->
+            <div class="content-section">
+                <h2><i class="fas fa-thermometer-half"></i> Environmental Monitoring</h2>
+                <p>
+                    <em>Details to be added: Sensor specifications, threshold values, alert conditions</em>
+                </p>
+                <ul>
+                    <li><strong>Temperature Monitoring:</strong> Continuous temperature logging with alerts for unsafe conditions</li>
+                    <li><strong>Humidity Tracking:</strong> Moisture level monitoring to prevent medicine degradation</li>
+                    <li><strong>Light Detection:</strong> <em>If applicable - ambient light monitoring</em></li>
+                    <li><strong>Data Logging:</strong> Historical data storage for trend analysis</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-laptop-code"></i> Wokwi Simulation</h2>
+                <p>
+                    The entire project was developed and tested using Wokwi, an online electronics simulator that supports ESP32 
+                    and various sensors/actuators. This allowed for rapid prototyping and debugging without physical hardware.
+                </p>
+                <!-- PLACEHOLDER: User will provide Wokwi link -->
+                <p>
+                    <strong>Wokwi Project Link:</strong> 
+                    <em>To be added by user</em>
+                </p>
+                
+                <h3>Simulation Features</h3>
+                <ul>
+                    <li>Complete virtual circuit with ESP32 and all peripherals</li>
+                    <li>Real-time firmware debugging and serial monitor</li>
+                    <li>Virtual WiFi connectivity for MQTT testing</li>
+                    <li>Interactive component testing (buttons, sensors, displays)</li>
+                    <li>Logic analyzer for signal debugging</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-network-wired"></i> IoT Integration</h2>
+                
+                <h3>MQTT Communication</h3>
+                <p>
+                    <em>Details to be added: MQTT broker, topics, message format</em>
+                </p>
+                <ul>
+                    <li><strong>MQTT Broker:</strong> <em>To be specified (HiveMQ, Mosquitto, etc.)</em></li>
+                    <li><strong>Topics:</strong> <em>To be specified (medibox/sensor, medibox/alarm, etc.)</em></li>
+                    <li><strong>QoS Level:</strong> Quality of Service configuration</li>
+                    <li><strong>Data Format:</strong> JSON payloads for structured data</li>
+                </ul>
+                
+                <h3>Node-RED Flow</h3>
+                <p>
+                    <em>Details to be added: Flow structure, nodes used, data processing</em>
+                </p>
+                <ul>
+                    <li>MQTT input nodes for sensor data reception</li>
+                    <li>Function nodes for data processing and logic</li>
+                    <li>Dashboard nodes for visualization (gauges, charts, buttons)</li>
+                    <li>Notification nodes for alerts</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-graduation-cap"></i> Embedded Systems Concepts Applied</h2>
+                <ul>
+                    <li><strong>Real-Time Operating System (RTOS):</strong> FreeRTOS task management on ESP32</li>
+                    <li><strong>Interrupt Handling:</strong> Button inputs and timer interrupts for alarms</li>
+                    <li><strong>Peripheral Interfacing:</strong> I2C/SPI communication with sensors and displays</li>
+                    <li><strong>Power Management:</strong> Sleep modes and power optimization strategies</li>
+                    <li><strong>Memory Management:</strong> Efficient use of SRAM and flash memory</li>
+                    <li><strong>State Machines:</strong> System state management for different operational modes</li>
+                    <li><strong>Error Handling:</strong> Robust exception handling and recovery mechanisms</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-check-circle"></i> Key Achievements</h2>
+                <ul>
+                    <li>Successfully developed a fully functional IoT healthcare device in simulation</li>
+                    <li>Implemented reliable medication scheduling with multiple daily alarms</li>
+                    <li>Created an intuitive Node-RED dashboard for remote monitoring</li>
+                    <li>Achieved stable WiFi connectivity and MQTT communication</li>
+                    <li>Demonstrated practical application of embedded systems concepts</li>
+                    <li><em>Additional achievements to be added by user</em></li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-lightbulb"></i> Challenges & Solutions</h2>
+                <p>
+                    <em>Details to be added by user: Technical challenges faced and how they were resolved</em>
+                </p>
+                <ul>
+                    <li><strong>Challenge:</strong> <em>Example: WiFi connectivity issues in Wokwi</em></li>
+                    <li><strong>Solution:</strong> <em>Example: Implemented connection retry logic with exponential backoff</em></li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-graduation-cap"></i> Key Learnings</h2>
+                <ul>
+                    <li><strong>ESP32 Platform:</strong> Deep understanding of ESP32 capabilities and limitations</li>
+                    <li><strong>IoT Protocols:</strong> MQTT publish-subscribe pattern and QoS levels</li>
+                    <li><strong>Sensor Integration:</strong> Calibration and data filtering techniques</li>
+                    <li><strong>Node-RED Development:</strong> Visual programming and dashboard creation</li>
+                    <li><strong>Healthcare IoT:</strong> Design considerations for medical device applications</li>
+                    <li><strong>Simulation Tools:</strong> Virtual prototyping and testing methodologies</li>
+                    <li><em>Additional learnings to be added by user</em></li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-laptop-code"></i> Technologies Used</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">ESP32</span>
+                    <span class="tech-tag">Wokwi</span>
+                    <span class="tech-tag">Node-RED</span>
+                    <span class="tech-tag">MQTT</span>
+                    <span class="tech-tag">Arduino C/C++</span>
+                    <span class="tech-tag">WiFi</span>
+                    <span class="tech-tag">IoT</span>
+                    <span class="tech-tag">Embedded Systems</span>
+                    <span class="tech-tag">FreeRTOS</span>
+                    <!-- User can add more tech tags -->
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-rocket"></i> Future Enhancements</h2>
+                <ul>
+                    <li><strong>Mobile App:</strong> Dedicated smartphone application for caregivers</li>
+                    <li><strong>Cloud Integration:</strong> Database storage for long-term data analytics</li>
+                    <li><strong>AI Predictions:</strong> Machine learning for medication adherence patterns</li>
+                    <li><strong>Voice Reminders:</strong> Audio announcements for medication names</li>
+                    <li><strong>Pill Counting:</strong> Automated inventory tracking with weight sensors</li>
+                    <li><strong>Multi-User Support:</strong> Multiple patient profiles on single device</li>
+                    <li><strong>Physical Prototype:</strong> PCB design and 3D-printed enclosure</li>
+                    <li><em>Additional ideas to be added by user</em></li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-link"></i> Project Links</h2>
+                <ul>
+                    <li><strong>Wokwi Simulation:</strong> <em>Link to be added by user</em></li>
+                    <li><strong>GitHub Repository:</strong> <em>Link to be added if available</em></li>
+                    <li><strong>Video Demo:</strong> <em>Link to be added if available</em></li>
+                </ul>
+            </div>
+            
+            <!-- Note for user -->
+            <div class="content-section" style="background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(168, 85, 247, 0.1)); border-left: 4px solid var(--accent-primary); padding: 1.5rem; border-radius: 10px; margin-top: 2rem;">
+                <h3 style="margin-top: 0; color: var(--accent-primary);">
+                    <i class="fas fa-info-circle"></i> Content Pending
+                </h3>
+                <p style="margin-bottom: 0;">
+                    This page has been structured with placeholders for detailed content. Please provide:
+                </p>
+                <ul style="margin-bottom: 0;">
+                    <li>Wokwi project link</li>
+                    <li>2 images: Wokwi simulation setup and Node-RED dashboard presentation</li>
+                    <li>Detailed descriptions for system architecture, hardware components, and software implementation</li>
+                    <li>Medication scheduling algorithm details</li>
+                    <li>Environmental monitoring thresholds and sensor specifications</li>
+                    <li>MQTT topic structure and Node-RED flow details</li>
+                    <li>Challenges faced and solutions implemented</li>
+                    <li>Any additional achievements or learnings</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P SDR Communication | Shenal Ranasinghe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .project-detail {
+            min-height: 100vh;
+            padding: 120px 3rem 4rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            margin-bottom: 3rem;
+        }
+        
+        .back-button:hover {
+            transform: translateX(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
+        }
+        
+        .project-hero {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .project-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-hero .status {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            background: rgba(34, 197, 94, 0.15);
+            color: #22c55e;
+            border: 2px solid #22c55e;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+        }
+        
+        .meta-item i {
+            color: var(--accent-primary);
+            font-size: 1.3rem;
+        }
+        
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            margin-bottom: 5rem;
+            padding: 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+        }
+        
+        .content-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--accent-primary);
+        }
+        
+        .content-section h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .content-section p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-tag {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-secondary);
+            border: 1px solid var(--accent-primary);
+            border-radius: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+        
+        .key-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-box {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: var(--transition-smooth);
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+        
+        .feature-box i {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-box h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .feature-box p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="circuit-bg"></div>
+    
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Projects
+        </a>
+        
+        <div class="project-hero">
+            <h1>Peer-to-Peer SDR Communication System</h1>
+            <span class="status completed">Completed</span>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Completed: 2024</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-broadcast-tower"></i>
+                    <span>Software Defined Radio</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>GNU Radio & RTL-SDR</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-content">
+            <div class="content-section">
+                <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+                <p>
+                    Developed a peer-to-peer Software Defined Radio (SDR) communication system using GNU Radio and RTL-SDR hardware. 
+                    This project demonstrates wireless data transmission between two computers using software-defined radio technology, 
+                    implementing the complete signal processing chain from modulation to demodulation in software.
+                </p>
+                <p>
+                    The system showcases the power and flexibility of SDR technology, where traditional hardware radio components 
+                    are replaced by software implementations, enabling rapid prototyping and experimentation with different 
+                    communication protocols and modulation schemes.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-images"></i> Project Implementation</h2>
+                <p>
+                    The complete system setup showing GNU Radio flowgraph and the project team during demonstration:
+                </p>
+                
+                <div style="text-align: center; margin: 2rem 0;">
+                    <img src="../assets/images/projects/sdr-communication/gnu radio system.jpg" alt="GNU Radio System Setup" style="width: 100%; max-width: 900px; border-radius: 15px; margin: 1rem auto; display: block; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                    <p style="color: var(--text-secondary); margin-top: 1rem;"><strong>GNU Radio Flowgraph</strong><br>
+                    Complete signal processing chain implementation showing modulation, transmission, reception, and demodulation blocks.</p>
+                </div>
+                
+                <div style="text-align: center; margin: 2rem 0;">
+                    <img src="../assets/images/projects/sdr-communication/team members.jpg" alt="Project Team" style="width: 100%; max-width: 900px; border-radius: 15px; margin: 1rem auto; display: block; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                    <p style="color: var(--text-secondary); margin-top: 1rem;"><strong>Project Team</strong><br>
+                    Team members showcasing the P2P SDR communication system during project demonstration.</p>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-star"></i> Key Features</h2>
+                <div class="key-features">
+                    <div class="feature-box">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h4>Bidirectional Communication</h4>
+                        <p>Full-duplex peer-to-peer data transmission between two SDR devices</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-wave-square"></i>
+                        <h4>Digital Modulation</h4>
+                        <p>Implementation of various modulation schemes (BPSK, QPSK, FSK)</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-code"></i>
+                        <h4>GNU Radio Framework</h4>
+                        <p>Visual signal processing using GNU Radio Companion flowgraphs</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-signal"></i>
+                        <h4>Real-Time Processing</h4>
+                        <p>Live signal transmission and reception with minimal latency</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-cogs"></i> System Architecture</h2>
+                <h3>Hardware Components</h3>
+                <ul>
+                    <li><strong>RTL-SDR Dongles:</strong> Two RTL2832U-based USB SDR receivers for signal transmission and reception</li>
+                    <li><strong>Antennas:</strong> Dipole or monopole antennas tuned to the operating frequency</li>
+                    <li><strong>Host Computers:</strong> Two laptops/PCs running GNU Radio software</li>
+                    <li><strong>USB Cables:</strong> High-quality USB connections for stable data transfer</li>
+                </ul>
+                
+                <h3>Software Stack</h3>
+                <ul>
+                    <li><strong>GNU Radio:</strong> Open-source SDR framework for signal processing</li>
+                    <li><strong>GNU Radio Companion:</strong> Visual flowgraph design tool</li>
+                    <li><strong>RTL-SDR Drivers:</strong> Device drivers for RTL2832U chipset</li>
+                    <li><strong>Python:</strong> Backend scripting for custom signal processing blocks</li>
+                    <li><strong>Operating System:</strong> Linux (Ubuntu/Debian recommended for SDR)</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-project-diagram"></i> Signal Processing Chain</h2>
+                <h3>Transmitter Path</h3>
+                <ol>
+                    <li><strong>Data Source:</strong> Text input or file data to be transmitted</li>
+                    <li><strong>Encoding:</strong> Convert data to binary format</li>
+                    <li><strong>Modulation:</strong> Apply digital modulation (BPSK/QPSK/FSK)</li>
+                    <li><strong>Filtering:</strong> Root-raised cosine pulse shaping filter</li>
+                    <li><strong>Up-conversion:</strong> Frequency translation to RF carrier</li>
+                    <li><strong>RTL-SDR Sink:</strong> Transmit via SDR hardware</li>
+                </ol>
+                
+                <h3>Receiver Path</h3>
+                <ol>
+                    <li><strong>RTL-SDR Source:</strong> Receive RF signal via SDR hardware</li>
+                    <li><strong>Down-conversion:</strong> Frequency translation to baseband</li>
+                    <li><strong>Filtering:</strong> Matched filter for pulse shaping recovery</li>
+                    <li><strong>Timing Recovery:</strong> Symbol synchronization</li>
+                    <li><strong>Demodulation:</strong> Recover digital data from modulated signal</li>
+                    <li><strong>Decoding:</strong> Convert binary to readable data format</li>
+                    <li><strong>Data Sink:</strong> Display or save received data</li>
+                </ol>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-tasks"></i> Technical Implementation</h2>
+                <h3>Modulation Schemes Implemented</h3>
+                <ul>
+                    <li><strong>BPSK (Binary Phase Shift Keying):</strong> Simple 2-state phase modulation for robust communication</li>
+                    <li><strong>QPSK (Quadrature Phase Shift Keying):</strong> 4-state modulation for higher data rates</li>
+                    <li><strong>FSK (Frequency Shift Keying):</strong> Frequency modulation for frequency-selective channels</li>
+                </ul>
+                
+                <h3>Error Handling & Synchronization</h3>
+                <ul>
+                    <li><strong>Carrier Synchronization:</strong> Phase-locked loop (PLL) for carrier recovery</li>
+                    <li><strong>Symbol Timing Recovery:</strong> Mueller and Muller clock recovery algorithm</li>
+                    <li><strong>Frame Synchronization:</strong> Preamble detection for packet alignment</li>
+                    <li><strong>Error Detection:</strong> CRC checksums for data integrity verification</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-graduation-cap"></i> Key Learnings</h2>
+                <ul>
+                    <li><strong>SDR Fundamentals:</strong> Deep understanding of software-defined radio architecture and signal flow</li>
+                    <li><strong>Digital Communications:</strong> Practical implementation of modulation, demodulation, and synchronization</li>
+                    <li><strong>GNU Radio Proficiency:</strong> Experience with flowgraph design and custom block development</li>
+                    <li><strong>Signal Processing:</strong> Real-world application of DSP concepts (filtering, FFT, sampling)</li>
+                    <li><strong>RF Transmission:</strong> Challenges of wireless communication (noise, interference, multipath)</li>
+                    <li><strong>Debugging RF Systems:</strong> Using spectrum analyzers and waterfall plots for troubleshooting</li>
+                    <li><strong>Protocol Design:</strong> Implementing packet structure and error handling mechanisms</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-laptop-code"></i> Technologies Used</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">GNU Radio</span>
+                    <span class="tech-tag">RTL-SDR</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Digital Signal Processing</span>
+                    <span class="tech-tag">BPSK/QPSK/FSK</span>
+                    <span class="tech-tag">Software Defined Radio</span>
+                    <span class="tech-tag">Wireless Communication</span>
+                    <span class="tech-tag">Linux</span>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-lightbulb"></i> Applications & Extensions</h2>
+                <ul>
+                    <li><strong>Amateur Radio:</strong> Digital modes for ham radio communication</li>
+                    <li><strong>IoT Communications:</strong> Low-power wireless sensor networks</li>
+                    <li><strong>Emergency Communications:</strong> Disaster recovery communication systems</li>
+                    <li><strong>Research & Education:</strong> Teaching platform for wireless communications</li>
+                    <li><strong>Protocol Development:</strong> Rapid prototyping of new communication standards</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-rocket"></i> Future Enhancements</h2>
+                <ul>
+                    <li><strong>OFDM Implementation:</strong> Orthogonal Frequency Division Multiplexing for higher throughput</li>
+                    <li><strong>Adaptive Modulation:</strong> Dynamic modulation scheme selection based on channel conditions</li>
+                    <li><strong>Encryption:</strong> AES encryption for secure communications</li>
+                    <li><strong>Multi-hop Networking:</strong> Mesh network topology for extended range</li>
+                    <li><strong>GUI Development:</strong> User-friendly graphical interface for non-technical users</li>
+                    <li><strong>Mobile Integration:</strong> Android SDR app for portable communication</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../script.js"></script>
+</body>
+</html>

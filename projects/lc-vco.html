@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFIC Design Competition Project | Shenal Ranasinghe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .project-detail {
+            min-height: 100vh;
+            padding: 120px 3rem 4rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            margin-bottom: 3rem;
+        }
+        
+        .back-button:hover {
+            transform: translateX(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
+        }
+        
+        .project-hero {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .project-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-hero .status {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            background: rgba(255, 193, 7, 0.15);
+            color: #ffc107;
+            border: 2px solid #ffc107;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+        }
+        
+        .meta-item i {
+            color: var(--accent-primary);
+            font-size: 1.3rem;
+        }
+        
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            margin-bottom: 5rem;
+            padding: 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+        }
+        
+        .content-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--accent-primary);
+        }
+        
+        .content-section h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .content-section p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-tag {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-secondary);
+            border: 1px solid var(--accent-primary);
+            border-radius: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .image-placeholder {
+            aspect-ratio: 16/9;
+            background: var(--glass-bg);
+            border: 2px dashed var(--glass-border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .key-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-box {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: var(--transition-smooth);
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+        
+        .feature-box i {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-box h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .feature-box p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="circuit-bg"></div>
+    
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Projects
+        </a>
+        
+        <div class="project-hero">
+            <h1>RFIC Design Competition Project</h1>
+            <span class="status ongoing">In Progress - Competition Project</span>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Started: 2025</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team Project</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-microchip"></i>
+                    <span>SKY130 PDK</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-trophy"></i>
+                    <span>RFIC Design Competition</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-content">
+            <div class="content-section" style="background: rgba(255, 193, 7, 0.1); border-left: 4px solid #ffc107;">
+                <h2><i class="fas fa-lock"></i> Confidentiality Notice</h2>
+                <p style="font-size: 1.1rem; color: #ffc107;">
+                    <strong>This is an active competition project.</strong> Due to competition regulations and intellectual property considerations, 
+                    detailed circuit design, specifications, and simulation results cannot be publicly disclosed at this time. Information will be 
+                    updated after the competition concludes and the tapeout is completed.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+                <p>
+                    This is a <strong>team-based RFIC design project</strong> submitted for a competitive design competition that started in 
+                    <strong>2025</strong>, targeting a <strong>tapeout in 2026</strong>. The project involves the complete design flow of an RF integrated circuit, from 
+                    initial architecture selection through to final layout preparation for fabrication.
+                </p>
+                <p>
+                    Originally planned for implementation on the IHP SG13G2 130nm BiCMOS PDK, the project scope evolved based on refined 
+                    design goals and competition requirements. The team pivoted to the <strong>SkyWater SKY130 130nm CMOS PDK</strong>, 
+                    an open-source process design kit that offers excellent RF capabilities and widespread community support.
+                </p>
+                <p>
+                    <strong>My Role:</strong> Within the team, I am primarily responsible for:
+                </p>
+                <ul style="margin-left: 2rem;">
+                    <li><strong>RF Inductor Design & Optimization:</strong> Designing on-chip spiral inductors using Ansys HFSS with 
+                    SKY130 PDK layer stackup specifications</li>
+                    <li><strong>IC Layout:</strong> Physical layout implementation in Klayout, ensuring DRC/LVS compliance and RF 
+                    performance optimization</li>
+                    <li><strong>RF Circuit Design:</strong> Contributing to RF circuit architecture, matching networks, and performance 
+                    optimization</li>
+                    <li><strong>Electromagnetic Simulation:</strong> Full-wave 3D EM simulation of passive components (inductors, 
+                    transformers, transmission lines) in HFSS</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-bullseye"></i> Project Scope (General Information)</h2>
+                <p>
+                    While specific circuit details are confidential, the general project scope includes:
+                </p>
+                <ul style="margin-left: 2rem;">
+                    <li><strong>Technology Node:</strong> SkyWater SKY130 130nm CMOS process</li>
+                    <li><strong>Target Frequency Range:</strong> RF/microwave frequencies for wireless communication applications</li>
+                    <li><strong>Design Methodology:</strong> Full-custom analog/RF IC design with emphasis on performance optimization</li>
+                    <li><strong>Passive Components:</strong> Custom-designed on-chip inductors, capacitors, and transmission lines</li>
+                    <li><strong>Design Tools:</strong> Xschem (schematic), ngspice (simulation), Klayout (layout), HFSS (EM simulation)</li>
+                    <li><strong>Timeline:</strong> Targeting tapeout submission in 2025 for fabrication through open-source shuttle runs</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-cogs"></i> Current Work: RF Inductor Design in HFSS</h2>
+                <p>
+                    My current focus is on designing high-performance on-chip spiral inductors for the RFIC using Ansys HFSS. This involves:
+                </p>
+                
+                <h3>SKY130 PDK Layer Stackup Integration</h3>
+                <p>
+                    The SKY130 process offers multiple metal layers with specific thickness and spacing specifications. Accurate 3D modeling 
+                    of the complete layer stackup in HFSS is critical for realistic inductor performance predictions:
+                </p>
+                <ul style="margin-left: 2rem;">
+                    <li><strong>Metal Stack:</strong> Modeling all 5 metal layers (M1-M5) with correct thicknesses and dielectric spacing</li>
+                    <li><strong>Substrate Modeling:</strong> Silicon substrate with appropriate doping, thickness, and loss tangent</li>
+                    <li><strong>Via Structures:</strong> Inter-layer vias for connecting inductor turns and ground returns</li>
+                    <li><strong>Patterned Ground Shields:</strong> Optional ground plane shields to reduce substrate losses</li>
+                </ul>
+                
+                <h3>Inductor Performance Optimization</h3>
+                <p>
+                    Key parameters being optimized through parametric HFSS sweeps:
+                </p>
+                <ul style="margin-left: 2rem;">
+                    <li><strong>Quality Factor (Q):</strong> Maximizing Q at the target operating frequency through geometry optimization</li>
+                    <li><strong>Self-Resonant Frequency (SRF):</strong> Ensuring SRF is sufficiently above operating frequency</li>
+                    <li><strong>Inductance Value:</strong> Achieving target inductance (typically 1-10 nH range for RF applications)</li>
+                    <li><strong>Series Resistance:</strong> Minimizing metal loss through optimal trace width and metal layer selection</li>
+                    <li><strong>Substrate Coupling:</strong> Analyzing and mitigating eddy current losses in silicon substrate</li>
+                    <li><strong>Magnetic Field Distribution:</strong> Visualizing H-field to understand coupling to adjacent components</li>
+                </ul>
+                
+                <h3>Design Variables & Trade-offs</h3>
+                <div class="key-features">
+                    <div class="feature-box">
+                        <i class="fas fa-circle-notch"></i>
+                        <h4>Number of Turns</h4>
+                        <p>More turns → Higher L, but lower Q and SRF</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-arrows-alt-h"></i>
+                        <h4>Trace Width</h4>
+                        <p>Wider traces → Lower R, higher Q, but larger area</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-expand"></i>
+                        <h4>Outer Diameter</h4>
+                        <p>Larger diameter → Higher Q, but increased chip area cost</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-layer-group"></i>
+                        <h4>Metal Layer</h4>
+                        <p>Top metal (M5) → Thickest, lowest resistance, best Q</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-tools"></i> Design Workflow & Methodology</h2>
+                
+                <h3>1. HFSS 3D Electromagnetic Simulation Setup</h3>
+                <p>
+                    Creating accurate inductor models in HFSS for SKY130:
+                </p>
+                <ul style="margin-left: 2rem;">
+                    <li><strong>Import PDK Stackup:</strong> Define all metal and dielectric layers with exact SKY130 specifications 
+                    (thicknesses: M1=0.36µm, M2=0.36µm, M3=0.845µm, M4=0.845µm, M5=1.26µm)</li>
+                    <li><strong>Geometry Creation:</strong> Draw spiral inductor patterns with parametric variables (turns, width, spacing, diameter)</li>
+                    <li><strong>Port Definition:</strong> Lumped port excitation at inductor terminals for S-parameter extraction</li>
+                    <li><strong>Boundary Conditions:</strong> Radiation boundary (air box) and perfect E/H boundaries for computational efficiency</li>
+                    <li><strong>Mesh Generation:</strong> Adaptive mesh refinement focused on high-current-density regions</li>
+                    <li><strong>Frequency Sweep:</strong> S-parameter simulation from DC to 20+ GHz to capture SRF and broadband behavior</li>
+                </ul>
+                
+                <h3>2. Inductor Performance Extraction</h3>
+                <p>
+                    Post-processing HFSS results to extract key inductor metrics:
+                </p>
+                <ul style="margin-left: 2rem;">
+                    <li><strong>Inductance (L):</strong> Extracted from Im(Z₁₁) = 2πfL at target frequency</li>
+                    <li><strong>Quality Factor (Q):</strong> Q = Im(Z₁₁) / Re(Z₁₁) = ωL / R_series</li>
+                    <li><strong>Series Resistance (R_s):</strong> Real part of input impedance including skin effect and substrate loss</li>
+                    <li><strong>Self-Resonant Frequency:</strong> Frequency where Im(Z₁₁) = 0 (inductive→capacitive transition)</li>
+                    <li><strong>Coupling Coefficient (k):</strong> For transformer/coupled inductors, k = M / √(L₁L₂)</li>
+                </ul>
+                
+                <h3>3. Layout Implementation in Klayout</h3>
+                <p>
+                    Translating optimized HFSS geometries into manufacturable IC layouts:
+                </p>
+                <ul style="margin-left: 2rem;">
+                    <li><strong>GDS Export:</strong> Generate GDS-II layout files from verified inductor designs</li>
+                    <li><strong>DRC Compliance:</strong> Ensure all design rules are met (minimum width, spacing, enclosure, density)</li>
+                    <li><strong>LVS Verification:</strong> Layout-versus-schematic check for inductor connectivity</li>
+                    <li><strong>Dummy Fill:</strong> Metal density fill patterns to meet foundry requirements without degrading Q</li>
+                    <li><strong>Guard Rings:</strong> Substrate contact rings to minimize noise coupling to/from inductors</li>
+                </ul>
+                
+                <h3>4. Integration with Circuit Design</h3>
+                <p>
+                    Providing inductor models to the circuit design team:
+                </p>
+                <ul style="margin-left: 2rem;">
+                    <li><strong>S-Parameter Models:</strong> Export 2-port S-parameters for use in circuit simulators (ngspice, Spectre)</li>
+                    <li><strong>Equivalent Circuit Models:</strong> Fit HFSS data to π-model or more complex RLC networks</li>
+                    <li><strong>Performance Tables:</strong> Document L, Q, SRF vs. frequency for circuit design reference</li>
+                    <li><strong>Layout Footprint:</strong> Provide physical dimensions and port locations for floorplanning</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-laptop-code"></i> Tools & Technologies</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">Ansys HFSS (EM Simulation)</span>
+                    <span class="tech-tag">Klayout (IC Layout)</span>
+                    <span class="tech-tag">SKY130 PDK (130nm CMOS)</span>
+                    <span class="tech-tag">Xschem (Schematic)</span>
+                    <span class="tech-tag">ngspice (Circuit Sim)</span>
+                    <span class="tech-tag">Python (Automation)</span>
+                    <span class="tech-tag">RF Inductor Design</span>
+                    <span class="tech-tag">GDS-II Layout</span>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-tasks"></i> Project Timeline & Status</h2>
+                <ul style="margin-left: 2rem;">
+                    <li>✅ <strong>PDK Selection:</strong> Transitioned from IHP PDK to SKY130 based on project requirements</li>
+                    <li>✅ <strong>HFSS Stackup Setup:</strong> Complete SKY130 layer stackup modeled in HFSS with accurate material properties</li>
+                    <li>🔄 <strong>Inductor Design & Optimization:</strong> Parametric sweeps and Q-factor optimization ongoing (Current Phase)</li>
+                    <li>🔄 <strong>Layout Development:</strong> Klayout implementation of optimized inductor geometries (In Progress)</li>
+                    <li>⏳ <strong>DRC/LVS Verification:</strong> Design rule and layout verification (Upcoming)</li>
+                    <li>⏳ <strong>Full Circuit Integration:</strong> Integration of passive components with active circuits (Planned)</li>
+                    <li>⏳ <strong>Post-Layout Simulation:</strong> Extracted parasitic simulation (Upcoming)</li>
+                    <li>⏳ <strong>Tapeout Submission:</strong> Target: 2025 (Planned)</li>
+                </ul>
+                
+                <div style="background: rgba(0, 245, 255, 0.1); padding: 1.5rem; border-left: 4px solid var(--accent-primary); margin: 2rem 0; border-radius: 10px;">
+                    <p style="font-style: italic; color: var(--text-secondary);">
+                        <strong>Note:</strong> This is a collaborative team effort. While I focus on RF inductor design and layout, other team 
+                        members are working on active circuit design, system-level simulations, and other critical aspects. Detailed results 
+                        and specifications will be shared publicly after competition conclusion and tapeout completion.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="content-section" style="background: rgba(255, 193, 7, 0.1); border-left: 4px solid #ffc107;">
+                <h2><i class="fas fa-exclamation-triangle"></i> Design Visualizations - Not Available</h2>
+                <p style="color: #ffc107;">
+                    Due to the competitive and confidential nature of this project, design visualizations including:
+                </p>
+                <ul style="margin-left: 2rem; color: var(--text-secondary);">
+                    <li>HFSS 3D inductor models and field distributions</li>
+                    <li>Q-factor vs. frequency plots and optimization curves</li>
+                    <li>Layout screenshots from Klayout</li>
+                    <li>Circuit schematic diagrams</li>
+                    <li>Simulation results and performance data</li>
+                </ul>
+                <p style="color: #ffc107; margin-top: 1rem;">
+                    ...cannot be publicly shared at this time. Images and detailed results will be added to this page after the competition 
+                    concludes and the design is submitted for tapeout.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-graduation-cap"></i> Key Learnings & Skills Developed</h2>
+                <ul style="margin-left: 2rem;">
+                    <li><strong>RF Inductor Theory:</strong> Deep understanding of spiral inductor operation, Q-factor optimization, substrate 
+                    loss mechanisms, skin effect, proximity effect, and self-resonance phenomena</li>
+                    
+                    <li><strong>HFSS Electromagnetic Simulation:</strong> Proficiency in 3D full-wave EM simulation, adaptive mesh refinement, 
+                    S-parameter extraction, field visualization, and parametric optimization for passive RF components</li>
+                    
+                    <li><strong>SKY130 PDK Expertise:</strong> Hands-on experience with open-source PDK layer stackup, design rules, metal 
+                    stack properties, and fabrication constraints specific to 130nm CMOS technology</li>
+                    
+                    <li><strong>IC Layout for RF:</strong> Klayout GDS-II layout techniques, DRC/LVS verification, dummy metal fill strategies, 
+                    guard ring placement, and RF-aware floorplanning to minimize parasitic coupling</li>
+                    
+                    <li><strong>Trade-off Analysis:</strong> Balancing competing inductor requirements (high Q vs. small area, high L vs. high SRF, 
+                    low R vs. process constraints) for optimal RF circuit performance</li>
+                    
+                    <li><strong>Design Automation:</strong> Python scripting for parametric HFSS geometry generation, batch simulation management, 
+                    and post-processing of large datasets from parametric sweeps</li>
+                    
+                    <li><strong>Team Collaboration:</strong> Working in a multidisciplinary team environment, interfacing inductor designs with 
+                    circuit designers, managing shared resources, and meeting collective competition milestones</li>
+                    
+                    <li><strong>Competition Project Management:</strong> Handling confidentiality requirements, organizing documentation for 
+                    submission, and adapting to evolving project goals (PDK transition from IHP to SKY130)</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-book"></i> Technical References</h2>
+                <ul style="margin-left: 2rem;">
+                    <li>Razavi, B. (2011). <em>RF Microelectronics</em> (2nd ed.). Prentice Hall. - Chapter on VCO design and LC tank optimization</li>
+                    <li>Lee, T. H. (2004). <em>The Design of CMOS Radio-Frequency Integrated Circuits</em> (2nd ed.). Cambridge University Press. 
+                    - Inductor design principles</li>
+                    <li>Mohan, S. S., et al. (1999). "Simple Accurate Expressions for Planar Spiral Inductances." <em>IEEE JSSC</em>, 34(10), 
+                    1419-1424. - Inductor modeling formulas</li>
+                    <li>SkyWater PDK Documentation: <a href="https://skywater-pdk.readthedocs.io/" target="_blank" style="color: var(--accent-primary);">
+                    https://skywater-pdk.readthedocs.io/</a> - Layer stackup and design rules</li>
+                    <li>Ansys HFSS Documentation - <em>3D Component Design and Electromagnetic Simulation</em></li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-clock"></i> Post-Competition Updates</h2>
+                <p>
+                    This page will be updated with comprehensive design details, simulation results, layout screenshots, and performance 
+                    analysis after:
+                </p>
+                <ul style="margin-left: 2rem;">
+                    <li>✅ Competition submission deadline passes</li>
+                    <li>✅ Tapeout is completed (2026 target)</li>
+                    <li>✅ All intellectual property and confidentiality requirements are cleared</li>
+                </ul>
+                <p style="margin-top: 1.5rem; font-style: italic; color: var(--text-secondary);">
+                    Thank you for your understanding. Stay tuned for future updates showcasing the complete RFIC design process!
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../script.js"></script>
+</body>
+</html>

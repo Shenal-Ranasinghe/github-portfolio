@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformer Thermal Anomaly Detection | Shenal Ranasinghe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .project-detail {
+            min-height: 100vh;
+            padding: 120px 3rem 4rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            margin-bottom: 3rem;
+        }
+        
+        .back-button:hover {
+            transform: translateX(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
+        }
+        
+        .project-hero {
+            text-align: center;
+            margin-bottom: 5rem;
+            padding: 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+        }
+        
+        .project-header h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+        }
+        
+        .status-badge.completed {
+            background: rgba(0, 255, 136, 0.15);
+            color: #00ff88;
+            border: 2px solid #00ff88;
+        }
+        
+        .status-badge.ongoing {
+            background: rgba(255, 193, 7, 0.15);
+            color: #ffc107;
+            border: 2px solid #ffc107;
+        }
+        
+        .date {
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        .project-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 2rem 0;
+        }
+        
+        .project-links {
+            margin-top: 2rem;
+        }
+        
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-primary);
+            border-radius: 50px;
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition-smooth);
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.4);
+        }
+        
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+        }
+        
+        .content-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .content-section h3 {
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1.5rem;
+            color: var(--accent-secondary);
+        }
+        
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .key-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-box {
+            padding: 2rem;
+            background: rgba(0, 245, 255, 0.05);
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            border-radius: 20px;
+            transition: var(--transition-smooth);
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-box h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: var(--text-primary);
+        }
+        
+        .feature-box p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        
+        .tech-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tech-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--glass-border);
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .tech-list li::before {
+            content: "▹";
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .tech-list li strong {
+            color: var(--accent-secondary);
+        }
+        
+        .tech-list li code {
+            background: rgba(168, 85, 247, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 5px;
+            font-family: var(--font-mono);
+            color: var(--accent-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .progress-checklist {
+            margin-top: 2rem;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            border-radius: 15px;
+            background: rgba(0, 245, 255, 0.03);
+            border-left: 4px solid transparent;
+            transition: var(--transition-smooth);
+        }
+        
+        .checklist-item i {
+            font-size: 1.5rem;
+        }
+        
+        .checklist-item.completed {
+            border-left-color: #00ff88;
+        }
+        
+        .checklist-item.completed i {
+            color: #00ff88;
+        }
+        
+        .checklist-item.in-progress {
+            border-left-color: #ffc107;
+        }
+        
+        .checklist-item.in-progress i {
+            color: #ffc107;
+            animation: spin 2s linear infinite;
+        }
+        
+        .checklist-item.pending {
+            border-left-color: var(--text-secondary);
+        }
+        
+        .checklist-item.pending i {
+            color: var(--text-secondary);
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .challenge-box {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(168, 85, 247, 0.05);
+            border-left: 4px solid var(--accent-secondary);
+            border-radius: 15px;
+        }
+        
+        .challenge-box h3 {
+            color: var(--accent-secondary);
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        
+        .challenge-box p {
+            margin-bottom: 1rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 4rem;
+        }
+        
+        .tech-tags .tag {
+            padding: 0.8rem 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--accent-primary);
+            font-family: var(--font-mono);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+        
+        .tech-tags .tag:hover {
+            border-color: var(--accent-primary);
+            box-shadow: 0 5px 20px rgba(0, 245, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .project-detail {
+                padding: 100px 1.5rem 3rem;
+            }
+            
+            .project-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .key-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="circuit-bg"></div>
+    
+    <section class="project-detail">
+        <a href="../index.html#projects" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+
+        <div class="project-hero">
+            <div class="project-header">
+                <h1>Transformer Thermal Anomaly Detection System</h1>
+                <div class="project-meta">
+                    <span class="status-badge completed">Completed</span>
+                    <span class="date">August 2025 - November 2025</span>
+                </div>
+            </div>
+            <p class="project-subtitle">
+                AI-Powered Web Application for Automated Electrical Transformer Thermal Inspection and Fault Detection Using Computer Vision
+            </p>
+            <p style="text-align: center; margin-top: 1rem; color: var(--text-secondary); font-size: 1.1rem;">
+                <strong>Course Project:</strong> EN3350 – Software Design Competition<br>
+                Department of Electronic & Telecommunication Engineering, University of Moratuwa
+            </p>
+            <div class="project-links">
+                <a href="https://github.com/DinethPrabashana/core4" target="_blank" class="btn-primary">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <div class="content-section">
+                <h2>Project Overview</h2>
+                <p>
+                    The Transformer Thermal Anomaly Detection System is a web-based application designed for the inspection 
+                    of electrical transformers using thermal imaging. It leverages an AI-powered backend to analyze thermal 
+                    images against a baseline, automatically detecting and classifying potential faults like loose joints 
+                    and overloads.
+                </p>
+                <p>
+                    <strong>This is a collaborative team project</strong> developed as part of the EN3350 Software Design Competition 
+                    at the University of Moratuwa. The project addresses a real-world challenge in power distribution network 
+                    maintenance, where electric utilities routinely perform thermal imaging to uncover early warning signs such as 
+                    overheating, loose joints, insulation degradation, and load imbalance.
+                </p>
+                
+                <h3>The Challenge</h3>
+                <p>
+                    Traditional thermal inspection workflows rely on manual side-by-side visual comparison, which is slow, 
+                    subjective, and difficult to audit. Our solution digitizes this process with:
+                </p>
+                <ul class="tech-list">
+                    <li>Automated transformer master data and baseline/maintenance image management</li>
+                    <li>AI-powered anomaly detection comparing new thermal images against stored baselines</li>
+                    <li>Interactive annotation tools enabling engineers to validate and augment AI findings (human-in-the-loop)</li>
+                    <li>Structured, printable maintenance record sheets with annotated imagery for traceable operational decisions</li>
+                </ul>
+                
+                <h3>Project Objectives</h3>
+                <p>
+                    The goal is to create a traceable, efficient, and extensible inspection pipeline that reduces human error, 
+                    accelerates decision-making, and builds a reliable historical knowledge base for asset management. The system 
+                    was designed to meet phase-wise functional requirements with emphasis on scalability, efficiency, ML integration, 
+                    and code quality.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Key Features</h2>
+                <div class="key-features">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <h3>Image Comparison</h3>
+                        <p>
+                            Upload and compare a standard "Baseline" image with a "Thermal" (maintenance) image. 
+                            The system automatically aligns images and performs pixel-level thermal analysis to 
+                            detect temperature variations.
+                        </p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Persistent Data Storage</h3>
+                        <p>
+                            All transformer and inspection data is saved in a robust SQLite database. Maintains 
+                            complete history of inspections, annotations, and AI-detected anomalies with full 
+                            timestamp tracking.
+                        </p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>AI-Powered Analysis</h3>
+                        <p>
+                            Python backend uses computer vision techniques (image alignment, color difference analysis) 
+                            with OpenCV to automatically detect hot spots and other anomalies. AI classifies anomalies 
+                            as Faulty or Potentially Faulty with subtypes like LooseJoint or PointOverload.
+                        </p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-draw-polygon"></i>
+                        </div>
+                        <h3>Interactive Annotations</h3>
+                        <p>
+                            View AI-detected anomalies as bounding boxes on thermal images. Draw new boxes to manually 
+                            identify anomalies the AI may have missed. Classify them as Faulty, Potentially Faulty, 
+                            or Normal. Add comments/reasons and delete incorrect detections.
+                        </p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3>Inspection Workflow</h3>
+                        <p>
+                            Track the progress of an inspection from image upload to final review. Analysis Log shows 
+                            all actions (add, edit, delete) with timestamps and user IDs, persisting across saves and 
+                            reloads.
+                        </p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-export"></i>
+                        </div>
+                        <h3>Export & Reporting</h3>
+                        <p>
+                            Export annotation logs in JSON and CSV formats. Concise, de-duplicated exports grouped by 
+                            inspection with human-readable IDs. Includes all annotation actions, AI predictions, and 
+                            user classifications for comprehensive reporting.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h3>Maintenance Record Generation</h3>
+                        <p>
+                            Generate digital maintenance forms with transformer metadata, timestamp, and annotated images. 
+                            Engineers can input status, voltage/current readings, recommended actions, and remarks. 
+                            Records are persisted with PDF export capability for archival and reporting.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Technology Stack</h2>
+                
+                <h3>Frontend</h3>
+                <ul class="tech-list">
+                    <li><strong>React.js:</strong> Component-based UI framework for building the interactive inspection interface</li>
+                    <li><strong>Canvas API:</strong> Interactive image annotation and bounding box drawing functionality</li>
+                    <li><strong>Axios:</strong> HTTP client for communicating with the Flask backend API</li>
+                    <li><strong>CSS3:</strong> Responsive styling with design tokens and theming via CSS variables</li>
+                    <li><strong>Reusable Components:</strong> Modal systems, zoom viewers, annotation tools, and form inputs</li>
+                </ul>
+
+                <h3>Backend</h3>
+                <ul class="tech-list">
+                    <li><strong>Python 3.10+:</strong> Core programming language for backend logic</li>
+                    <li><strong>Flask:</strong> Lightweight web framework for RESTful API endpoints</li>
+                    <li><strong>Flask-CORS:</strong> Cross-Origin Resource Sharing for frontend-backend communication</li>
+                    <li><strong>SQLite:</strong> Embedded relational database for persistent data storage</li>
+                    <li><strong>ReportLab:</strong> PDF generation library for maintenance record export</li>
+                </ul>
+
+                <h3>Computer Vision & AI</h3>
+                <ul class="tech-list">
+                    <li><strong>OpenCV (opencv-python):</strong> Image processing, alignment, and transformation</li>
+                    <li><strong>NumPy:</strong> Numerical computations for image array manipulation</li>
+                    <li><strong>scikit-image:</strong> Color difference analysis and thermal anomaly detection algorithms</li>
+                    <li><strong>Classical CV Pipeline:</strong> Feature-based alignment, threshold segmentation, morphological filtering</li>
+                    <li><strong>Heuristic Classification:</strong> Severity scoring and subtype detection (LooseJoint, PointOverload)</li>
+                </ul>
+
+                <h3>Project Structure</h3>
+                <ul class="tech-list">
+                    <li><strong>backend/:</strong> Flask API (app.py), CV detection logic (anomaly_cv.py), database schema & migrations</li>
+                    <li><strong>core4/:</strong> React frontend with modular components, themed styling, and state management</li>
+                    <li><strong>data/:</strong> Sample transformer thermal image datasets for testing</li>
+                    <li><strong>Modular Design:</strong> Clear separation of concerns for maintainability and testing</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>System Architecture</h2>
+                <p>
+                    The system follows a client-server architecture with a React frontend and Python Flask backend:
+                </p>
+                
+                <h3>Frontend Layer (React)</h3>
+                <ul class="tech-list">
+                    <li>Single-page application running on <code>http://localhost:3000</code></li>
+                    <li>Image upload interface for baseline and thermal images</li>
+                    <li>Interactive canvas for drawing and editing bounding boxes</li>
+                    <li>Analysis log table displaying all annotation actions with timestamps</li>
+                    <li>Classification dropdowns (Faulty, Potentially Faulty, Normal) for manual annotations</li>
+                    <li>Export functionality for JSON and CSV annotation logs</li>
+                </ul>
+
+                <h3>Backend Layer (Flask)</h3>
+                <ul class="tech-list">
+                    <li>REST API running on <code>http://localhost:8000</code></li>
+                    <li>Endpoints for saving/loading annotations: <code>/api/annotations/&lt;inspection_id&gt;</code></li>
+                    <li>SQLite database management (transformers, inspections, annotations, annotation_logs)</li>
+                    <li>Image processing service using OpenCV and scikit-image</li>
+                    <li>AI inference for automatic anomaly detection and classification</li>
+                </ul>
+
+                <h3>Database Schema</h3>
+                <ul class="tech-list">
+                    <li><strong>transformers:</strong> Transformer ID, number, location, baseline images</li>
+                    <li><strong>inspections:</strong> Inspection ID, transformer reference, thermal images, timestamps</li>
+                    <li><strong>annotations:</strong> Bounding boxes with coordinates, created_at, updated_at, user_id, notes, classification</li>
+                    <li><strong>annotation_logs:</strong> Complete audit trail of all add/edit/delete actions</li>
+                </ul>
+
+                <h3>AI/CV Processing Pipeline</h3>
+                <ul class="tech-list">
+                    <li><strong>Image Alignment:</strong> Automatic registration of baseline and thermal images</li>
+                    <li><strong>Color Difference Analysis:</strong> Pixel-level thermal variation detection</li>
+                    <li><strong>Hotspot Detection:</strong> Identification of temperature anomalies</li>
+                    <li><strong>Classification:</strong> Automatic categorization (LooseJoint, PointOverload, etc.)</li>
+                    <li><strong>Bounding Box Generation:</strong> Automated marking of detected anomalies</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Annotation System</h2>
+                <p>
+                    The annotation system allows users to interactively add, edit, and delete bounding boxes (markers) 
+                    on thermal images to identify anomalies. Each annotation records:
+                </p>
+                <ul class="tech-list">
+                    <li><strong>created_at:</strong> Timestamp when the bounding box was first added (set by frontend, preserved by backend)</li>
+                    <li><strong>updated_at:</strong> Timestamp of the last edit or resize (set by frontend, preserved by backend)</li>
+                    <li><strong>user_id:</strong> The user who performed the action</li>
+                    <li><strong>notes:</strong> Optional comments or reasons for the annotation</li>
+                    <li><strong>classification:</strong> Faulty, Potentially Faulty, or Normal</li>
+                </ul>
+                <p>
+                    Annotations are displayed in the Analysis Log table, showing the user and time for each action. 
+                    The log persists across saves and reloads, accurately reflecting when each bounding box was added or edited.
+                </p>
+
+                <h3>Backend Annotation Persistence</h3>
+                <ul class="tech-list">
+                    <li><strong>Database Table:</strong> Annotations stored in the <code>annotations</code> table with all metadata fields</li>
+                    <li><strong>API Endpoint:</strong> <code>/api/annotations/&lt;inspection_id&gt;</code> for saving and loading annotations</li>
+                    <li><strong>Persistence Logic:</strong> Backend checks for <code>created_at</code> and <code>updated_at</code> fields from client and stores as provided</li>
+                </ul>
+
+                <h3>Export Formats</h3>
+                <p>
+                    The system provides export functionality for annotation logs in both JSON and CSV formats:
+                </p>
+                <ul class="tech-list">
+                    <li><strong>JSON Export:</strong> Grouped by inspection, each containing transformer, images, and annotation actions</li>
+                    <li><strong>CSV Export:</strong> Flat table with rows for each annotation action, clear columns for inspection, transformer, image, details</li>
+                    <li><strong>De-duplication:</strong> Only first occurrence (earliest timestamp) of each action type (added/edited/deleted) included</li>
+                    <li><strong>Human-readable IDs:</strong> Inspection numbers like T1-INSP1, clear transformer and image identifiers</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Phase-wise Development</h2>
+                <p>
+                    The project was developed in four structured phases aligned with the EN3350 competition requirements. 
+                    Each phase built upon the previous, creating a comprehensive end-to-end inspection system:
+                </p>
+                
+                <h3>Phase 1: Transformer & Baseline Management</h3>
+                <ul class="tech-list">
+                    <li><strong>Transformer CRUD:</strong> Create, list, edit, delete transformer records with ID, location, capacity</li>
+                    <li><strong>Image Upload:</strong> Associate baseline and maintenance images with transformers</li>
+                    <li><strong>Environment Tagging:</strong> Label baseline images (Sunny/Cloudy/Rainy) for contextual comparison</li>
+                </ul>
+                
+                <h3>Phase 2: Automated Anomaly Detection</h3>
+                <ul class="tech-list">
+                    <li><strong>Comparison Engine:</strong> Align images, compute thermal deltas, identify hotspot candidates</li>
+                    <li><strong>Visual Side-by-Side:</strong> Synchronized baseline and maintenance image viewing</li>
+                    <li><strong>Automatic Marking:</strong> Bounding boxes with severity heuristics and subtype classification</li>
+                </ul>
+                
+                <h3>Phase 3: Interactive Annotation & Feedback</h3>
+                <ul class="tech-list">
+                    <li><strong>Editing Tools:</strong> Resize, move, delete boxes; add new manual anomalies</li>
+                    <li><strong>Metadata Persistence:</strong> Timestamps, classification override, notes, source tracking (AI/User)</li>
+                    <li><strong>Feedback Log:</strong> Historical action trace for future model improvement</li>
+                </ul>
+                
+                <h3>Phase 4: Maintenance Record Generation</h3>
+                <ul class="tech-list">
+                    <li><strong>Record Form:</strong> Pre-fills transformer metadata, inspection number, annotated image snapshot</li>
+                    <li><strong>Engineer Inputs:</strong> Status, voltage/current readings, recommended action, remarks</li>
+                    <li><strong>Persistence & Export:</strong> Snapshot-based records with PDF export capability</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2>Project Completion Status</h2>
+                <p>
+                    All four phases have been successfully implemented and tested. Here's the final status:
+                </p>
+                
+                <div class="progress-checklist">
+                    <div class="checklist-item completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>SQLite database schema (transformers, inspections, annotations, logs)</span>
+                    </div>
+                    <div class="checklist-item completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Flask backend with REST API endpoints</span>
+                    </div>
+                    <div class="checklist-item completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>React frontend UI with image upload interface</span>
+                    </div>
+                    <div class="checklist-item completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>OpenCV-based image alignment and processing pipeline</span>
+                    </div>
+                    <div class="checklist-item completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>AI anomaly detection with automatic classification</span>
+                    </div>
+                    <div class="checklist-item completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Interactive bounding box annotation tools (add/edit/delete)</span>
+                    </div>
+                    <div class="checklist-item completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Analysis log with timestamp tracking and user attribution</span>
+                    </div>
+                    <div class="checklist-item completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Export functionality (JSON and CSV formats)</span>
+                    </div>
+                    <div class="checklist-item completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Maintenance record generation with PDF export</span>
+                    </div>
+                    <div class="checklist-item completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Phase 1-4 competition requirements fully implemented</span>
+                    </div>
+                    <div class="checklist-item completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Unified zoom/pan viewer with edit mode</span>
+                    </div>
+                    <div class="checklist-item completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Global theming and design token system</span>
+                    </div>
+                </div>
+
+                <p style="margin-top: 2rem;">
+                    <strong>Project Status:</strong> Successfully completed for EN3350 Software Design Competition (November 2025). 
+                    All four phases implemented with full functionality, comprehensive testing, and documentation. The system 
+                    demonstrates effective integration of classical computer vision, interactive UI, and structured data management 
+                    for real-world transformer inspection workflows.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Known Limitations & Future Improvements</h2>
+                
+                <div class="challenge-box">
+                    <h3>Limitation: Flask Development Server</h3>
+                    <p>
+                        The Flask API currently uses Flask's built-in development server, which is not suitable for 
+                        production deployment and may have performance and security limitations under real-world usage.
+                    </p>
+                    <p><strong>Future Plan:</strong> Migrate to a production-grade WSGI server (Gunicorn or uWSGI) 
+                    with Nginx reverse proxy for improved performance and security.</p>
+                </div>
+
+                <div class="challenge-box">
+                    <h3>Limitation: Training Data Dependency</h3>
+                    <p>
+                        The AI models for anomaly detection and classification are only as good as the data they were 
+                        trained on. Inaccuracies in training data may lead to false positives or negatives.
+                    </p>
+                    <p><strong>Improvement Strategy:</strong> Continuously expand the training dataset with real-world 
+                        inspection data and inspector corrections to improve model generalization.</p>
+                </div>
+
+                <div class="challenge-box">
+                    <h3>Limitation: Image Format Support</h3>
+                    <p>
+                        The system currently supports only JPEG image format for thermal images. Other formats like 
+                        PNG or BMP are not supported at this time.
+                    </p>
+                    <p><strong>Roadmap:</strong> Implement multi-format support with automatic format detection and 
+                        conversion pipeline using OpenCV's imread capabilities.</p>
+                </div>
+
+                <div class="challenge-box">
+                    <h3>Challenge: Network & Performance</h3>
+                    <p>
+                        Network latency may affect the performance of the application, especially the communication 
+                        between frontend and backend servers. Real-time performance varies based on hardware specifications.
+                    </p>
+                    <p><strong>Optimization:</strong> Implementing image compression, lazy loading, and caching strategies 
+                        to minimize data transfer and improve responsiveness.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Setup & Installation</h2>
+                <p>
+                    The project requires setting up both the backend (Flask) and frontend (React) components:
+                </p>
+                
+                <h3>Prerequisites</h3>
+                <ul class="tech-list">
+                    <li><strong>Node.js and npm:</strong> Required for running the React frontend</li>
+                    <li><strong>Python 3.x and pip:</strong> Required for running the Flask backend</li>
+                </ul>
+
+                <h3>Backend Setup</h3>
+                <ul class="tech-list">
+                    <li>Navigate to <code>backend/</code> directory</li>
+                    <li>Create Python virtual environment: <code>python -m venv venv</code></li>
+                    <li>Activate virtual environment (Windows: <code>.\venv\Scripts\activate</code>, macOS/Linux: <code>source venv/bin/activate</code>)</li>
+                    <li>Install dependencies: <code>pip install Flask Flask-Cors numpy opencv-python scikit-image</code></li>
+                    <li>Initialize database: <code>python database.py</code> (creates backend.db)</li>
+                    <li>Run server: <code>python app.py</code> (runs on http://localhost:8000)</li>
+                </ul>
+
+                <h3>Frontend Setup</h3>
+                <ul class="tech-list">
+                    <li>Open a new terminal window</li>
+                    <li>Navigate to <code>core4/</code> directory</li>
+                    <li>Install dependencies: <code>npm install</code></li>
+                    <li>Run development server: <code>npm start</code> (runs on http://localhost:3000)</li>
+                </ul>
+
+                <h3>Database Management</h3>
+                <ul class="tech-list">
+                    <li><strong>Clear all data:</strong> From backend directory, run the database clearing command to reset all tables</li>
+                    <li><strong>Note:</strong> All data will be erased from the database when clearing</li>
+                </ul>
+
+                <p>
+                    <strong>Note:</strong> Detailed setup instructions and troubleshooting guide are available in the 
+                    project repository README.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>My Contributions</h2>
+                <p>
+                    This project was developed as a collaborative team effort, with each member contributing their expertise 
+                    to different aspects of the system. My primary contributions focused on the frontend development and 
+                    system integration phases.
+                </p>
+                
+                <h3>Phase 1: Complete Frontend Development</h3>
+                <ul class="tech-list">
+                    <li><strong>Initial Web Application:</strong> Developed the complete webpage interface with all visual components and working logic as the foundation of the project</li>
+                    <li><strong>Interactive UI:</strong> Implemented the image upload interface, annotation canvas, and analysis log display</li>
+                    <li><strong>Frontend Logic:</strong> Created the initial JavaScript logic for bounding box drawing, editing, and deletion functionality</li>
+                    <li><strong>User Workflow:</strong> Designed the inspection workflow from image upload to report generation</li>
+                </ul>
+
+                <h3>Phase 2: Code Modularization & Refinement</h3>
+                <ul class="tech-list">
+                    <li><strong>Team Collaboration:</strong> Worked with team members who modularized and refactored the initial codebase for better maintainability</li>
+                    <li><strong>Code Review:</strong> Participated in code reviews and integration testing of modularized components</li>
+                </ul>
+
+                <h3>Phase 3: OpenCV Integration & Final Setup</h3>
+                <ul class="tech-list">
+                    <li><strong>System Integration:</strong> Developed the final working setup integrating OpenCV for image recognition and thermal analysis</li>
+                    <li><strong>Parallel Development:</strong> Worked alongside team members in parallel development due to time constraints, comparing different approaches to select the best implementation</li>
+                    <li><strong>Testing & Optimization:</strong> Conducted extensive testing of the integrated system to ensure smooth communication between frontend and backend</li>
+                    <li><strong>ML Integration:</strong> Collaborated with the ML-focused team member who developed the OpenCV computer vision algorithms for anomaly detection</li>
+                </ul>
+
+                <p style="margin-top: 2rem;">
+                    <strong>Team Collaboration:</strong> This project showcases effective teamwork, with the ML specialist 
+                    focusing on the computer vision algorithms while I concentrated on the web application development and 
+                    system integration. The parallel development approach allowed us to explore multiple solutions and deliver 
+                    a robust final product within the project timeline.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Learning Outcomes</h2>
+                <ul class="tech-list">
+                    <li>Full-stack web development with React and Flask</li>
+                    <li>Computer vision techniques using OpenCV (image alignment, color analysis)</li>
+                    <li>AI-based anomaly detection and classification systems</li>
+                    <li>RESTful API design and client-server architecture</li>
+                    <li>SQLite database design and data persistence</li>
+                    <li>Interactive canvas-based annotation tools</li>
+                    <li>Team collaboration on software development projects with parallel development workflows</li>
+                    <li>Managing development vs. production environments</li>
+                    <li>Practical application of computer vision in industrial systems</li>
+                    <li>User interface design for technical inspection workflows</li>
+                    <li>Integration of frontend applications with ML/AI backend services</li>
+                </ul>
+            </div>
+
+            <div class="tech-tags">
+                <span class="tag">React</span>
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">OpenCV</span>
+                <span class="tag">NumPy</span>
+                <span class="tag">scikit-image</span>
+                <span class="tag">Computer Vision</span>
+                <span class="tag">AI/ML</span>
+                <span class="tag">REST API</span>
+                <span class="tag">Thermal Imaging</span>
+                <span class="tag">Team Project</span>
+            </div>
+        </div>
+    </section>
+
+    <script src="../script.js"></script>
+</body>
+</html>

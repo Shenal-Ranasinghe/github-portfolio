@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS Spoofing Detection System | Shenal Ranasinghe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .project-detail {
+            min-height: 100vh;
+            padding: 120px 3rem 4rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            margin-bottom: 3rem;
+        }
+        
+        .back-button:hover {
+            transform: translateX(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
+        }
+        
+        .project-hero {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .project-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-hero .status {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            background: rgba(255, 193, 7, 0.15);
+            color: #ffc107;
+            border: 2px solid #ffc107;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+        }
+        
+        .meta-item i {
+            color: var(--accent-primary);
+            font-size: 1.3rem;
+        }
+        
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            margin-bottom: 5rem;
+            padding: 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+        }
+        
+        .content-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--accent-primary);
+        }
+        
+        .content-section h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .content-section p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-tag {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-secondary);
+            border: 1px solid var(--accent-primary);
+            border-radius: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .image-placeholder {
+            aspect-ratio: 16/9;
+            background: var(--glass-bg);
+            border: 2px dashed var(--glass-border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .key-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-box {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: var(--transition-smooth);
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+        
+        .feature-box i {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-box h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .feature-box p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="circuit-bg"></div>
+    
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Projects
+        </a>
+        
+        <div class="project-hero">
+            <h1>GPS Spoofing Detection System</h1>
+            <span class="status ongoing">Ongoing Project</span>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team Size: 4</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-microchip"></i>
+                    <span>RF & Hardware Engineer</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-university"></i>
+                    <span>Final Year Project</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-content">
+            <div class="content-section">
+                <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+                <p>
+                    <strong>Department:</strong> Electronic & Telecommunication Engineering, University of Moratuwa<br>
+                    <strong>Role:</strong> RF & Hardware Engineer
+                </p>
+                <p>
+                    GNSS spoofing on the GPS L1 band (1575.42 MHz) poses a critical threat to navigation systems, autonomous vehicles, 
+                    and timing infrastructure worldwide. Our final-year project addresses this security challenge by developing a complete 
+                    spoofing detection system that integrates custom RF hardware with machine learning algorithms.
+                </p>
+                <p>
+                    The system combines three key components: a custom-designed RHCP patch antenna optimized for GPS L1, a high-performance 
+                    RF front-end for signal acquisition and conditioning, and a machine-learning pipeline for intelligent spoofing detection. 
+                    My contribution focuses entirely on the RF hardware domain, encompassing antenna design, electromagnetic simulation, 
+                    and front-end PCB development.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-tasks"></i> My Contributions</h2>
+                
+                <h3>1. RHCP Patch Antenna Design (GPS L1 – 1575.42 MHz)</h3>
+                <p>
+                    I designed and optimized a Right-Hand Circularly Polarized microstrip patch antenna specifically for GPS L1 reception. 
+                    This antenna serves as the critical first element in the signal chain, capturing satellite signals with optimal polarization 
+                    matching and minimal interference.
+                </p>
+                
+                <h4>Key Design Aspects:</h4>
+                <ul>
+                    <li><strong>Substrate Selection:</strong> Precise material characterization considering dielectric constant (εᵣ), thickness, and loss tangent for optimal performance</li>
+                    <li><strong>Patch Geometry:</strong> Calculated and refined patch dimensions for resonance at 1575.42 MHz with tight frequency tolerance</li>
+                    <li><strong>Circular Polarization:</strong> Achieved RHCP through carefully designed perturbation techniques (corner truncation/dual-feed)</li>
+                    <li><strong>Impedance Matching:</strong> Designed 50 Ω matching network using quarter-wave transformers and inset feed optimization</li>
+                    <li><strong>Axial Ratio Optimization:</strong> Achieved axial ratio < 3 dB across the L1 band for high-quality circular polarization</li>
+                    <li><strong>Radiation Pattern:</strong> Tuned far-field pattern for maximum gain in the zenith direction, ideal for overhead satellite reception</li>
+                </ul>
+                
+                <h4>Simulation & Optimization:</h4>
+                <p>
+                    Performed comprehensive electromagnetic analysis using <strong>Ansys HFSS</strong>, including parametric sweeps, 
+                    optimization routines, and near-field/far-field pattern analysis.
+                </p>
+                
+                <h4>Antenna Performance Achieved:</h4>
+                <ul>
+                    <li>Return Loss (S₁₁): < -20 dB at 1575.42 MHz</li>
+                    <li>Axial Ratio: < 3 dB across GPS L1 bandwidth</li>
+                    <li>Radiation Pattern: Stable RHCP with minimal cross-polarization</li>
+                    <li>Gain: Optimized for satellite link budget requirements</li>
+                    <li>Efficiency: Maximized through substrate and conductor loss minimization</li>
+                </ul>
+                
+                <h3>2. GPS L1 RF Front-End PCB Design</h3>
+                <p>
+                    I developed the complete RF front-end circuitry responsible for conditioning the L1 signal before digitization and 
+                    processing by the machine learning pipeline. This subsystem amplifies, filters, and conditions the weak satellite signals 
+                    for reliable detection and analysis.
+                </p>
+                
+                <h4>Design Responsibilities:</h4>
+                <ul>
+                    <li><strong>LNA Selection & Design:</strong> Selected low-noise amplifier with optimal noise figure, gain, and linearity; performed DC biasing network design and stability analysis</li>
+                    <li><strong>RF Circuit Simulation:</strong> Used <strong>Keysight ADS</strong> for S-parameter analysis, noise figure simulation, and stability verification (K-factor, μ-factor)</li>
+                    <li><strong>Bandpass Filter Design:</strong> Designed narrow bandpass filter centered at L1 frequency for out-of-band interference rejection</li>
+                    <li><strong>Impedance Matching Networks:</strong> Implemented distributed/lumped element matching for 50 Ω system impedance throughout the signal chain</li>
+                    <li><strong>RF PCB Layout:</strong> Executed controlled impedance microstrip/stripline routing with precise trace width calculations and length constraints</li>
+                    <li><strong>Grounding Strategy:</strong> Implemented solid ground plane, via stitching, and compartmentalized grounding for EMI/EMC compliance</li>
+                    <li><strong>Power Distribution:</strong> Designed low-noise power delivery network with decoupling capacitors and filtering for RF stability</li>
+                    <li><strong>Gerber Generation:</strong> Finalized fabrication-ready files including drill files, stackup documentation, and assembly drawings</li>
+                </ul>
+                
+                <h4>Tools & Workflow:</h4>
+                <ul>
+                    <li><strong>Keysight ADS:</strong> RF circuit co-simulation, matching network synthesis, and performance verification</li>
+                    <li><strong>Altium Designer:</strong> Complete schematic capture, multi-layer PCB layout, and design rule checking (DRC)</li>
+                </ul>
+                
+                <h3>3. Current Project Status (December 2025)</h3>
+                <ul>
+                    <li>✅ RHCP patch antenna design completed and prototype fabricated</li>
+                    <li>✅ Full RF front-end PCB design finalized in Altium Designer</li>
+                    <li>✅ Gerber files submitted for professional PCB fabrication</li>
+                    <li>🔄 Project currently in PCB manufacturing stage</li>
+                    <li>⏳ Upcoming: Hardware testing, S-parameter measurements, and system calibration</li>
+                    <li>⏳ Planned: Integration with DSP/ML pipeline and end-to-end system validation</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-laptop-code"></i> Technical Skills Demonstrated</h2>
+                <div class="key-features">
+                    <div class="feature-box">
+                        <i class="fas fa-satellite-dish"></i>
+                        <h4>Antenna Design</h4>
+                        <p>RHCP microstrip patch antenna design and optimization for GNSS applications</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-wave-square"></i>
+                        <h4>EM Simulation</h4>
+                        <p>High-frequency electromagnetic analysis using Ansys HFSS with parametric optimization</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-microchip"></i>
+                        <h4>RF Circuit Design</h4>
+                        <p>LNA, BPF, and matching network design with ADS simulation and analysis</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-layer-group"></i>
+                        <h4>RF PCB Layout</h4>
+                        <p>Controlled impedance routing, grounding strategies, and EMI mitigation techniques</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-signal"></i>
+                        <h4>System Integration</h4>
+                        <p>RF front-end integration with DSP/ML pipelines for complete system functionality</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>GNSS Technology</h4>
+                        <p>GPS L1 band operation, satellite signal characteristics, and navigation security</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-tools"></i> Tools & Technologies</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">Ansys HFSS</span>
+                    <span class="tech-tag">Keysight ADS</span>
+                    <span class="tech-tag">Altium Designer</span>
+                    <span class="tech-tag">RHCP Antenna Design</span>
+                    <span class="tech-tag">GPS L1 (1575.42 MHz)</span>
+                    <span class="tech-tag">LNA Design</span>
+                    <span class="tech-tag">RF PCB Layout</span>
+                    <span class="tech-tag">Impedance Matching</span>
+                    <span class="tech-tag">EMI/EMC</span>
+                    <span class="tech-tag">Machine Learning Integration</span>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-bullseye"></i> Project Significance</h2>
+                <p>
+                    This final-year project strengthens my core expertise in multiple critical areas of RF engineering:
+                </p>
+                <ul>
+                    <li><strong>RF & Microwave Engineering:</strong> Hands-on experience with real-world RF system design from concept to fabrication</li>
+                    <li><strong>GNSS/L-Band Development:</strong> Deep understanding of satellite navigation systems and L-band antenna engineering</li>
+                    <li><strong>RF Front-End Systems:</strong> Complete signal chain design including LNA, filtering, and signal conditioning</li>
+                    <li><strong>Secure Navigation Hardware:</strong> Addressing critical cybersecurity challenges in navigation infrastructure</li>
+                </ul>
+                
+                <h3>Career Positioning</h3>
+                <p>
+                    This project positions me strongly for future opportunities in:
+                </p>
+                <ul>
+                    <li><strong>RF/Microwave Design:</strong> Communication systems, radar, and wireless infrastructure</li>
+                    <li><strong>GNSS Receiver Development:</strong> Navigation systems for automotive, aerospace, and consumer electronics</li>
+                    <li><strong>Aerospace Electronics:</strong> Satellite communication, avionics, and space-grade hardware</li>
+                    <li><strong>Defence Systems:</strong> Secure communication, electronic warfare, and navigation security</li>
+                    <li><strong>Communication Hardware R&D:</strong> Next-generation wireless systems and IoT connectivity</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-graduation-cap"></i> Key Learnings</h2>
+                <ul>
+                    <li>Comprehensive understanding of RHCP antenna design principles and circular polarization techniques</li>
+                    <li>Advanced electromagnetic simulation methodology and optimization workflows in HFSS</li>
+                    <li>RF circuit design fundamentals: LNA stability, noise analysis, and gain-bandwidth optimization</li>
+                    <li>High-frequency PCB design best practices: controlled impedance, via stitching, and EMI suppression</li>
+                    <li>System-level thinking: integrating RF hardware with digital signal processing and ML algorithms</li>
+                    <li>Project management in multidisciplinary team environment with hardware/software integration</li>
+                    <li>GNSS signal characteristics, satellite link budgets, and navigation system vulnerabilities</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../script.js"></script>
+</body>
+</html>

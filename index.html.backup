@@ -1,0 +1,507 @@
+﻿<!DOCTYPE html><!DOCTYPE html>
+
+<html lang="en"><html lang="en">
+
+<head><head>
+
+    <meta charset="UTF-8">    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Shenal Ranasinghe - RFIC Design Enthusiast | Electronic & Telecommunication Engineering at University of Moratuwa">    <meta name="description" content="Shenal Ranasinghe - RFIC Design Enthusiast | Electronic and Telecommunication Engineering at University of Moratuwa">
+
+    <title>Shenal Ranasinghe | RFIC & Embedded Systems Engineer</title>    <title>Shenal Ranasinghe | RFIC & Embedded Systems Engineer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">    <link rel="stylesheet" href="styles.css">
+
+</head></head>
+
+<body><body>
+
+    <!-- Navigation -->    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+
+    <nav>        <i class="fas fa-moon"></i>
+
+        <div class="container">    </button>
+
+            <div class="logo">SR</div>    <nav class="navbar" id="navbar">
+
+            <ul class="nav-links">        <div class="nav-container">
+
+                <li><a href="#home">Home</a></li>            <a href="#home" class="logo">
+
+                <li><a href="#about">About</a></li>                <span class="logo-icon">&#123;</span>SR<span class="logo-icon">&#125;</span>
+
+                <li><a href="#education">Education</a></li>            </a>
+
+                <li><a href="#experience">Experience</a></li>            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+
+                <li><a href="#skills">Skills</a></li>                <span></span><span></span><span></span>
+
+                <li><a href="#projects">Projects</a></li>            </button>
+
+                <li><a href="#achievements">Achievements</a></li>            <ul class="nav-menu" id="navMenu">
+
+                <li><a href="#contact">Contact</a></li>                <li><a href="#home" class="nav-link active">Home</a></li>
+
+                <li><button id="theme-toggle"><i class="fas fa-moon"></i></button></li>                <li><a href="#about" class="nav-link">About</a></li>
+
+            </ul>                <li><a href="#education" class="nav-link">Education</a></li>
+
+            <div class="mobile-menu-toggle">                <li><a href="#experience" class="nav-link">Experience</a></li>
+
+                <span></span>                <li><a href="#skills" class="nav-link">Skills</a></li>
+
+                <span></span>                <li><a href="#projects" class="nav-link">Projects</a></li>
+
+                <span></span>                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+
+            </div>                <li><a href="#contact" class="nav-link">Contact</a></li>
+
+        </div>            </ul>
+
+    </nav>        </div>
+
+    </nav>
+
+    <!-- Circuit Background Animation -->    <div class="circuit-bg" id="circuitBg"></div>
+
+    <div class="circuit-bg"></div>    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+    <!-- Hero Section -->            <div class="hero-text">
+
+    <section id="home">                <p class="hero-greeting">Hello, I'm</p>
+
+        <div class="hero-content">                <h1 class="hero-name">Shenal Ranasinghe</h1>
+
+            <div class="hero-text">                <div class="hero-title">
+
+                <h1>Hi, I'm</h1>                    <span class="typing-text" id="typingText"></span>
+
+                <h2>Shenal Ranasinghe</h2>                    <span class="cursor">|</span>
+
+                <h3>I build RF/IC circuits</h3>                </div>
+
+                <div class="typing-text"></div>                <p class="hero-description">RFIC Design Enthusiast | Electronic & Telecommunication Engineering Undergraduate</p>
+
+                <p>Final year Electronic & Telecommunication Engineering undergraduate at University of Moratuwa with expertise in RFIC design, embedded systems, and antenna design.</p>                <div class="hero-buttons">
+
+                <div class="social-links">                    <a href="#projects" class="btn btn-primary"><span>View Projects</span><i class="fas fa-arrow-right"></i></a>
+
+                    <a href="https://github.com/Shenal-Ranasinghe" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>                    <a href="assets/resume.pdf" class="btn btn-secondary" download><i class="fas fa-download"></i><span>Download CV</span></a>
+
+                    <a href="https://linkedin.com/in/shenal-ranasinghe-4a5684207" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>                </div>
+
+                    <a href="mailto:shenalranasinghe2001@gmail.com"><i class="fas fa-envelope"></i></a>                <div class="hero-social">
+
+                    <a href="tel:+94701283289"><i class="fas fa-phone"></i></a>                    <a href="https://github.com/Shenal-Ranasinghe" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+
+                </div>                    <a href="https://www.linkedin.com/in/shenal-ranasinghe-4a5684207" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+
+            </div>                    <a href="mailto:shenalranasinghe2001@gmail.com"><i class="fas fa-envelope"></i></a>
+
+            <div class="hero-visual">                    <a href="tel:+94701283289"><i class="fas fa-phone"></i></a>
+
+                <svg class="rf-circuit" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">                </div>
+
+                    <!-- LC Tank Circuit -->            </div>
+
+                    <circle cx="250" cy="150" r="60" />            <div class="hero-visual">
+
+                    <!-- Inductor -->                <svg class="circuit-svg" viewBox="0 0 400 400">
+
+                    <path d="M 250 90 Q 230 110 250 130 Q 270 110 250 90" />                    <circle cx="200" cy="150" r="60" class="lc-tank"/>
+
+                    <!-- Capacitor -->                    <path d="M 200 90 Q 180 110 200 130 Q 220 110 200 90" class="inductor"/>
+
+                    <line x1="235" y1="170" x2="265" y2="170" />                    <line x1="185" y1="170" x2="215" y2="170" class="capacitor-plate"/>
+
+                    <line x1="235" y1="175" x2="265" y2="175" />                    <line x1="185" y1="175" x2="215" y2="175" class="capacitor-plate"/>
+
+                    <!-- Transistor -->                    <circle cx="200" cy="240" r="25" class="transistor"/>
+
+                    <circle cx="250" cy="260" r="30" />                    <path d="M 200 215 L 200 265" class="transistor-line"/>
+
+                    <path d="M 250 230 L 250 290" />                    <path d="M 185 240 L 215 225" class="transistor-line"/>
+
+                    <path d="M 230 260 L 270 245" />                    <path d="M 185 240 L 215 255" class="transistor-line"/>
+
+                    <path d="M 230 260 L 270 275" />                    <path d="M 200 210 L 200 190" class="wire"/>
+
+                    <!-- Connections -->                    <path d="M 200 265 L 200 300" class="wire"/>
+
+                    <path d="M 250 210 L 250 180" />                    <path d="M 260 150 Q 280 130 300 150 Q 320 170 340 150" class="rf-wave"/>
+
+                    <path d="M 250 290 L 250 350" />                    <text x="350" y="155" class="freq-label">2.4GHz</text>
+
+                    <!-- Antenna -->                    <line x1="200" y1="320" x2="200" y2="360" class="antenna-feed"/>
+
+                    <line x1="250" y1="350" x2="250" y2="400" />                    <path d="M 180 340 L 200 320 L 220 340" class="antenna-element"/>
+
+                    <path d="M 220 370 L 250 350 L 280 370" />                    <path d="M 165 350 Q 200 310 235 350" class="radiation-pattern"/>
+
+                    <!-- Radiation Pattern -->                    <path d="M 155 360 Q 200 305 245 360" class="radiation-pattern"/>
+
+                    <path d="M 200 380 Q 250 330 300 380" />                </svg>
+
+                    <path d="M 180 395 Q 250 320 320 395" />            </div>
+
+                    <!-- RF Wave -->        </div>
+
+                    <path d="M 320 150 Q 340 130 360 150 Q 380 170 400 150 Q 420 130 440 150" />        <div class="scroll-indicator">
+
+                    <!-- Frequency Label -->            <div class="mouse"><div class="wheel"></div></div>
+
+                    <text x="380" y="190" font-family="Fira Code, monospace" font-size="16" fill="currentColor">2.4GHz</text>            <p>Scroll Down</p>
+
+                </svg>        </div>
+
+            </div>    </section>
+
+        </div>    <script src="script.js"></script>
+
+        <div class="scroll-indicator"></body>
+
+            <div class="mouse"></div></html>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I'm a final year Electronic & Telecommunication Engineering undergraduate at the University of Moratuwa, Sri Lanka, with a CGPA of 3.63/4.00. My passion lies in RFIC design, embedded systems, and antenna engineering.</p>
+                <p>Currently working as an Embedded Systems Engineering Intern at Paraqum Technologies (Pvt) Ltd, where I contribute to cutting-edge RF and embedded system solutions.</p>
+                <p>My expertise spans across circuit design, IC layout, electromagnetic simulation, and firmware development. I'm particularly interested in RF/microwave circuit design and wireless communication systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>BSc. Eng. in Electronic & Telecommunication Engineering</h3>
+                <span class="date">2021 - Present</span>
+                <p><strong>University of Moratuwa, Sri Lanka</strong></p>
+                <p>CGPA: 3.63/4.00</p>
+                <p>Specialization: RF/IC Design, Embedded Systems, Antenna Engineering</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <h3>Embedded Systems Engineering Intern</h3>
+                <div class="company">Paraqum Technologies (Pvt) Ltd</div>
+                <div class="date">December 2024 - Present</div>
+                <ul>
+                    <li>Developing embedded systems solutions for RF applications</li>
+                    <li>Working on firmware development and system integration</li>
+                    <li>Collaborating with cross-functional teams on product development</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3><i class="fas fa-microchip"></i> Circuit Design</h3>
+                <ul>
+                    <li>LTspice</li>
+                    <li>Keysight ADS</li>
+                    <li>PSIM</li>
+                    <li>Analog/Mixed-Signal Design</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-chess-board"></i> IC Design</h3>
+                <ul>
+                    <li>Xschem</li>
+                    <li>Klayout</li>
+                    <li>CMOS Design</li>
+                    <li>Layout Design</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming</h3>
+                <ul>
+                    <li>C/C++</li>
+                    <li>Python</li>
+                    <li>MATLAB</li>
+                    <li>Bash Scripting</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-wave-square"></i> EM Simulation</h3>
+                <ul>
+                    <li>Ansys HFSS</li>
+                    <li>openEMS</li>
+                    <li>Antenna Design</li>
+                    <li>RF Modeling</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-print"></i> PCB Design</h3>
+                <ul>
+                    <li>Altium Designer</li>
+                    <li>Multi-layer PCBs</li>
+                    <li>High-frequency PCB</li>
+                    <li>DFM/DFA</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-memory"></i> Firmware</h3>
+                <ul>
+                    <li>STM32</li>
+                    <li>Arduino</li>
+                    <li>ESP-IDF</li>
+                    <li>RTOS</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-filters">
+            <button class="filter-btn" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ongoing">Ongoing</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+        <div class="projects-grid">
+            <!-- Ongoing Projects -->
+            <div class="project-card" data-status="ongoing" onclick="window.location.href='projects/lc-vco.html'" style="cursor: pointer;">
+                <div class="project-header">
+                    <i class="project-icon fas fa-microchip"></i>
+                    <div class="project-links">
+                        <a href="https://github.com/Shenal-Ranasinghe" target="_blank" onclick="event.stopPropagation();"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <h3>2.4 GHz LC-VCO RFIC Design</h3>
+                <span class="status ongoing">Ongoing</span>
+                <p>Designing a 2.4 GHz LC Voltage Controlled Oscillator using 180nm CMOS technology with focus on phase noise optimization and wide tuning range.</p>
+                <ul class="tech-stack">
+                    <li>Xschem</li>
+                    <li>Klayout</li>
+                    <li>CMOS 180nm</li>
+                    <li>RF Design</li>
+                </ul>
+            </div>
+
+            <div class="project-card" data-status="ongoing" onclick="window.location.href='projects/gps-spoofing.html'" style="cursor: pointer;">
+                <div class="project-header">
+                    <i class="project-icon fas fa-satellite"></i>
+                    <div class="project-links">
+                        <a href="https://github.com/Shenal-Ranasinghe" target="_blank" onclick="event.stopPropagation();"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <h3>GPS Spoofing Detection System</h3>
+                <span class="status ongoing">Ongoing</span>
+                <p>Developing a system to detect GPS spoofing attacks using signal analysis and machine learning techniques for enhanced navigation security.</p>
+                <ul class="tech-stack">
+                    <li>SDR</li>
+                    <li>Python</li>
+                    <li>Signal Processing</li>
+                    <li>ML</li>
+                </ul>
+            </div>
+
+            <!-- Completed Projects -->
+            <div class="project-card" data-status="completed" onclick="window.location.href='projects/uhf-rfid.html'" style="cursor: pointer;">
+                <div class="project-header">
+                    <i class="project-icon fas fa-broadcast-tower"></i>
+                    <div class="project-links">
+                        <a href="https://github.com/Shenal-Ranasinghe" target="_blank" onclick="event.stopPropagation();"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <h3>UHF RFID Reader</h3>
+                <span class="status completed">Completed</span>
+                <p>Built a complete UHF RFID reader system operating at 915 MHz with custom antenna design and signal processing algorithms.</p>
+                <ul class="tech-stack">
+                    <li>RF Design</li>
+                    <li>Antenna</li>
+                    <li>STM32</li>
+                    <li>C++</li>
+                </ul>
+            </div>
+
+            <div class="project-card" data-status="completed" onclick="window.location.href='projects/coax-antenna.html'" style="cursor: pointer;">
+                <div class="project-header">
+                    <i class="project-icon fas fa-wifi"></i>
+                    <div class="project-links">
+                        <a href="https://github.com/Shenal-Ranasinghe" target="_blank" onclick="event.stopPropagation();"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <h3>Coax-Fed Patch Antenna</h3>
+                <span class="status completed">Completed</span>
+                <p>Designed and fabricated a coax-fed microstrip patch antenna for 2.4 GHz applications with impedance matching and radiation pattern optimization.</p>
+                <ul class="tech-stack">
+                    <li>HFSS</li>
+                    <li>RF Design</li>
+                    <li>Altium</li>
+                    <li>EM Simulation</li>
+                </ul>
+            </div>
+
+            <div class="project-card" data-status="completed" onclick="window.location.href='projects/gps-antenna.html'" style="cursor: pointer;">
+                <div class="project-header">
+                    <i class="project-icon fas fa-satellite-dish"></i>
+                    <div class="project-links">
+                        <a href="https://github.com/Shenal-Ranasinghe" target="_blank" onclick="event.stopPropagation();"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <h3>RHCP PCB Antenna for GPS L1</h3>
+                <span class="status completed">Completed</span>
+                <p>Developed a Right-Hand Circular Polarization PCB antenna for GPS L1 frequency (1575.42 MHz) with excellent axial ratio performance.</p>
+                <ul class="tech-stack">
+                    <li>HFSS</li>
+                    <li>GPS</li>
+                    <li>PCB Design</li>
+                    <li>RHCP</li>
+                </ul>
+            </div>
+
+            <div class="project-card" data-status="completed" onclick="window.location.href='projects/guitar-amp.html'" style="cursor: pointer;">
+                <div class="project-header">
+                    <i class="project-icon fas fa-guitar"></i>
+                    <div class="project-links">
+                        <a href="https://github.com/Shenal-Ranasinghe" target="_blank" onclick="event.stopPropagation();"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <h3>Guitar Headphone Amplifier</h3>
+                <span class="status completed">Completed</span>
+                <p>Designed and built a high-fidelity guitar headphone amplifier with low distortion and wide frequency response for personal practice.</p>
+                <ul class="tech-stack">
+                    <li>Analog Design</li>
+                    <li>LTspice</li>
+                    <li>Audio</li>
+                    <li>PCB</li>
+                </ul>
+            </div>
+
+            <div class="project-card" data-status="completed" onclick="window.location.href='projects/sdr-communication.html'" style="cursor: pointer;">
+                <div class="project-header">
+                    <i class="project-icon fas fa-broadcast-tower"></i>
+                    <div class="project-links">
+                        <a href="https://github.com/Shenal-Ranasinghe" target="_blank" onclick="event.stopPropagation();"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <h3>P2P SDR Communication</h3>
+                <span class="status completed">Completed</span>
+                <p>Implemented peer-to-peer communication system using Software Defined Radio with custom modulation schemes and error correction.</p>
+                <ul class="tech-stack">
+                    <li>SDR</li>
+                    <li>Python</li>
+                    <li>DSP</li>
+                    <li>GNU Radio</li>
+                </ul>
+            </div>
+
+            <div class="project-card" data-status="completed" onclick="window.location.href='projects/iot-security.html'" style="cursor: pointer;">
+                <div class="project-header">
+                    <i class="project-icon fas fa-home"></i>
+                    <div class="project-links">
+                        <a href="https://github.com/Shenal-Ranasinghe" target="_blank" onclick="event.stopPropagation();"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <h3>IoT Home Security System</h3>
+                <span class="status completed">Completed</span>
+                <p>Developed an IoT-based home security system with motion detection, real-time alerts, and mobile app integration using ESP32.</p>
+                <ul class="tech-stack">
+                    <li>ESP32</li>
+                    <li>IoT</li>
+                    <li>Firebase</li>
+                    <li>Mobile App</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <h2 class="section-title">Certifications & Achievements</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <i class="fas fa-certificate"></i>
+                <h3>RF and Millimeter-Wave Circuit Design</h3>
+                <p>Advanced certification in RF circuit design techniques and millimeter-wave applications</p>
+            </div>
+            <div class="achievement-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Microwave Engineering and Antennas</h3>
+                <p>Eindhoven University of Technology - Comprehensive course on microwave engineering principles</p>
+            </div>
+            <div class="achievement-card">
+                <i class="fas fa-trophy"></i>
+                <h3>Academic Excellence</h3>
+                <p>CGPA 3.63/4.00 - Consistent academic performance throughout undergraduate studies</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <p>I'm currently open to new opportunities and interesting projects. Whether you have a question or just want to say hi, feel free to reach out!</p>
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <a href="mailto:shenalranasinghe2001@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>shenalranasinghe2001@gmail.com</span>
+                </a>
+                <a href="tel:+94701283289" class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+94 70 128 3289</span>
+                </a>
+                <a href="#" class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Colombo, Sri Lanka</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

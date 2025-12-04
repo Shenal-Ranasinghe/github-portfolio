@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Home Security System | Shenal Ranasinghe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .project-detail {
+            min-height: 100vh;
+            padding: 120px 3rem 4rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            margin-bottom: 3rem;
+        }
+        
+        .back-button:hover {
+            transform: translateX(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
+        }
+        
+        .project-hero {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .project-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-hero .status {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            background: rgba(255, 193, 7, 0.15);
+            color: #ffc107;
+            border: 2px solid #ffc107;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+        }
+        
+        .meta-item i {
+            color: var(--accent-primary);
+            font-size: 1.3rem;
+        }
+        
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            margin-bottom: 5rem;
+            padding: 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+        }
+        
+        .content-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--accent-primary);
+        }
+        
+        .content-section h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .content-section p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-tag {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-secondary);
+            border: 1px solid var(--accent-primary);
+            border-radius: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .image-placeholder {
+            aspect-ratio: 16/9;
+            background: var(--glass-bg);
+            border: 2px dashed var(--glass-border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .key-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-box {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: var(--transition-smooth);
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+        
+        .feature-box i {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-box h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .feature-box p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="circuit-bg"></div>
+    
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Projects
+        </a>
+        
+        <div class="project-hero">
+            <h1>IoT-Based Home Security System</h1>
+            <span class="status completed">Completed</span>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <i class="fas fa-university"></i>
+                    <span>University of Moratuwa</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team Project (3 Members)</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>ESP32 | IoT | Security</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-content">
+            <div class="content-section">
+                <h2><i class="fas fa-info-circle"></i> Abstract</h2>
+                <p>
+                    In response to the alarming rise in home invasions during Sri Lanka's economic crisis, our team developed an 
+                    affordable IoT-based home security system. This smart security solution leverages ESP32 microcontrollers, 
+                    PIR motion sensors, and magnetic reed switches to provide real-time intrusion detection with smartphone 
+                    notifications via the Blynk platform.
+                </p>
+                <p>
+                    The system features a wireless sensor network using ESP-NOW protocol for ultra-low power consumption, 
+                    achieving 32-day battery life with potential optimization to 461 days (1.2 years). Designed for the 
+                    Sri Lankan market, our product targets the 4000-4500 LKR price range based on comprehensive market 
+                    survey results, making advanced home security accessible to middle-income families.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-exclamation-triangle"></i> Problem Description & Market Analysis</h2>
+                <p>
+                    Sri Lanka's economic crisis led to a significant increase in home invasions and burglaries, creating 
+                    urgent demand for affordable security solutions. Existing systems were either too expensive for average 
+                    households or lacked smart features like remote monitoring and instant notifications.
+                </p>
+                
+                <h3>Market Survey Results</h3>
+                <p>Our comprehensive market research revealed:</p>
+                <ul>
+                    <li><strong>Target Price Point:</strong> 4000-4500 LKR identified as optimal for mass adoption</li>
+                    <li><strong>Key Requirements:</strong> Real-time alerts, smartphone integration, easy installation</li>
+                    <li><strong>User Demographics:</strong> Middle-income families in urban and suburban areas</li>
+                    <li><strong>Competitive Advantage:</strong> 50-60% lower cost than imported alternatives</li>
+                </ul>
+                
+                <div class="image-grid">
+                    <div style="margin: 1rem 0;">
+                        <img src="../assets/images/projects/iot-security/market survey.png" 
+                             alt="Market Survey Results - Part 1" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                        <p style="margin-top: 1rem; text-align: center; font-style: italic; color: var(--text-secondary);">
+                            Market Survey Results - Price point preferences and feature requirements from survey respondents
+                        </p>
+                    </div>
+                    <div style="margin: 1rem 0;">
+                        <img src="../assets/images/projects/iot-security/market survey part 2.png" 
+                             alt="Market Survey Results - Part 2" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                        <p style="margin-top: 1rem; text-align: center; font-style: italic; color: var(--text-secondary);">
+                            Market Survey Results - Additional insights on user preferences and competitive analysis
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-check-circle"></i> Project Highlights</h2>
+                <div class="key-features">
+                    <div class="feature-box">
+                        <i class="fas fa-battery-three-quarters"></i>
+                        <h4>Ultra-Low Power</h4>
+                        <p>32-day battery life (optimizable to 461 days/1.2 years) using ESP-NOW protocol</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-microchip"></i>
+                        <h4>Custom PCB Design</h4>
+                        <p>Professional PCBs designed in Altium Designer for both hub and sensor units</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Smartphone Integration</h4>
+                        <p>Real-time notifications via Blynk app with remote arming/disarming</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-tag"></i>
+                        <h4>Affordable Pricing</h4>
+                        <p>18,900 LKR complete system (1 hub + 2 sensors) - 60% cheaper than imports</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-wifi"></i>
+                        <h4>Wireless Sensors</h4>
+                        <p>ESP-NOW protocol for reliable, low-latency sensor-to-hub communication</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-cube"></i>
+                        <h4>3D Enclosures</h4>
+                        <p>Custom SolidWorks-designed enclosures optimized for compact installation</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-user-cog"></i> My Responsibilities</h2>
+                <div style="background: var(--glass-bg); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--glass-border);">
+                    <p>As the <strong>PCB Designer and Technical Feasibility Analyst</strong>, I was responsible for:</p>
+                    <ul>
+                        <li><strong>PCB Design:</strong> Designed both Hub and Sensor Unit PCBs using Altium Designer, including component placement, routing optimization, and design rule checks</li>
+                        <li><strong>Technical Feasibility Analysis:</strong> Researched and evaluated sensor technologies (PIR vs. ultrasonic), communication protocols (ESP-NOW vs. WiFi), and power optimization strategies</li>
+                        <li><strong>Power Consumption Analysis:</strong> Calculated battery life scenarios and identified optimization opportunities from 32 days to 461 days</li>
+                        <li><strong>Component Selection:</strong> Evaluated ESP32 variants, battery options, sensor specifications, and voltage regulators for optimal cost-performance balance</li>
+                        <li><strong>Design Documentation:</strong> Created technical specifications, schematic diagrams, and PCB fabrication files</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-project-diagram"></i> Product Architecture</h2>
+                <p>
+                    The system comprises three main components working together to provide comprehensive home security:
+                </p>
+                
+                <h3>1. Hub (Main Control Unit)</h3>
+                <ul>
+                    <li><strong>Dual ESP32 Configuration:</strong> One for WiFi connectivity to smartphone, one for ESP-NOW sensor communication</li>
+                    <li><strong>Buzzer Alert System:</strong> Local audible alarm when intrusion detected</li>
+                    <li><strong>Cloud Connectivity:</strong> Connects to Blynk server for remote access and notifications</li>
+                    <li><strong>Power Supply:</strong> 5V wall adapter for continuous operation</li>
+                    <li><strong>Dimensions:</strong> 11.9 × 8.25 × 3.3 cm (SolidWorks designed enclosure)</li>
+                </ul>
+                
+                <h3>2. Sensor Unit (Wireless Detection Nodes)</h3>
+                <ul>
+                    <li><strong>PIR Motion Sensor:</strong> Detects human movement with 7m range and 120° field of view</li>
+                    <li><strong>Magnetic Reed Switches:</strong> Door/window open detection with tamper resistance</li>
+                    <li><strong>ESP32 Controller:</strong> Processes sensor data and transmits via ESP-NOW protocol</li>
+                    <li><strong>Battery Powered:</strong> 3.7V Li-ion battery with AMS1117 voltage regulator</li>
+                    <li><strong>Dimensions:</strong> 12.1 × 10.1 × 4.1 cm (compact wall-mountable design)</li>
+                </ul>
+                
+                <h3>3. Smartphone Application (Blynk Platform)</h3>
+                <ul>
+                    <li><strong>Real-time Notifications:</strong> Instant push alerts when sensors trigger</li>
+                    <li><strong>Remote Control:</strong> Arm/disarm system from anywhere with internet</li>
+                    <li><strong>Safe Mode:</strong> Disable alerts when home (prevents false alarms)</li>
+                    <li><strong>Buzzer Mode:</strong> Enable/disable local alarm independently</li>
+                    <li><strong>Multi-device Support:</strong> iOS and Android compatibility</li>
+                </ul>
+                
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../assets/images/projects/iot-security/product architecture detailed.png" 
+                         alt="System Architecture Diagram" 
+                         style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--text-secondary);">
+                        Detailed System Architecture - Hub, Sensor Units, Blynk server, and communication flow with ESP-NOW and WiFi protocols
+                    </p>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-pencil-ruler"></i> Design Evolution: From Sketch to Product</h2>
+                
+                <h3>Initial Concept Sketches</h3>
+                <p>
+                    Our design journey began with hand-drawn sketches exploring various enclosure shapes, component 
+                    layouts, and installation methods. Early concepts focused on minimizing size while ensuring 
+                    adequate sensor coverage and battery capacity.
+                </p>
+                
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../assets/images/projects/iot-security/initial sketch.png" 
+                         alt="Initial Concept Sketches" 
+                         style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--text-secondary);">
+                        Initial Concept Sketches - Hand-drawn design ideas showing early enclosure concepts, component placement, and mounting options
+                    </p>
+                </div>
+                
+                <h3>Final Design Refinement</h3>
+                <p>
+                    After several iterations, we finalized a compact rectangular design optimized for discrete 
+                    wall mounting. The sensor unit features a front panel cutout for PIR sensor while keeping 
+                    reed switch connections accessible. The hub design prioritizes ventilation and cable management.
+                </p>
+                
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../assets/images/projects/iot-security/product architecture 1.png" 
+                         alt="Product Architecture Overview" 
+                         style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--text-secondary);">
+                        Product Architecture Overview - System components and communication flow
+                    </p>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-cube"></i> SolidWorks 3D Enclosure Design</h2>
+                <p>
+                    Professional 3D enclosures were designed in SolidWorks by team member Javin, ensuring precise 
+                    fit for PCBs, optimal sensor positioning, and manufacturing feasibility. The designs include 
+                    mounting holes, cable entry points, and ventilation considerations.
+                </p>
+                
+                <h3>Sensor Unit Enclosure (12.1 × 10.1 × 4.1 cm)</h3>
+                <ul>
+                    <li>Front panel cutout for PIR sensor with 120° unobstructed view</li>
+                    <li>Side ports for reed switch wiring connections</li>
+                    <li>Battery compartment with secure retention mechanism</li>
+                    <li>Wall-mounting screw holes for various surfaces</li>
+                    <li>Snap-fit lid for easy battery replacement without tools</li>
+                </ul>
+                
+                <h3>Hub Enclosure (11.9 × 8.25 × 3.3 cm)</h3>
+                <ul>
+                    <li>Dual ESP32 mounting platform with isolated sections</li>
+                    <li>Buzzer placement for optimal sound projection</li>
+                    <li>Cable entry for 5V power adapter</li>
+                    <li>Ventilation slots for heat dissipation during continuous operation</li>
+                    <li>Indicator LED window for status visibility</li>
+                </ul>
+                
+                <div class="image-grid">
+                    <div style="margin: 1rem;">
+                        <img src="../assets/images/projects/iot-security/enclosure of sensor unit.png" 
+                             alt="Sensor Unit Enclosure 3D Model" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                        <p style="margin-top: 1rem; text-align: center; font-style: italic; color: var(--text-secondary);">
+                            Sensor Unit 3D Model - Complete enclosure showing cover, battery compartment, PCB mounting, and PIR sensor cutout
+                        </p>
+                    </div>
+                    <div style="margin: 1rem;">
+                        <img src="../assets/images/projects/iot-security/enclsure of hub.png" 
+                             alt="Hub Enclosure 3D Model" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                        <p style="margin-top: 1rem; text-align: center; font-style: italic; color: var(--text-secondary);">
+                            Hub Enclosure Platform - Showing dual ESP32 placement, buzzer position, and cable management
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-microchip"></i> PCB Design: Altium Designer Implementation</h2>
+                <p>
+                    Both Hub and Sensor Unit PCBs were professionally designed in Altium Designer with careful 
+                    attention to power distribution, signal integrity, and manufacturing constraints. The designs 
+                    incorporate best practices for ESP32 RF performance and low-power operation.
+                </p>
+                
+                <h3>Sensor Unit PCB</h3>
+                <ul>
+                    <li><strong>Microcontroller:</strong> ESP32-WROOM-32 module with antenna placement optimization</li>
+                    <li><strong>Power Management:</strong> AMS1117 3.3V voltage regulator with decoupling capacitors</li>
+                    <li><strong>Sensor Interfaces:</strong> PIR sensor connector with pull-up resistor, reed switch terminals</li>
+                    <li><strong>Battery Connection:</strong> JST connector for 3.7V Li-ion battery with reverse polarity protection</li>
+                    <li><strong>Deep Sleep Optimization:</strong> Ultra-low quiescent current path for extended battery life</li>
+                    <li><strong>Programming Interface:</strong> UART header for firmware updates</li>
+                </ul>
+                
+                <h3>Hub PCB</h3>
+                <ul>
+                    <li><strong>Dual ESP32 Layout:</strong> Isolated ground planes for WiFi and ESP-NOW modules</li>
+                    <li><strong>Power Input:</strong> 5V barrel jack with TVS diode protection</li>
+                    <li><strong>Buzzer Driver:</strong> NPN transistor-based driver circuit for high-volume alerts</li>
+                    <li><strong>Indicator LEDs:</strong> Status indicators for WiFi, ESP-NOW, and alarm states</li>
+                    <li><strong>Antenna Considerations:</strong> Keep-out zones and ground plane clearance for RF performance</li>
+                </ul>
+                
+                <div class="image-grid">
+                    <div style="margin: 1rem;">
+                        <img src="../assets/images/projects/iot-security/pcb design for the sensor unit.png" 
+                             alt="Sensor Unit PCB Layout" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                        <p style="margin-top: 1rem; text-align: center; font-style: italic; color: var(--text-secondary);">
+                            Sensor Unit PCB Layout - Altium Designer layout showing component placement, ground pour, and routing
+                        </p>
+                    </div>
+                    <div style="margin: 1rem;">
+                        <img src="../assets/images/projects/iot-security/pcb design for the hub.png" 
+                             alt="Hub PCB Layout" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                        <p style="margin-top: 1rem; text-align: center; font-style: italic; color: var(--text-secondary);">
+                            Hub PCB Layout - Dual ESP32 placement, power distribution network, and buzzer driver circuit
+                        </p>
+                    </div>
+                    <div style="margin: 1rem;">
+                        <img src="../assets/images/projects/iot-security/3d view of pcb design of sensor unit.png" 
+                             alt="Sensor Unit PCB 3D View" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                        <p style="margin-top: 1rem; text-align: center; font-style: italic; color: var(--text-secondary);">
+                            Sensor Unit PCB 3D Rendering - All components mounted, including ESP32, regulator, and connectors
+                        </p>
+                    </div>
+                    <div style="margin: 1rem;">
+                        <img src="../assets/images/projects/iot-security/3d view of hub pcb.png" 
+                             alt="Hub PCB 3D View" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                        <p style="margin-top: 1rem; text-align: center; font-style: italic; color: var(--text-secondary);">
+                            Hub PCB 3D View - Dual ESP32 modules, buzzer, and all connectors visible
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-cogs"></i> System Operation: Safe Mode & Buzzer Mode</h2>
+                
+                <h3>Safe Mode (Home/Away Status)</h3>
+                <p>
+                    The Safe Mode toggle allows users to disable intrusion alerts when they're home, preventing 
+                    false alarms from normal household movement. This feature can be controlled remotely via the 
+                    Blynk app before arriving home or locally via a button on the hub.
+                </p>
+                <ul>
+                    <li><strong>Safe Mode ON (Home):</strong> Sensors continue monitoring but don't trigger alerts or buzzer</li>
+                    <li><strong>Safe Mode OFF (Away):</strong> Full security active - any sensor trigger sends notification and activates buzzer</li>
+                    <li><strong>Remote Control:</strong> Toggle from smartphone before entering home to avoid alarm</li>
+                </ul>
+                
+                <h3>Buzzer Mode (Local Alert Control)</h3>
+                <p>
+                    Independent control of the local buzzer allows users to choose between silent notifications 
+                    (smartphone only) or full alarm mode (notification + loud buzzer). Useful for nighttime security 
+                    without disturbing neighbors.
+                </p>
+                <ul>
+                    <li><strong>Buzzer ON:</strong> Loud local alarm (85dB+) activates when intrusion detected</li>
+                    <li><strong>Buzzer OFF:</strong> Silent mode - only smartphone notifications sent (discreet monitoring)</li>
+                    <li><strong>Use Cases:</strong> Buzzer ON for daytime/away, Buzzer OFF for nighttime/discrete monitoring</li>
+                </ul>
+                
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-battery-full"></i> Power Consumption Analysis & Optimization</h2>
+                
+                <h3>Current Implementation: 32-Day Battery Life</h3>
+                <p>
+                    With current firmware implementation using ESP32 light sleep mode, the sensor unit achieves 
+                    approximately 32 days of operation on a 3.7V 2000mAh Li-ion battery.
+                </p>
+                
+                <div style="background: var(--glass-bg); padding: 1rem; border-radius: 8px; border: 1px solid var(--glass-border); margin: 1rem 0;">
+                    <h4>Power Budget Breakdown:</h4>
+                    <ul>
+                        <li><strong>Light Sleep Mode:</strong> ~2.5mA average current draw</li>
+                        <li><strong>Wake-up Events:</strong> PIR trigger, reed switch interrupt, periodic ESP-NOW sync</li>
+                        <li><strong>Active Transmission:</strong> ~80mA for 50ms when sending alert via ESP-NOW</li>
+                        <li><strong>Calculation:</strong> 2000mAh ÷ 2.5mA ≈ 800 hours ≈ 33 days</li>
+                    </ul>
+                </div>
+                
+                <h3>Optimized Implementation: 461-Day Battery Life (1.2 Years)</h3>
+                <p>
+                    By implementing ESP32 deep sleep mode with external wake-up, battery life can be extended to 
+                    approximately 461 days (15 months / 1.2 years) on the same 2000mAh battery.
+                </p>
+                
+                <div style="background: var(--glass-bg); padding: 1rem; border-radius: 8px; border: 1px solid var(--glass-border); margin: 1rem 0;">
+                    <h4>Optimized Power Budget:</h4>
+                    <ul>
+                        <li><strong>Deep Sleep Mode:</strong> ~10μA (0.01mA) ultra-low power state</li>
+                        <li><strong>Wake-up Sources:</strong> PIR sensor interrupt pin, reed switch GPIO interrupt</li>
+                        <li><strong>Wake & Transmit:</strong> ~80mA for 100ms (ESP32 boot + ESP-NOW transmission)</li>
+                        <li><strong>Average Current:</strong> ~0.18mA accounting for occasional wake events</li>
+                        <li><strong>Calculation:</strong> 2000mAh ÷ 0.18mA ≈ 11,111 hours ≈ 463 days ≈ 1.2 years</li>
+                    </ul>
+                </div>
+                
+                <h3>Optimization Techniques</h3>
+                <ul>
+                    <li><strong>Deep Sleep Implementation:</strong> Use esp_deep_sleep_start() instead of light sleep</li>
+                    <li><strong>External Wake-up:</strong> Configure PIR and reed switch as ext0/ext1 wake sources</li>
+                    <li><strong>Minimal Boot Time:</strong> Optimize code to transmit alert within 50-100ms of wake-up</li>
+                    <li><strong>Voltage Regulator:</strong> Consider ultra-low quiescent current LDO (e.g., MCP1700 ~1.6μA)</li>
+                    <li><strong>Periodic Sync Elimination:</strong> Remove unnecessary periodic wake-ups, rely solely on event-driven wake</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-star"></i> Key Features</h2>
+                <ul>
+                    <li><strong>Real-time Notifications:</strong> Instant smartphone alerts via Blynk when intrusion detected</li>
+                    <li><strong>Wireless Sensor Network:</strong> ESP-NOW protocol for ultra-low latency communication (< 10ms)</li>
+                    <li><strong>Dual Detection:</strong> PIR motion sensors + magnetic reed switches for comprehensive coverage</li>
+                    <li><strong>Remote Control:</strong> Arm/disarm system from anywhere with internet connectivity</li>
+                    <li><strong>Long Battery Life:</strong> 32 days current, optimizable to 1.2 years with deep sleep</li>
+                    <li><strong>Local & Remote Alerts:</strong> Loud buzzer (85dB+) and smartphone notifications</li>
+                    <li><strong>Scalable System:</strong> Support for multiple sensor units per hub (tested up to 8 sensors)</li>
+                    <li><strong>Easy Installation:</strong> Wall-mountable units, no complex wiring required</li>
+                    <li><strong>Affordable:</strong> 18,900 LKR complete system - 60% cheaper than imported alternatives</li>
+                    <li><strong>iOS & Android Support:</strong> Cross-platform Blynk app compatibility</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-laptop-code"></i> Tools & Technologies</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">ESP32-WROOM-32</span>
+                    <span class="tech-tag">Altium Designer</span>
+                    <span class="tech-tag">SolidWorks</span>
+                    <span class="tech-tag">Arduino IDE / PlatformIO</span>
+                    <span class="tech-tag">ESP-NOW Protocol</span>
+                    <span class="tech-tag">Blynk IoT Platform</span>
+                    <span class="tech-tag">PIR Motion Sensor</span>
+                    <span class="tech-tag">Magnetic Reed Switch</span>
+                    <span class="tech-tag">AMS1117 Regulator</span>
+                    <span class="tech-tag">Li-ion Battery (3.7V)</span>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-images"></i> Project Gallery</h2>
+                <div class="image-grid">
+                    <div style="margin: 1rem;">
+                        <img src="../assets/images/projects/iot-security/manufactued pcb for sensor unit.png" 
+                             alt="Manufactured PCB for Sensor Unit" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                        <p style="margin-top: 1rem; text-align: center; font-style: italic; color: var(--text-secondary);">
+                            Manufactured PCB for Sensor Unit - Professionally fabricated board ready for assembly
+                        </p>
+                    </div>
+                    <div style="margin: 1rem;">
+                        <img src="../assets/images/projects/iot-security/team with the final product on hand.jpg" 
+                             alt="Team with Final Product" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                        <p style="margin-top: 1rem; text-align: center; font-style: italic; color: var(--text-secondary);">
+                            Team with Final Product - Showcasing the completed IoT security system
+                        </p>
+                    </div>
+                    <div style="margin: 1rem;">
+                        <img src="../assets/images/projects/iot-security/team on demonstration day.jpg" 
+                             alt="Team on Demonstration Day" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                        <p style="margin-top: 1rem; text-align: center; font-style: italic; color: var(--text-secondary);">
+                            Demonstration Day - Team presenting the IoT-based home security system
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-rocket"></i> Future Developments</h2>
+                <ul>
+                    <li><strong>Deep Sleep Optimization:</strong> Implement firmware updates to achieve 461-day battery life</li>
+                    <li><strong>Camera Integration:</strong> Add ESP32-CAM module for visual verification of intrusions</li>
+                    <li><strong>Solar Charging:</strong> Optional solar panel for perpetual sensor operation without battery replacement</li>
+                    <li><strong>Machine Learning:</strong> Implement edge AI for intelligent false alarm reduction (pet detection, etc.)</li>
+                    <li><strong>Voice Integration:</strong> Alexa/Google Home compatibility for voice control</li>
+                    <li><strong>Multi-zone Support:</strong> Software updates for zone-specific arming (e.g., arm only upstairs at night)</li>
+                    <li><strong>Cloud Storage:</strong> Event logging and historical data analysis via cloud database</li>
+                    <li><strong>Mesh Network:</strong> Sensor-to-sensor mesh for extended range in large properties</li>
+                    <li><strong>Commercial Production:</strong> Scale to mass manufacturing with injection-molded enclosures</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-chart-line"></i> Marketing Strategy</h2>
+                <p>
+                    Our go-to-market strategy focuses on the value proposition of "bank-level security at budget prices" 
+                    targeting middle-income Sri Lankan families affected by the economic crisis.
+                </p>
+                
+                <h3>Target Market Segments</h3>
+                <ul>
+                    <li><strong>Primary:</strong> Middle-income families in urban/suburban areas (monthly income 80,000-150,000 LKR)</li>
+                    <li><strong>Secondary:</strong> Small businesses, home offices, rental property owners</li>
+                    <li><strong>Geographic:</strong> Colombo, Gampaha, Kandy metro areas initially, expand nationally</li>
+                </ul>
+                
+                <h3>Marketing Channels</h3>
+                <ul>
+                    <li><strong>Online:</strong> Facebook/Instagram ads targeting homeowners, YouTube product demos</li>
+                    <li><strong>Retail:</strong> Partnerships with electronics stores (Singer, Damro, etc.)</li>
+                    <li><strong>Direct Sales:</strong> Home security consultations and custom installations</li>
+                    <li><strong>Word-of-Mouth:</strong> Referral discount program (500 LKR per referral)</li>
+                </ul>
+                
+                <h3>Competitive Advantages</h3>
+                <ul>
+                    <li>60% lower price than imported alternatives (Ring, SimpliSafe)</li>
+                    <li>No monthly subscription fees (one-time purchase, free Blynk tier)</li>
+                    <li>Local support and warranty in Sinhala/Tamil/English</li>
+                    <li>Customizable to Sri Lankan home architecture (grill gates, compound walls)</li>
+                    <li>Long battery life reduces maintenance hassles</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-dollar-sign"></i> Budget & Bill of Quantities</h2>
+                
+                <h3>Sensor Unit BOM (Per Unit: 3,290 LKR)</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                    <thead style="background: var(--glass-bg);">
+                        <tr>
+                            <th style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: left;">Component</th>
+                            <th style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">Quantity</th>
+                            <th style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">Unit Price (LKR)</th>
+                            <th style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">Total (LKR)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border);">ESP32-WROOM-32</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">1</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">850</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">850</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.02);">
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border);">PIR Motion Sensor</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">1</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">320</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">320</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border);">Magnetic Reed Switch</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">2</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">150</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">300</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.02);">
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border);">AMS1117 Voltage Regulator</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">1</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">80</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">80</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border);">Li-ion Battery (3.7V 2000mAh)</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">1</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">550</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">550</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.02);">
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border);">PCB Fabrication</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">1</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">400</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">400</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border);">Enclosure (3D Print/Mold)</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">1</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">450</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">450</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.02);">
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border);">Passive Components & Misc</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">-</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">340</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">340</td>
+                        </tr>
+                        <tr style="font-weight: bold; background: var(--accent-primary); color: white;">
+                            <td colspan="3" style="padding: 0.75rem; border: 1px solid var(--glass-border);">Total Per Sensor Unit</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">3,290</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Hub Unit BOM (Per Unit: 3,660 LKR)</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                    <thead style="background: var(--glass-bg);">
+                        <tr>
+                            <th style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: left;">Component</th>
+                            <th style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">Quantity</th>
+                            <th style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">Unit Price (LKR)</th>
+                            <th style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">Total (LKR)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border);">ESP32-WROOM-32</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">2</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">850</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">1,700</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.02);">
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border);">Buzzer (85dB+)</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">1</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">250</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">250</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border);">5V Power Adapter</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">1</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">420</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">420</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.02);">
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border);">AMS1117 Voltage Regulator</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">1</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">80</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">80</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border);">PCB Fabrication</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">1</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">500</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">500</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.02);">
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border);">Enclosure (3D Print/Mold)</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">1</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">380</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">380</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border);">Passive Components & Misc</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: center;">-</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">330</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">330</td>
+                        </tr>
+                        <tr style="font-weight: bold; background: var(--accent-primary); color: white;">
+                            <td colspan="3" style="padding: 0.75rem; border: 1px solid var(--glass-border);">Total Per Hub Unit</td>
+                            <td style="padding: 0.75rem; border: 1px solid var(--glass-border); text-align: right;">3,660</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Complete System Pricing</h3>
+                <div style="background: var(--glass-bg); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--glass-border); margin: 1rem 0;">
+                    <h4>Standard Package (1 Hub + 2 Sensor Units)</h4>
+                    <ul>
+                        <li>Hub Unit: 3,660 LKR</li>
+                        <li>Sensor Units (×2): 6,580 LKR</li>
+                        <li>Assembly & Testing: 1,200 LKR</li>
+                        <li>Packaging & Manual: 460 LKR</li>
+                        <li><strong>Subtotal: 11,900 LKR</strong></li>
+                        <li>Profit Margin (30%): 3,570 LKR</li>
+                        <li>Contingency (10%): 1,190 LKR</li>
+                        <li><strong>Retail Price: 16,660 LKR</strong></li>
+                        <li><strong>Market Survey Target: 18,900 LKR</strong> (includes marketing, warranty, support)</li>
+                    </ul>
+                </div>
+                
+                <p style="margin-top: 1rem;">
+                    <strong>Note:</strong> Pricing based on small-batch production (50-100 units). Mass production (500+ units) 
+                    could reduce component costs by 25-30% through bulk purchasing and injection-molded enclosures.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-users"></i> Team & Task Allocation</h2>
+                <p>This project was developed by a dedicated 3-member team from the University of Moratuwa:</p>
+                
+                <div class="key-features">
+                    <div class="feature-box">
+                        <i class="fas fa-microchip"></i>
+                        <h4>My Role - PCB Design & Feasibility</h4>
+                        <ul style="text-align: left; margin-top: 1rem;">
+                            <li>PCB design (Altium Designer)</li>
+                            <li>Technical feasibility research</li>
+                            <li>Power consumption analysis</li>
+                            <li>Component selection</li>
+                        </ul>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-cube"></i>
+                        <h4>Javin - Enclosure & Finance</h4>
+                        <ul style="text-align: left; margin-top: 1rem;">
+                            <li>SolidWorks enclosure design</li>
+                            <li>Budget planning & BOQ</li>
+                            <li>Marketing strategy</li>
+                            <li>Cost optimization</li>
+                        </ul>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-code"></i>
+                        <h4>Selaka - Firmware & Testing</h4>
+                        <ul style="text-align: left; margin-top: 1rem;">
+                            <li>ESP32 firmware development</li>
+                            <li>Circuit design & assembly</li>
+                            <li>System testing & debugging</li>
+                            <li>Blynk app integration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-graduation-cap"></i> Key Learnings</h2>
+                <ul>
+                    <li><strong>PCB Design Excellence:</strong> Mastered Altium Designer for professional PCB layout with RF considerations for ESP32</li>
+                    <li><strong>Power Optimization:</strong> Deep understanding of ESP32 sleep modes and battery life calculation for IoT devices</li>
+                    <li><strong>IoT Protocols:</strong> Practical experience with ESP-NOW for low-latency, low-power sensor networks vs. traditional WiFi</li>
+                    <li><strong>Market-Driven Design:</strong> Importance of market research and competitive pricing for product success</li>
+                    <li><strong>System Integration:</strong> Coordinating hardware (PCB), enclosure (SolidWorks), and software (firmware/app) in cross-functional team</li>
+                    <li><strong>Technical Feasibility Analysis:</strong> Evaluating sensor technologies, communication protocols, and power sources against project constraints</li>
+                    <li><strong>Cost Engineering:</strong> Balancing performance specifications with Bill of Quantities to hit target retail price</li>
+                    <li><strong>Real-World Problem Solving:</strong> Designing solutions for genuine social issues (home security during economic crisis)</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-link"></i> Documentation & Resources</h2>
+                <ul>
+                    <li><a href="https://github.com/javin-5/IOT-based_home_security_system.git" target="_blank" style="color: var(--accent-primary);">
+                        <i class="fas fa-code-branch"></i> Project GitHub Repository (Firmware, Schematics, Documentation)</a>
+                    </li>
+                    <li><a href="#" style="color: var(--accent-primary);"><i class="fas fa-file-pdf"></i> Complete Project Report (PDF)</a></li>
+                    <li><a href="#" style="color: var(--accent-primary);"><i class="fas fa-book"></i> PCB Design Files (Altium Designer)</a></li>
+                    <li><a href="#" style="color: var(--accent-primary);"><i class="fas fa-cube"></i> SolidWorks 3D Models (STEP Files)</a></li>
+                    <li><a href="#" style="color: var(--accent-primary);"><i class="fas fa-mobile-alt"></i> Blynk App Configuration Guide</a></li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-hands-helping"></i> Acknowledgements</h2>
+                <p>
+                    Special thanks to the University of Moratuwa Department of Electronic and Telecommunication Engineering 
+                    for providing resources and guidance. Thanks to our teammates Javin and Selaka for excellent collaboration, 
+                    and to the survey respondents who provided valuable market insights that shaped our product design and pricing strategy.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../script.js"></script>
+</body>
+</html>

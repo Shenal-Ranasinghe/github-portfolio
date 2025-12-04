@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar Headphone Amplifier | Shenal Ranasinghe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .project-detail {
+            min-height: 100vh;
+            padding: 120px 3rem 4rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            margin-bottom: 3rem;
+        }
+        
+        .back-button:hover {
+            transform: translateX(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
+        }
+        
+        .project-hero {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .project-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-hero .status {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            background: rgba(255, 193, 7, 0.15);
+            color: #ffc107;
+            border: 2px solid #ffc107;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+        }
+        
+        .meta-item i {
+            color: var(--accent-primary);
+            font-size: 1.3rem;
+        }
+        
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            margin-bottom: 5rem;
+            padding: 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+        }
+        
+        .content-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--accent-primary);
+        }
+        
+        .content-section h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .content-section p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-tag {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-secondary);
+            border: 1px solid var(--accent-primary);
+            border-radius: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .image-placeholder {
+            aspect-ratio: 16/9;
+            background: var(--glass-bg);
+            border: 2px dashed var(--glass-border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .key-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-box {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: var(--transition-smooth);
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+        
+        .feature-box i {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-box h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .feature-box p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="circuit-bg"></div>
+    
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Projects
+        </a>
+        
+        <div class="project-hero">
+            <h1>Guitar Headphone Amplifier</h1>
+            <span class="status completed">Completed</span>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <i class="fas fa-user"></i>
+                    <span>Group Project - 4 Members</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-guitar"></i>
+                    <span>Analog Audio | Op-Amp Design</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-battery-three-quarters"></i>
+                    <span>9V Battery-Powered</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-content">
+            <div class="content-section">
+                <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+                <p>
+                    A compact and portable headphone amplifier specifically designed for guitar players who want to practice 
+                    silently without disturbing others. This project delivers high-quality sound output through headphones, 
+                    allowing guitarists to practice anywhere and anytime with professional tone quality.
+                </p>
+                <p>
+                    The amplifier is battery-powered for true portability and features adjustable gain control to accommodate 
+                    different playing styles and guitar types. Whether you're practicing at home late at night, traveling, 
+                    or just want to focus on your playing without external distractions, this headphone amp is the perfect solution.
+                </p>
+                <p>
+                    Built using readily available components and an operational amplifier-based design, this project is both 
+                    easy to build and highly functional. The addition of an auxiliary input makes it possible to play along 
+                    with backing tracks from your phone or MP3 player.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-star"></i> Key Features</h2>
+                <div class="key-features">
+                    <div class="feature-box">
+                        <i class="fas fa-suitcase"></i>
+                        <h4>Portable Design</h4>
+                        <p>Small and lightweight form factor, perfect for practicing on the go or traveling</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-volume-up"></i>
+                        <h4>High-Quality Sound</h4>
+                        <p>Delivers clear and rich tones with low distortion and excellent frequency response</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-battery-full"></i>
+                        <h4>Battery-Powered</h4>
+                        <p>Uses standard 9V lithium-ion battery for long-lasting, convenient operation</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-sliders-h"></i>
+                        <h4>Gain Control</h4>
+                        <p>Adjustable gain via potentiometer to suit different playing styles and guitar outputs</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-music"></i>
+                        <h4>Aux Input</h4>
+                        <p>Play along with backing tracks from your phone, tablet, or MP3 player</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-tools"></i>
+                        <h4>Easy to Build</h4>
+                        <p>Simple circuit design using standard components, perfect for DIY enthusiasts</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-microchip"></i> Components & Bill of Materials</h2>
+                <p>
+                    The amplifier uses readily available, affordable components that can be sourced from most electronics suppliers:
+                </p>
+                
+                <h3>Active Components</h3>
+                <ul>
+                    <li><strong>Operational Amplifier (Op-Amp):</strong> TL072 or similar dual op-amp IC for audio amplification with low noise</li>
+                    <li><strong>9V Battery:</strong> Standard 9V lithium-ion or alkaline battery for portable power supply</li>
+                </ul>
+                
+                <h3>Passive Components</h3>
+                <ul>
+                    <li><strong>Resistors:</strong> Various values for gain setting, biasing, and signal conditioning</li>
+                    <li><strong>Capacitors:</strong> Electrolytic and ceramic capacitors for coupling, decoupling, and filtering</li>
+                    <li><strong>Potentiometer:</strong> 10kΩ or 100kΩ linear pot for adjustable gain/volume control</li>
+                </ul>
+                
+                <h3>Connectors & Mechanical</h3>
+                <ul>
+                    <li><strong>1/4" Guitar Input Jack:</strong> Standard mono jack for guitar connection</li>
+                    <li><strong>1/8" Headphone Output Jack (3.5mm):</strong> Stereo jack for headphone connection</li>
+                    <li><strong>1/8" Aux Input Jack (3.5mm):</strong> Stereo jack for external audio source (backing tracks)</li>
+                    <li><strong>9V Battery Connector:</strong> Snap connector for easy battery replacement</li>
+                    <li><strong>Power Switch:</strong> SPST toggle or slide switch for on/off control</li>
+                </ul>
+                
+                <h3>PCB & Enclosure</h3>
+                <ul>
+                    <li><strong>PCB (Printed Circuit Board):</strong> Custom PCB or perfboard for component mounting</li>
+                    <li><strong>Enclosure:</strong> Small aluminum or plastic enclosure for housing the circuit and protecting components</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-project-diagram"></i> Circuit Architecture & Block Diagram</h2>
+                <p>
+                    The guitar headphone amplifier uses a simple yet effective op-amp-based architecture designed for audio 
+                    signal amplification with minimal distortion. The circuit consists of several functional blocks:
+                </p>
+                
+                <h3>Signal Flow</h3>
+                <ol>
+                    <li><strong>Input Stage:</strong> Guitar signal enters through 1/4" jack, with input impedance matching to prevent signal loading</li>
+                    <li><strong>Pre-Amplification:</strong> First op-amp stage provides voltage gain to boost guitar signal to line level</li>
+                    <li><strong>Gain Control:</strong> Potentiometer allows user to adjust amplification factor for volume control</li>
+                    <li><strong>Mixing Stage:</strong> Aux input is mixed with guitar signal, allowing backing track playback</li>
+                    <li><strong>Output Buffer:</strong> Second op-amp stage provides low output impedance to drive headphones</li>
+                    <li><strong>Headphone Output:</strong> Final signal delivered to 1/8" jack for headphone connection</li>
+                </ol>
+                
+                <h3>Power Supply</h3>
+                <p>
+                    The circuit operates from a single 9V battery with proper decoupling capacitors to ensure clean power 
+                    delivery and minimize noise. A voltage divider creates a virtual ground at 4.5V for biasing the op-amps 
+                    in single-supply mode.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-draw-polygon"></i> Circuit Schematic</h2>
+                <p>
+                    The schematic shows the complete circuit design with all component values, connections, and biasing networks. 
+                    The design uses a dual op-amp IC (TL072) to minimize component count while maintaining excellent audio performance.
+                </p>
+                
+                <h3>Key Circuit Sections</h3>
+                <ul>
+                    <li><strong>Input Coupling:</strong> AC coupling capacitor blocks DC while passing audio signals from guitar</li>
+                    <li><strong>Biasing Network:</strong> Voltage divider creates 4.5V reference for single-supply operation</li>
+                    <li><strong>Gain Stage:</strong> Non-inverting amplifier configuration with adjustable gain via potentiometer</li>
+                    <li><strong>Frequency Response:</strong> Capacitor values chosen for flat response across guitar frequency range (80 Hz - 5 kHz)</li>
+                    <li><strong>Output Stage:</strong> Low-impedance buffer capable of driving 16-600Ω headphones</li>
+                    <li><strong>Power Filtering:</strong> Decoupling capacitors (100μF, 0.1μF) ensure stable operation and reduce noise</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-cogs"></i> How to Use</h2>
+                <p>Operating the guitar headphone amplifier is straightforward. Follow these steps to get started:</p>
+                
+                <h3>Setup Instructions</h3>
+                <ol>
+                    <li>
+                        <strong>Connect Your Guitar:</strong> Plug your guitar into the 1/4" input jack using a standard guitar cable. 
+                        Ensure the connection is secure for best sound quality.
+                    </li>
+                    <li>
+                        <strong>Connect Headphones:</strong> Plug your headphones into the 1/8" (3.5mm) output jack. The amplifier 
+                        works with most headphone impedances (16Ω to 600Ω).
+                    </li>
+                    <li>
+                        <strong>Install Battery & Power On:</strong> Insert a fresh 9V battery into the battery connector and switch 
+                        the amplifier on using the power switch. An LED indicator (if installed) will confirm power status.
+                    </li>
+                    <li>
+                        <strong>Adjust Gain:</strong> Start with the gain potentiometer at minimum. Strum your guitar and gradually 
+                        increase the gain to your desired volume level. Adjust to match your playing style and guitar output.
+                    </li>
+                    <li>
+                        <strong>Optional - Play Along with Backing Tracks:</strong> Connect your smartphone, tablet, or MP3 player 
+                        to the auxiliary (aux) input jack using a 3.5mm audio cable. Your backing tracks will mix with your guitar 
+                        signal, allowing you to practice along with music.
+                    </li>
+                </ol>
+                
+                <h3>Tips for Best Performance</h3>
+                <ul>
+                    <li><strong>Battery Life:</strong> Replace the 9V battery when you notice reduced volume or distorted sound</li>
+                    <li><strong>Gain Setting:</strong> Lower gain settings produce cleaner tones; higher gain adds more sustain and drive</li>
+                    <li><strong>Headphone Selection:</strong> Use quality headphones (32-80Ω impedance) for best frequency response</li>
+                    <li><strong>Cable Quality:</strong> Use shielded guitar cables to minimize noise and interference</li>
+                    <li><strong>Storage:</strong> Remove battery when not using the amp for extended periods to prevent leakage</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-wrench"></i> Construction & Assembly</h2>
+                <p>
+                    Building the guitar headphone amplifier is a great project for learning analog circuit design and PCB assembly. 
+                    The construction process involves several steps:
+                </p>
+                
+                <h3>PCB Fabrication & Assembly</h3>
+                <ol>
+                    <li><strong>PCB Design:</strong> Create PCB layout using KiCad, Eagle, or similar PCB design software based on schematic</li>
+                    <li><strong>PCB Ordering:</strong> Order PCBs from JLCPCB, PCBWay, or similar manufacturer (typically 5-10 pieces minimum)</li>
+                    <li><strong>Component Placement:</strong> Solder components starting with lowest profile (resistors, diodes) then ICs, capacitors, and connectors</li>
+                    <li><strong>Soldering:</strong> Use proper soldering technique with appropriate tip temperature (350°C) and quality solder</li>
+                    <li><strong>Inspection:</strong> Check for solder bridges, cold joints, and correct component orientation (especially electrolytic capacitors and ICs)</li>
+                </ol>
+                
+                <h3>Enclosure Integration</h3>
+                <ul>
+                    <li><strong>Drill Holes:</strong> Mark and drill holes in enclosure for jacks, potentiometer, switch, and LED</li>
+                    <li><strong>Mount PCB:</strong> Secure PCB inside enclosure using standoffs or mounting brackets</li>
+                    <li><strong>Wire Connections:</strong> Connect battery, switch, and panel-mounted components to PCB</li>
+                    <li><strong>Final Assembly:</strong> Close enclosure and apply labels for input/output jacks and controls</li>
+                </ul>
+                
+                <h3>Testing & Calibration</h3>
+                <ul>
+                    <li><strong>Visual Inspection:</strong> Double-check all connections and component values before applying power</li>
+                    <li><strong>Power-On Test:</strong> Measure supply voltage and verify proper biasing (4.5V at op-amp inputs)</li>
+                    <li><strong>Signal Test:</strong> Connect signal generator or guitar, verify amplification and frequency response</li>
+                    <li><strong>Audio Quality Check:</strong> Listen for noise, distortion, or frequency roll-off; troubleshoot if needed</li>
+                </ul>
+                
+                <div style="text-align: center; margin: 2rem 0;">
+                    <img src="../assets/images/projects/guitar-amp/project setup at demo day.jpg" alt="Complete Setup at Demonstration" style="width: 100%; max-width: 700px; border-radius: 15px; margin: 1rem auto; display: block; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                    <p style="color: var(--text-secondary); margin-top: 1rem; font-style: italic;"><strong>Complete Setup at Demonstration Day</strong><br>
+                    Full demonstration setup showing the amplifier connected to headphones with multiple laptops displaying project documentation, schematics, and PCB layouts.</p>
+                </div>
+            </div>
+            
+
+            
+            <div class="content-section">
+                <h2><i class="fas fa-chart-line"></i> Performance Specifications</h2>
+                <p>
+                    The guitar headphone amplifier delivers excellent audio performance suitable for practice and casual recording:
+                </p>
+                
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                    <thead style="background: var(--glass-bg);">
+                        <tr>
+                            <th style="padding: 1rem; border: 1px solid var(--glass-border); text-align: left;">Parameter</th>
+                            <th style="padding: 1rem; border: 1px solid var(--glass-border); text-align: center;">Specification</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border);">Supply Voltage</td>
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border); text-align: center;">9V (Battery)</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.02);">
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border);">Current Consumption</td>
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border); text-align: center;">~5-10 mA (typical)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border);">Input Impedance</td>
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border); text-align: center;">1 MΩ (guitar input)</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.02);">
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border);">Output Impedance</td>
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border); text-align: center;">< 100Ω</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border);">Headphone Load</td>
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border); text-align: center;">16Ω - 600Ω</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.02);">
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border);">Voltage Gain (Adjustable)</td>
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border); text-align: center;">1x - 100x (0 - 40 dB)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border);">Frequency Response</td>
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border); text-align: center;">20 Hz - 20 kHz (±1 dB)</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.02);">
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border);">Total Harmonic Distortion (THD)</td>
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border); text-align: center;">< 0.1% @ 1 kHz</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border);">Signal-to-Noise Ratio (SNR)</td>
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border); text-align: center;">> 80 dB</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.02);">
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border);">Battery Life</td>
+                            <td style="padding: 1rem; border: 1px solid var(--glass-border); text-align: center;">~20-40 hours (typical use)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-laptop-code"></i> Tools & Technologies</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">Operational Amplifier (TL072)</span>
+                    <span class="tech-tag">Analog Circuit Design</span>
+                    <span class="tech-tag">Audio Amplification</span>
+                    <span class="tech-tag">PCB Design (KiCad/Eagle)</span>
+                    <span class="tech-tag">Single-Supply Op-Amp</span>
+                    <span class="tech-tag">Guitar Electronics</span>
+                    <span class="tech-tag">Portable Audio</span>
+                    <span class="tech-tag">9V Battery Power</span>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-lightbulb"></i> Applications & Use Cases</h2>
+                <ul>
+                    <li><strong>Silent Practice:</strong> Practice guitar at any time without disturbing family, roommates, or neighbors</li>
+                    <li><strong>Travel Companion:</strong> Take your practice setup anywhere - hotel rooms, dorms, backstage, on tour</li>
+                    <li><strong>Late-Night Sessions:</strong> Perfect for night owls who want to practice after everyone else is asleep</li>
+                    <li><strong>Recording Monitoring:</strong> Use as a headphone monitor when recording direct-input guitar tracks</li>
+                    <li><strong>Jam Along:</strong> Practice with backing tracks, lessons, or songs from your phone via aux input</li>
+                    <li><strong>Apartment Living:</strong> Ideal for guitarists in apartments where noise complaints are a concern</li>
+                    <li><strong>Learning Tool:</strong> Great for beginners who want to focus on technique without external distractions</li>
+                    <li><strong>Professional Warmup:</strong> Warm up before gigs or recording sessions with portable, quiet practice</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-plus-circle"></i> Future Enhancements</h2>
+                <p>Potential upgrades and modifications to improve the design:</p>
+                <ul>
+                    <li><strong>Tone Control:</strong> Add active or passive EQ circuit for bass, mid, and treble adjustment</li>
+                    <li><strong>Effects Loop:</strong> Include send/return jacks for inserting external effects pedals</li>
+                    <li><strong>Overdrive/Distortion:</strong> Implement clipping circuit for overdriven guitar tones</li>
+                    <li><strong>Rechargeable Battery:</strong> Replace 9V battery with USB rechargeable Li-ion battery pack</li>
+                    <li><strong>Stereo Output:</strong> Modify circuit for true stereo output with stereo effects</li>
+                    <li><strong>Cabinet Simulation:</strong> Add speaker cabinet simulation circuit for more realistic amp tone</li>
+                    <li><strong>Multiple Inputs:</strong> Support for multiple instruments (bass, keyboards, etc.) with input switching</li>
+                    <li><strong>Bluetooth Audio:</strong> Add Bluetooth module for wireless backing track streaming</li>
+                    <li><strong>LED VU Meter:</strong> Visual signal level indicator for monitoring input/output levels</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-graduation-cap"></i> Key Learnings</h2>
+                <ul>
+                    <li><strong>Op-Amp Audio Design:</strong> Practical experience designing audio amplifier circuits with operational amplifiers</li>
+                    <li><strong>Single-Supply Biasing:</strong> Understanding virtual ground creation and biasing techniques for single-supply operation</li>
+                    <li><strong>Audio Signal Chain:</strong> Knowledge of signal flow from guitar pickup through amplification to headphone output</li>
+                    <li><strong>Impedance Matching:</strong> Importance of input/output impedance for guitar and headphone interfacing</li>
+                    <li><strong>Frequency Response:</strong> Designing for flat frequency response across audio spectrum with proper capacitor selection</li>
+                    <li><strong>PCB Layout:</strong> Practical PCB design skills including component placement, routing, and ground plane design</li>
+                    <li><strong>Analog Audio Quality:</strong> Understanding THD, SNR, and other audio performance metrics</li>
+                    <li><strong>Power Management:</strong> Battery-powered design considerations for portable electronics</li>
+                    <li><strong>Mechanical Design:</strong> Enclosure integration, panel layout, and user interface design</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-users"></i> Contributors</h2>
+                <p>
+                    This project was designed and built as an individual project to explore analog audio circuit design and 
+                    create a practical tool for guitar practice. The project demonstrates the application of operational amplifier 
+                    theory to real-world audio applications.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Designer & Builder:</strong> Shenal Ranasinghe
+                </p>
+                
+                <div style="text-align: center; margin: 2rem 0;">
+                    <img src="../assets/images/projects/guitar-amp/team on the day of demonstration.jpg" alt="Team at Demonstration Day" style="width: 100%; max-width: 700px; border-radius: 15px; margin: 1rem auto; display: block; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                    <p style="color: var(--text-secondary); margin-top: 1rem; font-style: italic;"><strong>Demonstration Day</strong><br>
+                    Project team at demonstration day showcasing the completed guitar headphone amplifier unit.</p>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-hands-helping"></i> Acknowledgements</h2>
+                <p>
+                    Thanks to the online DIY audio community for inspiration and to the various resources on op-amp audio 
+                    design that informed this project. Special appreciation for the makers and builders who share their 
+                    knowledge and help others learn electronics through practical projects.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../script.js"></script>
+</body>
+</html>

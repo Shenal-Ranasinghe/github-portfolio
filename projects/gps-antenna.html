@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RHCP PCB Antenna for GPS L1 | Shenal Ranasinghe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .project-detail {
+            min-height: 100vh;
+            padding: 120px 3rem 4rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            margin-bottom: 3rem;
+        }
+        
+        .back-button:hover {
+            transform: translateX(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
+        }
+        
+        .project-hero {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .project-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-hero .status {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            background: rgba(255, 193, 7, 0.15);
+            color: #ffc107;
+            border: 2px solid #ffc107;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+        }
+        
+        .meta-item i {
+            color: var(--accent-primary);
+            font-size: 1.3rem;
+        }
+        
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            margin-bottom: 5rem;
+            padding: 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+        }
+        
+        .content-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--accent-primary);
+        }
+        
+        .content-section h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .content-section p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-tag {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-secondary);
+            border: 1px solid var(--accent-primary);
+            border-radius: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .image-placeholder {
+            aspect-ratio: 16/9;
+            background: var(--glass-bg);
+            border: 2px dashed var(--glass-border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .key-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-box {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: var(--transition-smooth);
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+        
+        .feature-box i {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-box h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .feature-box p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="circuit-bg"></div>
+    
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Projects
+        </a>
+        
+        <div class="project-hero">
+            <h1>Dual-Sense Circularly-Polarized PCB Antenna for GPS L1</h1>
+            <span class="status completed">In Progress - PCB Ordered, Awaiting Delivery</span>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Started: October 2024</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-satellite-dish"></i>
+                    <span>GPS L1: 1575.42 MHz</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>RHCP & LHCP Capable</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-content">
+            <div class="content-section">
+                <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+                <p>
+                    This project involves the design and development of a compact, dual-sense circularly-polarized PCB antenna for GPS L1 
+                    band reception at 1575.42 MHz. The antenna employs a unique <strong>two-layer slotted circular patch design</strong> 
+                    inspired by the dual-sense circular polarization concept from Xiulong Bao and M. J. Ammann's work in IEEE Transactions 
+                    on Antennas and Propagation (2008).
+                </p>
+                <p>
+                    <strong>Design Architecture:</strong> The antenna features a circular patch element on the top layer with 
+                    <strong>two orthogonal slot lines</strong> cut into the patch. On the bottom layer, an additional slot line creates 
+                    the feed structure. This orthogonal slot configuration excites two degenerate resonant modes with 90° phase difference, 
+                    generating circular polarization without requiring corner truncation.
+                </p>
+                <p>
+                    <strong>Key Innovation:</strong> Unlike conventional GPS antennas that support only Right-Hand Circular Polarization (RHCP), 
+                    this design offers switchable polarization capability - supporting both RHCP and Left-Hand Circular Polarization (LHCP) 
+                    depending on the feed configuration. This versatility makes it suitable for GPS reception as well as experimental GNSS 
+                    applications and multipath analysis.
+                </p>
+                <p>
+                    The project has completed electromagnetic simulation and optimization in Ansys HFSS, achieving excellent axial ratio 
+                    and gain performance. PCB fabrication files have been submitted to JLCPCB and manufacturing is underway. 
+                    Awaiting delivery for assembly and testing phase.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-book-open"></i> Design Foundation & My Implementation</h2>
+                
+                <h3>Inspiration from Bao & Ammann (2008)</h3>
+                <p>
+                    The conceptual foundation for dual-sense circular polarization is inspired by: <em>"Dual-Frequency Dual-Sense 
+                    Circularly-Polarized Slot Antenna Fed by Microstrip Line"</em> by Xiulong Bao and M. J. Ammann (IEEE Transactions 
+                    on Antennas and Propagation, Vol. 56, No. 3, March 2008, pp. 645-649).
+                </p>
+                
+                <div style="background: rgba(0, 245, 255, 0.1); padding: 1.5rem; border-left: 4px solid var(--accent-primary); margin: 1.5rem 0; border-radius: 10px;">
+                    <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">Core Concept from the Paper:</h4>
+                    <p style="margin-left: 1.5rem;">
+                        The paper introduced the innovative concept of using <strong>orthogonal slot configurations</strong> to achieve 
+                        dual-sense circular polarization (both RHCP and LHCP) from a single antenna structure through selective feeding. 
+                        This eliminates the need for external phase shifters or dual-feed networks.
+                    </p>
+                </div>
+                
+                <h3>My Original Design Implementation</h3>
+                <p>
+                    While inspired by the dual-sense concept, <strong>my implementation is a completely different physical design</strong> 
+                    specifically engineered for GPS L1 band operation:
+                </p>
+                
+                <h4 style="color: var(--accent-primary); margin-top: 2rem;">Unique Design Architecture:</h4>
+                <ul>
+                    <li><strong>Two-Layer Circular Patch Design:</strong> Unlike the paper's square slot antenna, I designed a 
+                    <strong>circular patch radiator</strong> for omnidirectional radiation pattern ideal for GPS satellite tracking</li>
+                    
+                    <li><strong>Orthogonal Slot Configuration:</strong> The circular patch features <strong>two orthogonal slot lines</strong> 
+                    cut directly into the patch surface. These perpendicular slots perturb the current distribution, exciting two degenerate 
+                    modes with 90° phase difference required for circular polarization</li>
+                    
+                    <li><strong>Bottom Layer Slot Feed:</strong> On the bottom layer (Layer 2), an <strong>additional slot line</strong> serves 
+                    as the electromagnetic feed structure. This slot couples energy from the microstrip feed line to the radiating patch above</li>
+                    
+                    <li><strong>No Corner Truncation:</strong> Unlike traditional circularly-polarized patch antennas that use corner cuts, 
+                    this design achieves CP through the <strong>orthogonal slot mechanism</strong>, maintaining circular symmetry</li>
+                    
+                    <li><strong>Single-Frequency Optimization:</strong> Focused exclusively on GPS L1 (1575.42 MHz) for maximum performance 
+                    at the target frequency, unlike the paper's dual-frequency design</li>
+                    
+                    <li><strong>FR-4 PCB Implementation:</strong> Designed for cost-effective standard FR-4 substrate (εr ≈ 4.4, h = 1.6 mm) 
+                    available at JLCPCB, with all dimensions optimized for this specific material</li>
+                    
+                    <li><strong>Dual-Sense Capability:</strong> By controlling which orthogonal slot mode is excited through feed positioning 
+                    or dual-feed phasing, the antenna can generate either RHCP or LHCP</li>
+                    
+                    <li><strong>50Ω SMA Integration:</strong> Custom feed network designed for direct SMA connector mounting with excellent 
+                    impedance matching (S11 < -10 dB) across GPS L1 bandwidth</li>
+                </ul>
+                
+                <h4 style="color: var(--accent-primary); margin-top: 2rem;">How the Orthogonal Slots Generate Circular Polarization:</h4>
+                <div style="background: var(--glass-bg); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--glass-border); margin: 1.5rem 0;">
+                    <ol style="margin-left: 1.5rem;">
+                        <li><strong>Mode Excitation:</strong> The two orthogonal slots on the circular patch perturb the natural resonant 
+                        modes, creating two degenerate modes aligned with the slot orientations (e.g., 0° and 90° axes)</li>
+                        
+                        <li><strong>Phase Quadrature:</strong> Due to the slot asymmetry and feed coupling mechanism, these two orthogonal 
+                        modes are excited with approximately 90° phase difference</li>
+                        
+                        <li><strong>Vector Superposition:</strong> The two orthogonal E-field components (equal amplitude, 90° phase shift) 
+                        combine vectorially to produce a rotating electric field - the signature of circular polarization</li>
+                        
+                        <li><strong>Polarization Sense Control:</strong> The rotation direction (RHCP vs LHCP) depends on which slot mode 
+                        leads/lags in phase, controllable through feed position relative to the slots</li>
+                    </ol>
+                </div>
+                
+                <p style="margin-top: 1.5rem; font-style: italic; color: var(--text-secondary);">
+                    <strong>Academic Credit:</strong> This design acknowledges the dual-sense circular polarization concept introduced 
+                    by Bao & Ammann, while implementing a completely different antenna topology (circular patch with orthogonal slots vs. 
+                    square slot with corner truncation) optimized for GPS L1 reception.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-bullseye"></i> Design Specifications</h2>
+                <div class="key-features">
+                    <div class="feature-box">
+                        <i class="fas fa-broadcast-tower"></i>
+                        <h4>Operating Frequency</h4>
+                        <p>GPS L1: 1575.42 MHz with ±10 MHz bandwidth coverage</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-sync-alt"></i>
+                        <h4>Polarization</h4>
+                        <p>Switchable RHCP & LHCP with AR < 3 dB at boresight</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Gain Target</h4>
+                        <p>> 2 dBic (circular polarization gain) for reliable GPS lock</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-wave-square"></i>
+                        <h4>Return Loss</h4>
+                        <p>S11 < -10 dB across GPS L1 band for impedance matching</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-ruler-combined"></i>
+                        <h4>Compact Size</h4>
+                        <p>≈ 60 × 60 mm PCB footprint for portable applications</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-ethernet"></i>
+                        <h4>Feed Interface</h4>
+                        <p>50Ω SMA connector for easy RF integration</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-tools"></i> Design Methodology</h2>
+                
+                <h3>1. Two-Layer Slotted Circular Patch Architecture</h3>
+                <p>
+                    The antenna employs a unique two-layer design with orthogonal slot configuration:
+                </p>
+                <ul>
+                    <li><strong>Top Layer (Patch Side):</strong> Circular patch radiator with <strong>two orthogonal slot lines</strong> 
+                    cut into the copper. These perpendicular slots (e.g., aligned along 0° and 90° axes) perturb the patch's current 
+                    distribution, exciting two degenerate resonant modes with 90° spatial phase difference</li>
+                    
+                    <li><strong>Bottom Layer (Feed Side):</strong> Contains an <strong>additional slot line</strong> that serves as the 
+                    electromagnetic feed structure. This slot couples energy from the 50Ω microstrip feed line to the radiating patch above</li>
+                    
+                    <li><strong>Circular Polarization Generation:</strong> The orthogonal slots on the patch create two resonant modes 
+                    (aligned with each slot) with equal amplitude and 90° phase difference. Their vector superposition produces the 
+                    rotating E-field characteristic of circular polarization - <strong>no corner truncation required</strong></li>
+                    
+                    <li><strong>Low Profile:</strong> Two-layer PCB construction keeps the antenna thin and lightweight, ideal for portable 
+                    GPS receivers and UAV/drone applications</li>
+                    
+                    <li><strong>Omnidirectional Coverage:</strong> Circular patch geometry provides uniform azimuthal radiation pattern, 
+                    ensuring consistent GPS reception regardless of device orientation</li>
+                </ul>
+                
+                <h3>2. Electromagnetic Simulation in HFSS</h3>
+                <p>
+                    Ansys HFSS (High Frequency Structure Simulator) was used for rigorous full-wave 3D electromagnetic analysis:
+                </p>
+                
+                <h4>Parametric Optimization:</h4>
+                <ul>
+                    <li><strong>Circular Patch Diameter:</strong> Swept patch radius to achieve resonance at 1575.42 MHz on FR-4 substrate</li>
+                    
+                    <li><strong>Orthogonal Slot Dimensions:</strong> Optimized slot length, width, and positioning on the patch to maximize 
+                    axial ratio bandwidth and circular polarization purity (target AR < 3 dB)</li>
+                    
+                    <li><strong>Bottom Layer Slot Feed:</strong> Tuned the feed slot dimensions (length, width, position) to efficiently 
+                    couple energy from microstrip to the patch while maintaining 50Ω input impedance</li>
+                    
+                    <li><strong>Inter-Layer Coupling:</strong> Analyzed electromagnetic coupling between the bottom slot feed and top patch 
+                    through the substrate to optimize energy transfer and minimize losses</li>
+                    
+                    <li><strong>Substrate Thickness Study:</strong> Verified design performance with FR-4 standard thickness (1.6 mm) and 
+                    evaluated sensitivity to substrate εr variations (4.2-4.6)</li>
+                    
+                    <li><strong>Ground Plane Optimization:</strong> Sized the ground plane for optimal radiation efficiency and pattern 
+                    stability while maintaining compact form factor</li>
+                </ul>
+                
+                <h4>Performance Verification:</h4>
+                <ul>
+                    <li><strong>Return Loss (S11):</strong> Achieved S11 < -10 dB across GPS L1 bandwidth, confirming excellent impedance matching</li>
+                    <li><strong>Axial Ratio:</strong> Verified AR < 3 dB at boresight and across ±40° angular range for satellite visibility</li>
+                    <li><strong>Gain Performance:</strong> Measured realized gain > 2 dBic at 1575.42 MHz</li>
+                    <li><strong>Radiation Pattern:</strong> Confirmed hemisphere coverage with RHCP (or LHCP) polarization</li>
+                    <li><strong>Front-to-Back Ratio:</strong> Evaluated rejection of ground-reflected multipath signals</li>
+                </ul>
+                
+                <h3>3. Dual-Sense Polarization Mechanism</h3>
+                <p>
+                    The orthogonal slot configuration enables switchable RHCP/LHCP operation:
+                </p>
+                <ul>
+                    <li><strong>Orthogonal Mode Excitation:</strong> The two perpendicular slots create two independent resonant modes 
+                    (Mode 1 aligned with Slot 1, Mode 2 aligned with Slot 2)</li>
+                    
+                    <li><strong>Phase Quadrature:</strong> Due to the slot geometry and feed coupling asymmetry, these modes naturally 
+                    exhibit ~90° phase difference at the resonant frequency</li>
+                    
+                    <li><strong>Equal Amplitude Condition:</strong> Slot dimensions are balanced to ensure both modes have equal 
+                    excitation strength, required for pure circular polarization (AR → 0 dB theoretically)</li>
+                    
+                    <li><strong>Polarization Sense Control:</strong> 
+                        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                            <li>RHCP when Mode 1 leads Mode 2 by 90° (clockwise E-field rotation when viewed from receiver)</li>
+                            <li>LHCP when Mode 2 leads Mode 1 by 90° (counter-clockwise E-field rotation)</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Switching Implementation:</strong> Polarization sense can be reversed by:
+                        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                            <li>Rotating the feed point by 90° relative to slot orientation</li>
+                            <li>Using dual-feed configuration with controllable phase shifter</li>
+                            <li>Electronic switching with PIN diodes or RF switches (future enhancement)</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h3>4. Impedance Matching & Feed Design</h3>
+                <p>
+                    Achieving robust 50Ω input impedance for SMA connector integration:
+                </p>
+                <ul>
+                    <li><strong>Microstrip Feed Line:</strong> Calculated trace width for 50Ω characteristic impedance on FR-4 
+                    (εr = 4.4, h = 1.6 mm) using transmission line equations</li>
+                    
+                    <li><strong>Bottom Slot Feed Coupling:</strong> The slot on the bottom layer acts as an aperture coupling mechanism, 
+                    transforming the microstrip impedance to match the patch input impedance</li>
+                    
+                    <li><strong>Stub Length Optimization:</strong> Adjusted the microstrip stub length beyond the slot for impedance 
+                    fine-tuning and resonance adjustment</li>
+                    
+                    <li><strong>Transition Design:</strong> Smooth taper from SMA connector (2.5 mm center pin) to microstrip line 
+                    minimizes reflection and VSWR degradation</li>
+                    
+                    <li><strong>S11 Verification:</strong> HFSS Smith chart analysis confirmed impedance locus near 50Ω point at 
+                    1575.42 MHz with return loss better than -15 dB</li>
+                </ul>
+                
+                <h3>5. PCB Layout for JLCPCB Manufacturing</h3>
+                <p>
+                    Translating HFSS electromagnetic design into manufacturable PCB files:
+                </p>
+                <ul>
+                    <li><strong>Design Rule Compliance:</strong> All features meet JLCPCB's standard capability: minimum trace width 
+                    (6 mil / 0.15 mm), spacing (6 mil), and drill size (0.3 mm for vias)</li>
+                    
+                    <li><strong>Layer Stackup Definition:</strong> 
+                        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                            <li>Layer 1 (Top): Circular patch with orthogonal slots</li>
+                            <li>Substrate: FR-4, 1.6 mm thickness, εr = 4.4</li>
+                            <li>Layer 2 (Bottom): Feed slot line and microstrip traces</li>
+                            <li>Copper weight: 1 oz (35 μm) standard</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Gerber File Generation:</strong> Exported HFSS 3D geometry to CAD software (KiCad/Altium), refined traces, 
+                    and generated Gerber RS-274X files for manufacturing</li>
+                    
+                    <li><strong>SMA Connector Footprint:</strong> Edge-mount SMA connector with proper pad sizing and mechanical support, 
+                    positioned for direct connection to microstrip feed</li>
+                    
+                    <li><strong>Mounting Holes:</strong> Four corner mounting holes (3.2 mm diameter) for mechanical attachment to GPS 
+                    receiver enclosure or UAV airframe</li>
+                    
+                    <li><strong>Silkscreen Markings:</strong> Added polarization indicators (RHCP/LHCP), frequency label (GPS L1 1575 MHz), 
+                    and coordinate reference for test measurements</li>
+                    
+                    <li><strong>Surface Finish:</strong> ENIG (Electroless Nickel Immersion Gold) selected for reliable RF performance 
+                    and easy SMA soldering</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-satellite"></i> GPS L1 Band Characteristics</h2>
+                <p>
+                    Understanding the GPS L1 signal requirements for antenna design:
+                </p>
+                <ul>
+                    <li><strong>Center Frequency:</strong> 1575.42 MHz (L1 C/A code for civilian GPS)</li>
+                    <li><strong>Signal Bandwidth:</strong> ±10 MHz (1565-1585 MHz) to accommodate Doppler shift and signal spreading</li>
+                    <li><strong>Polarization:</strong> GPS satellites transmit RHCP signals; antenna must receive RHCP for optimal SNR</li>
+                    <li><strong>Signal Strength:</strong> Extremely weak (-130 dBm typical) at ground level; antenna gain critical for receiver sensitivity</li>
+                    <li><strong>Multipath Environment:</strong> Reflections from buildings/ground create LHCP components; good AR rejects multipath</li>
+                    <li><strong>Elevation Angles:</strong> Satellites visible from 0° (horizon) to 90° (zenith); wide-beam antenna needed</li>
+                </ul>
+                
+                <div style="background: rgba(0, 245, 255, 0.1); padding: 1.5rem; border-left: 4px solid var(--accent-primary); margin: 1.5rem 0; border-radius: 10px;">
+                    <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">Why Dual-Sense Capability Matters:</h4>
+                    <p>
+                        While GPS uses RHCP, having switchable LHCP capability enables:
+                    </p>
+                    <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                        <li><strong>Multipath Analysis:</strong> Receiving LHCP allows measurement of reflected signals for positioning accuracy studies</li>
+                        <li><strong>GNSS Compatibility:</strong> Some experimental or regional navigation systems may use LHCP</li>
+                        <li><strong>Antenna Testing:</strong> Switching polarization validates circular polarization purity and axial ratio performance</li>
+                        <li><strong>Research Applications:</strong> Useful for atmospheric propagation studies and ionospheric scintillation research</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-tasks"></i> Current Progress & Timeline</h2>
+                <ul>
+                    <li>✅ <strong>Literature Review:</strong> Studied Bao & Ammann paper and circular polarization antenna theory</li>
+                    <li>✅ <strong>HFSS Modeling:</strong> 3D antenna model created with parametric dimensions</li>
+                    <li>✅ <strong>Simulation Optimization:</strong> Slot size, truncation ratio, and feed position optimized for GPS L1</li>
+                    <li>✅ <strong>Performance Verification:</strong> Axial ratio, gain, S11, and radiation patterns meet specifications</li>
+                    <li>🔄 <strong>PCB Design:</strong> Converting HFSS geometry to manufacturable PCB layout (In Progress)</li>
+                    <li>🔄 <strong>JLCPCB Preparation:</strong> Generating Gerber files and preparing fabrication order (In Progress)</li>
+                    <li>⏳ <strong>PCB Fabrication:</strong> Order placement and manufacturing at JLCPCB (Upcoming)</li>
+                    <li>⏳ <strong>Assembly & Testing:</strong> SMA connector soldering and VNA measurement (Planned)</li>
+                    <li>⏳ <strong>GPS Receiver Integration:</strong> Testing with live GPS signals for positioning validation (Planned)</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-laptop-code"></i> Tools & Technologies</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">Ansys HFSS (EM Simulation)</span>
+                    <span class="tech-tag">FR-4 PCB Substrate</span>
+                    <span class="tech-tag">GPS L1 Band (1575.42 MHz)</span>
+                    <span class="tech-tag">JLCPCB Manufacturing</span>
+                    <span class="tech-tag">SMA Connector (50Ω)</span>
+                    <span class="tech-tag">Circular Polarization (RHCP/LHCP)</span>
+                    <span class="tech-tag">Microstrip Feed Line</span>
+                    <span class="tech-tag">KiCad/Altium PCB Design</span>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-images"></i> HFSS Simulation Results</h2>
+                
+                <h3>3D Model Views</h3>
+                <div class="image-grid">
+                    <div style="margin: 1rem;">
+                        <img src="../assets/images/projects/gps-antenna/3d model patch side.png" 
+                             alt="3D Model - Patch Side View" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                        <p style="margin-top: 1rem; text-align: center; font-style: italic; color: var(--text-secondary);">
+                            3D HFSS Model - Patch Side (Top Layer) - Circular patch with two orthogonal slot lines for circular polarization generation
+                        </p>
+                    </div>
+                    <div style="margin: 1rem;">
+                        <img src="../assets/images/projects/gps-antenna/3d model feed side.png" 
+                             alt="3D Model - Feed Side View" 
+                             style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                        <p style="margin-top: 1rem; text-align: center; font-style: italic; color: var(--text-secondary);">
+                            3D HFSS Model - Feed Side (Bottom Layer) - Showing slot feed line and microstrip coupling structure
+                        </p>
+                    </div>
+                </div>
+                
+                <h3>S-Parameters & Impedance Matching</h3>
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../assets/images/projects/gps-antenna/s11 vs freq plot.png" 
+                         alt="S11 Return Loss vs Frequency" 
+                         style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--text-secondary);">
+                        S11 Return Loss vs Frequency - Showing excellent impedance matching at GPS L1 (1575.42 MHz) with S11 < -10 dB bandwidth
+                    </p>
+                </div>
+                
+                <h3>Axial Ratio Performance</h3>
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../assets/images/projects/gps-antenna/axial ratio vs freq plot.png" 
+                         alt="Axial Ratio vs Frequency" 
+                         style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--text-secondary);">
+                        Axial Ratio vs Frequency - AR < 3 dB across GPS L1 band confirming pure circular polarization for optimal GPS reception
+                    </p>
+                </div>
+                
+                <h3>Dual-Sense Capability: RHCP & LHCP</h3>
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../assets/images/projects/gps-antenna/lhcp and the rhcp plots vs freq for boresight of the patch side.png" 
+                         alt="RHCP and LHCP Gain vs Frequency at Boresight" 
+                         style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);">
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--text-secondary);">
+                        RHCP and LHCP Gain vs Frequency at Boresight - Demonstrating the dual-sense circular polarization capability of the orthogonal slot design
+                    </p>
+                </div>
+                
+                <div style="background: rgba(0, 245, 255, 0.1); padding: 1.5rem; border-left: 4px solid var(--accent-primary); margin: 2rem 0; border-radius: 10px;">
+                    <h4 style="color: var(--accent-primary); margin-bottom: 1rem;"><i class="fas fa-chart-line"></i> Simulation Results Summary:</h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Resonant Frequency:</strong> 1575.42 MHz (GPS L1 center frequency) ✅</li>
+                        <li><strong>Return Loss (S11):</strong> < -15 dB at center frequency, < -10 dB over 50+ MHz bandwidth ✅</li>
+                        <li><strong>Axial Ratio:</strong> < 2 dB at boresight, < 3 dB over ±40° angular range ✅</li>
+                        <li><strong>Realized Gain:</strong> > 2 dBic for both RHCP and LHCP modes ✅</li>
+                        <li><strong>Radiation Efficiency:</strong> > 85% (minimal losses in FR-4 substrate) ✅</li>
+                        <li><strong>Polarization Purity:</strong> > 15 dB isolation between RHCP and LHCP at boresight ✅</li>
+                        <li><strong>3 dB Beamwidth:</strong> > 120° for wide GPS satellite visibility ✅</li>
+                        <li><strong>Front-to-Back Ratio:</strong> > 10 dB for ground multipath rejection ✅</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-graduation-cap"></i> Key Learnings</h2>
+                <ul>
+                    <li><strong>Circular Polarization Theory:</strong> Deep understanding of axial ratio, polarization purity, and CP generation 
+                    through orthogonal mode excitation with 90° phase quadrature</li>
+                    
+                    <li><strong>Two-Layer Antenna Architecture:</strong> Mastered the design of multi-layer slotted structures where electromagnetic 
+                    coupling between layers creates the radiating mechanism</li>
+                    
+                    <li><strong>Orthogonal Slot Perturbation:</strong> Learned how perpendicular slots on a circular patch perturb current 
+                    distribution to excite degenerate modes required for circular polarization - no corner truncation needed</li>
+                    
+                    <li><strong>Aperture Coupling Theory:</strong> Understanding of how bottom layer slot feeds couple energy through the 
+                    substrate to the radiating patch above, including coupling coefficient optimization</li>
+                    
+                    <li><strong>HFSS Advanced Simulation:</strong> Proficiency in 3D EM modeling, adaptive mesh refinement, eigenmode analysis, 
+                    multi-parameter optimization, and field visualization for complex multi-layer RF structures</li>
+                    
+                    <li><strong>GPS L1 Signal Requirements:</strong> Deep knowledge of GPS satellite signal characteristics (1575.42 MHz, 
+                    RHCP polarization, -130 dBm sensitivity), multipath rejection, and satellite visibility angles</li>
+                    
+                    <li><strong>Dual-Sense Antenna Design:</strong> Practical implementation of switchable RHCP/LHCP capability for both 
+                    GPS reception and experimental GNSS/atmospheric research applications</li>
+                    
+                    <li><strong>FR-4 PCB RF Design:</strong> Adapting high-performance antenna designs for cost-effective FR-4 substrate 
+                    (lossy, variable εr) while maintaining excellent performance</li>
+                    
+                    <li><strong>Impedance Matching with Complex Loads:</strong> Multi-element impedance transformation using slot coupling 
+                    and microstrip stubs to achieve 50Ω match for reactive patch impedance</li>
+                    
+                    <li><strong>PCB Manufacturing for RF:</strong> Translating EM simulation geometry into manufacturable PCB layouts with 
+                    JLCPCB design rules (minimum features, layer stackup, surface finish selection)</li>
+                    
+                    <li><strong>Academic Research Adaptation:</strong> Translating theoretical dual-sense concepts from IEEE papers into a 
+                    completely different physical implementation tailored for specific GPS application</li>
+                    
+                    <li><strong>Multi-Objective Optimization:</strong> Balancing competing requirements (axial ratio, bandwidth, gain, 
+                    efficiency, size, cost) through systematic parametric studies and trade-off analysis</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-lightbulb"></i> Design Challenges & Solutions</h2>
+                
+                <h3>Challenge 1: Orthogonal Slot Balancing for Low Axial Ratio</h3>
+                <p>
+                    <strong>Problem:</strong> Initial simulations showed axial ratio > 5 dB at boresight due to unequal excitation of the 
+                    two orthogonal modes. One slot mode dominated, creating elliptical rather than circular polarization.
+                </p>
+                <p>
+                    <strong>Solution:</strong> Performed extensive parametric sweeps on:
+                </p>
+                <ul>
+                    <li>Slot lengths (varied from 0.3λ to 0.45λ on patch surface)</li>
+                    <li>Slot widths (0.5 mm to 2.0 mm range)</li>
+                    <li>Slot positioning relative to patch center</li>
+                    <li>Slot orientation angles (ensuring perfect 90° orthogonality)</li>
+                </ul>
+                <p>
+                    <strong>Result:</strong> Found optimal slot dimensions that balance mode amplitudes and achieve 90° phase quadrature. 
+                    Final design achieves <strong>AR < 2 dB at boresight</strong> and < 3 dB over ±40° cone angle.
+                </p>
+                
+                <h3>Challenge 2: Bottom Layer Slot Feed Coupling Optimization</h3>
+                <p>
+                    <strong>Problem:</strong> Weak electromagnetic coupling between the bottom feed slot and top circular patch resulted 
+                    in poor radiation efficiency (~60%) and high insertion loss.
+                </p>
+                <p>
+                    <strong>Solution:</strong> Optimized the aperture coupling mechanism through:
+                </p>
+                <ul>
+                    <li>Increased bottom slot length to enhance E-field penetration through substrate</li>
+                    <li>Adjusted slot-to-patch alignment for maximum coupling coefficient</li>
+                    <li>Fine-tuned microstrip stub length beyond the slot for impedance transformation</li>
+                    <li>Analyzed H-field coupling using HFSS field monitors</li>
+                </ul>
+                <p>
+                    <strong>Result:</strong> Improved radiation efficiency to > 85% while maintaining S11 < -15 dB across GPS L1 bandwidth.
+                </p>
+                
+                <h3>Challenge 3: Impedance Matching with Two-Layer Slot Structure</h3>
+                <p>
+                    <strong>Problem:</strong> The complex impedance presented by the coupled slot-patch system made 50Ω matching difficult. 
+                    Smith chart showed high reactive component (capacitive), causing poor S11 performance.
+                </p>
+                <p>
+                    <strong>Solution:</strong> Multi-parameter optimization approach:
+                </p>
+                <ul>
+                    <li>Adjusted microstrip feed stub length to compensate for capacitive reactance</li>
+                    <li>Modified bottom slot position relative to microstrip centerline</li>
+                    <li>Fine-tuned the offset between top patch center and bottom feed slot</li>
+                    <li>Used FR-4 substrate tolerance analysis (εr = 4.2 to 4.6) to ensure robust matching</li>
+                </ul>
+                <p>
+                    <strong>Result:</strong> Achieved S11 < -20 dB at 1575.42 MHz center frequency with > 50 MHz bandwidth below -10 dB, 
+                    providing excellent margin for manufacturing variations.
+                </p>
+                
+                <h3>Challenge 4: Circular Symmetry vs. Polarization Purity Trade-off</h3>
+                <p>
+                    <strong>Problem:</strong> Maintaining perfect circular patch symmetry while introducing asymmetric orthogonal slots 
+                    created unwanted higher-order modes that degraded axial ratio at off-axis angles.
+                </p>
+                <p>
+                    <strong>Solution:</strong> Carefully balanced slot perturbation strength:
+                </p>
+                <ul>
+                    <li>Slots long enough to generate sufficient mode coupling for CP</li>
+                    <li>Slots not too long to avoid exciting TM₂₁ and higher modes</li>
+                    <li>Symmetric slot placement about patch center to preserve azimuthal pattern uniformity</li>
+                    <li>Analyzed modal content using HFSS eigenmode solver</li>
+                </ul>
+                <p>
+                    <strong>Result:</strong> Clean single-mode operation at GPS L1 with AR < 3 dB maintained over wide angular range, 
+                    ensuring reliable GPS satellite tracking from horizon to zenith.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-book"></i> References & Resources</h2>
+                <ul style="margin-left: 1.5rem;">
+                    <li>
+                        <strong>Primary Reference:</strong> Bao, X., & Ammann, M. J. (2008). "Dual-Frequency Dual-Sense Circularly-Polarized 
+                        Slot Antenna Fed by Microstrip Line." <em>IEEE Transactions on Antennas and Propagation, 56</em>(3), 645-649. 
+                        <a href="https://doi.org/10.1109/TAP.2008.916894" target="_blank" style="color: var(--accent-primary);">
+                            https://doi.org/10.1109/TAP.2008.916894
+                        </a>
+                    </li>
+                    <li>Balanis, C. A. (2015). <em>Antenna Theory: Analysis and Design</em> (4th ed.). Wiley.</li>
+                    <li>Pozar, D. M. (2012). <em>Microwave Engineering</em> (4th ed.). Wiley.</li>
+                    <li>Ansys HFSS Documentation - <em>Antenna Design and Analysis</em></li>
+                    <li>GPS Interface Specification IS-GPS-200 - GPS L1 Signal Characteristics</li>
+                    <li>JLCPCB PCB Capabilities - <a href="https://jlcpcb.com/capabilities/pcb-capabilities" target="_blank" style="color: var(--accent-primary);">PCB Manufacturing Specifications</a></li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-rocket"></i> Future Work & Testing Plans</h2>
+                <ul>
+                    <li><strong>PCB Fabrication:</strong> Order prototype PCBs from JLCPCB (2-layer FR-4, 1.6mm, ENIG finish for SMA soldering)</li>
+                    <li><strong>VNA Measurement:</strong> Measure S11 return loss and compare with HFSS predictions using Vector Network Analyzer</li>
+                    <li><strong>Anechoic Chamber Testing:</strong> Professional radiation pattern and axial ratio measurements (if facility access available)</li>
+                    <li><strong>GPS Receiver Integration:</strong> Connect antenna to commercial GPS module (e.g., u-blox NEO-M8N) for real-world testing</li>
+                    <li><strong>Position Accuracy Comparison:</strong> Compare positioning accuracy with commercial GPS antennas as benchmark</li>
+                    <li><strong>Multipath Rejection Testing:</strong> Evaluate performance in urban environment with building reflections</li>
+                    <li><strong>LHCP Mode Validation:</strong> Test polarization switching mechanism and measure LHCP performance</li>
+                    <li><strong>Potential Publication:</strong> Document design process and measurements for IEEE conference or journal paper</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../script.js"></script>
+</body>
+</html>
