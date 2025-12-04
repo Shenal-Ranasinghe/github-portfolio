@@ -2638,8 +2638,8 @@ body.loading {
 }
 
 /* ===== Consolidated Responsive Overrides ===== */
-/* Phones: up to 600px */
-@media (max-width: 600px) {
+/* Phones: up to 500px */
+@media (max-width: 500px) {
     :root {
         --container-padding: 1rem;
     }
@@ -3278,8 +3278,8 @@ body.loading {
     }
 }
 
-/* Tablets: 601px to 1024px */
-@media (min-width: 601px) and (max-width: 1024px) {
+/* Tablets: 501px to 1024px */
+@media (min-width: 501px) and (max-width: 1024px) {
     :root {
         --container-padding: 24px;
     }
