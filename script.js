@@ -504,7 +504,6 @@ document.head.appendChild(style);
 // ===== Console message =====
 console.log('%c🚀 Portfolio Website Loaded Successfully! ', 'background: linear-gradient(135deg, #00f5ff 0%, #7b2ff7 100%); color: white; font-size: 16px; font-weight: bold; padding: 10px 20px; border-radius: 5px;');
 console.log('%cRF/IC Portfolio - Shenal Ranasinghe', 'color: #00f5ff; font-size: 14px; font-weight: bold;');
-console.log('%cTheme:', currentTheme, 'color: #7b2ff7; font-size: 12px;');
 
 // ===== Certificate Modal Functions =====
 function openCertificate(certPath) {
@@ -584,4 +583,140 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
         });
     }
+});
+
+// ===== Gallery Carousel Functionality =====
+var carouselPositions = {
+    mtts: 0,
+    travel: 0,
+    life: 0
+};
+
+var carouselIntervals = {};
+var touchStartX = {};
+var touchEndX = {};
+
+function moveCarousel(category, direction) {
+    const track = document.getElementById(`${category}-track`);
+    if (!track) return;
+    
+    const slides = track.querySelectorAll('.carousel-slide');
+    const slideCount = slides.length;
+    
+    if (slideCount === 0) return;
+    
+    // Calculate slides visible based on screen width
+    let slidesVisible = 3;
+    if (window.innerWidth <= 600) {
+        slidesVisible = 1;
+    } else if (window.innerWidth <= 1024) {
+        slidesVisible = 2;
+    }
+    
+    const maxPosition = Math.max(0, slideCount - slidesVisible);
+    
+    // Update position
+    carouselPositions[category] += direction;
+    
+    // Loop around
+    if (carouselPositions[category] < 0) {
+        carouselPositions[category] = maxPosition;
+    } else if (carouselPositions[category] > maxPosition) {
+        carouselPositions[category] = 0;
+    }
+    
+    // Calculate slide width and gap
+    const slideWidth = slides[0].offsetWidth;
+    const gap = 32; // 2rem = 32px (16px for mobile)
+    const actualGap = window.innerWidth <= 600 ? 16 : gap;
+    const moveAmount = (slideWidth + actualGap) * carouselPositions[category];
+    
+    // Apply transform with smooth transition
+    track.style.transition = 'transform 0.5s ease-in-out';
+    track.style.transform = `translateX(-${moveAmount}px)`;
+}
+
+// Auto-scroll carousel on mobile
+function startAutoScroll(category) {
+    if (window.innerWidth > 600) return; // Only on mobile
+    
+    carouselIntervals[category] = setInterval(() => {
+        moveCarousel(category, 1);
+    }, 3000); // Move every 3 seconds
+}
+
+// Touch swipe support
+function initTouchSupport(category) {
+    const carousel = document.getElementById(`${category}-carousel`);
+    if (!carousel) return;
+    
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX[category] = e.changedTouches[0].screenX;
+        // Pause auto-scroll on touch
+        if (carouselIntervals[category]) {
+            clearInterval(carouselIntervals[category]);
+        }
+    });
+    
+    carousel.addEventListener('touchend', (e) => {
+        touchEndX[category] = e.changedTouches[0].screenX;
+        handleSwipe(category);
+        // Resume auto-scroll after swipe
+        setTimeout(() => startAutoScroll(category), 1000);
+    });
+}
+
+function handleSwipe(category) {
+    const swipeThreshold = 50;
+    const diff = touchStartX[category] - touchEndX[category];
+    
+    if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+            // Swipe left - move to next
+            moveCarousel(category, 1);
+        } else {
+            // Swipe right - move to previous
+            moveCarousel(category, -1);
+        }
+    }
+}
+
+// Initialize carousels
+document.addEventListener('DOMContentLoaded', () => {
+    ['mtts', 'travel', 'life'].forEach(category => {
+        initTouchSupport(category);
+        if (window.innerWidth <= 600) {
+            startAutoScroll(category);
+        }
+    });
+});
+
+// Reset carousel positions on window resize
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        // Clear all intervals
+        Object.keys(carouselIntervals).forEach(key => {
+            if (carouselIntervals[key]) {
+                clearInterval(carouselIntervals[key]);
+            }
+        });
+        
+        // Reset all carousels
+        Object.keys(carouselPositions).forEach(category => {
+            carouselPositions[category] = 0;
+            const track = document.getElementById(`${category}-track`);
+            if (track) {
+                track.style.transform = 'translateX(0)';
+            }
+        });
+        
+        // Restart auto-scroll if on mobile
+        if (window.innerWidth <= 600) {
+            ['mtts', 'travel', 'life'].forEach(category => {
+                startAutoScroll(category);
+            });
+        }
+    }, 250);
 });

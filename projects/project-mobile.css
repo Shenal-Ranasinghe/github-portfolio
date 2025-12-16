@@ -1,0 +1,288 @@
+/* Mobile-Optimized Styles for Project Detail Pages */
+@media (max-width: 600px) {
+    /* Base mobile settings */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    body {
+        font-size: 12px;
+    }
+    
+    /* Project Detail Page */
+    .project-detail {
+        padding: 80px 1rem 2rem !important;
+    }
+    
+    /* Back Button */
+    .back-button {
+        padding: 0.7rem 1.2rem !important;
+        font-size: 0.8rem !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    /* Project Hero Section */
+    .project-hero {
+        margin-bottom: 3rem !important;
+    }
+    
+    .project-hero h1 {
+        font-size: 1rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .project-subtitle {
+        font-size: 0.8rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    .project-meta {
+        flex-direction: column !important;
+        gap: 0.8rem !important;
+        margin-top: 1.5rem !important;
+    }
+    
+    .meta-item {
+        font-size: 0.8rem !important;
+        padding: 0.5rem 1rem !important;
+    }
+    
+    .meta-item i {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Project Content Sections */
+    .content-section {
+        margin-bottom: 2.5rem !important;
+        padding: 1.2rem !important;
+    }
+    
+    .content-section h2 {
+        font-size: 1rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .content-section h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.8rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .content-section h4 {
+        font-size: 1rem !important;
+        margin-bottom: 0.6rem !important;
+    }
+    
+    .content-section p {
+        font-size: 0.8rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .content-section ul,
+    .content-section ol {
+        font-size: 0.8rem !important;
+        line-height: 1.5 !important;
+        padding-left: 1.5rem !important;
+    }
+    
+    .content-section li {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.6rem !important;
+    }
+    
+    /* Feature Grid */
+    .feature-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    .feature-item {
+        padding: 1rem !important;
+    }
+    
+    .feature-item i {
+        font-size: 1.5rem !important;
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .feature-item h3 {
+        font-size: 1rem !important;
+    }
+    
+    .feature-item p {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Specifications/Stats Grid */
+    .specs-grid,
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    .spec-item,
+    .stat-item {
+        padding: 1rem !important;
+    }
+    
+    .spec-label,
+    .stat-label {
+        font-size: 0.8rem !important;
+    }
+    
+    .spec-value,
+    .stat-value {
+        font-size: 1rem !important;
+    }
+    
+    /* Tech Stack */
+    .tech-stack-detail {
+        gap: 0.5rem !important;
+    }
+    
+    .tech-item {
+        padding: 0.5rem 0.9rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    /* Images and Figures */
+    .project-image,
+    .content-image {
+        width: 100% !important;
+        margin: 1.5rem 0 !important;
+    }
+    
+    .image-caption {
+        font-size: 0.8rem !important;
+        padding: 0.6rem !important;
+    }
+    
+    /* Gallery Grid */
+    .image-gallery {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    /* Code Blocks */
+    pre {
+        font-size: 0.8rem !important;
+        padding: 1rem !important;
+        overflow-x: auto !important;
+    }
+    
+    code {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Tables */
+    table {
+        font-size: 0.8rem !important;
+        display: block !important;
+        overflow-x: auto !important;
+    }
+    
+    th, td {
+        padding: 0.5rem !important;
+    }
+    
+    /* Info Boxes */
+    .info-box,
+    .note-box,
+    .warning-box {
+        padding: 1rem !important;
+        margin: 1.5rem 0 !important;
+        font-size: 0.8rem !important;
+    }
+    
+    .info-box i,
+    .note-box i {
+        font-size: 1.2rem !important;
+    }
+    
+    /* Project Links/Buttons */
+    .project-links-section {
+        flex-direction: column !important;
+        gap: 0.8rem !important;
+        margin-top: 2rem !important;
+    }
+    
+    .project-link-btn {
+        width: 100% !important;
+        padding: 0.8rem 1.2rem !important;
+        font-size: 0.8rem !important;
+        justify-content: center !important;
+    }
+    
+    /* Related Projects */
+    .related-projects {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    /* Timeline */
+    .project-timeline {
+        padding-left: 1.5rem !important;
+    }
+    
+    .timeline-item {
+        padding: 1rem !important;
+        margin-bottom: 1.2rem !important;
+    }
+    
+    .timeline-date {
+        font-size: 0.8rem !important;
+    }
+    
+    .timeline-content h4 {
+        font-size: 1rem !important;
+    }
+    
+    .timeline-content p {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Challenge/Solution Sections */
+    .challenge-solution {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+    
+    .challenge-box,
+    .solution-box {
+        padding: 1.2rem !important;
+    }
+    
+    /* Results/Outcomes */
+    .results-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    .result-card {
+        padding: 1rem !important;
+    }
+    
+    .result-number {
+        font-size: 1rem !important;
+    }
+    
+    .result-label {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Accordion/Collapsible Sections */
+    .accordion-header {
+        font-size: 1rem !important;
+        padding: 0.8rem !important;
+    }
+    
+    .accordion-content {
+        padding: 1rem !important;
+        font-size: 0.8rem !important;
+    }
+}
