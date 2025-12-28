@@ -222,12 +222,12 @@
         
         <div class="project-hero">
             <h1>Dual-Sense Circularly-Polarized PCB Antenna for GPS L1</h1>
-            <span class="status completed">In Progress - PCB Ordered, Awaiting Delivery</span>
+            <span class="status completed">Testing Phase - PCB Received & Measured</span>
             
             <div class="project-meta">
                 <div class="meta-item">
                     <i class="fas fa-calendar"></i>
-                    <span>Started: October 2024</span>
+                    <span>Oct 2024 - Dec 2025 (PCB Tested)</span>
                 </div>
                 <div class="meta-item">
                     <i class="fas fa-satellite-dish"></i>
@@ -561,10 +561,12 @@
                     <li>✅ <strong>HFSS Modeling:</strong> 3D antenna model created with parametric dimensions</li>
                     <li>✅ <strong>Simulation Optimization:</strong> Slot size, truncation ratio, and feed position optimized for GPS L1</li>
                     <li>✅ <strong>Performance Verification:</strong> Axial ratio, gain, S11, and radiation patterns meet specifications</li>
-                    <li>🔄 <strong>PCB Design:</strong> Converting HFSS geometry to manufacturable PCB layout (In Progress)</li>
-                    <li>🔄 <strong>JLCPCB Preparation:</strong> Generating Gerber files and preparing fabrication order (In Progress)</li>
-                    <li>⏳ <strong>PCB Fabrication:</strong> Order placement and manufacturing at JLCPCB (Upcoming)</li>
-                    <li>⏳ <strong>Assembly & Testing:</strong> SMA connector soldering and VNA measurement (Planned)</li>
+                    <li>✅ <strong>PCB Design:</strong> HFSS geometry converted to manufacturable PCB layout in Altium Designer</li>
+                    <li>✅ <strong>JLCPCB Fabrication:</strong> Gerber files generated and PCBs manufactured successfully</li>
+                    <li>✅ <strong>PCB Received:</strong> Prototype PCBs delivered and SMA connector assembled</li>
+                    <li>✅ <strong>S11 Measurement:</strong> Return loss measured using nanoVNA - excellent match at GPS L1</li>
+                    <li>🔄 <strong>Signal Reception Testing:</strong> VNA transmission testing and signal analysis (In Progress)</li>
+                    <li>⏳ <strong>Gain Measurement:</strong> Awaiting access to anechoic chamber or outdoor gain test setup (Planned)</li>
                     <li>⏳ <strong>GPS Receiver Integration:</strong> Testing with live GPS signals for positioning validation (Planned)</li>
                 </ul>
             </div>
@@ -649,6 +651,81 @@
                         <li><strong>Front-to-Back Ratio:</strong> > 10 dB for ground multipath rejection ✅</li>
                     </ul>
                 </div>
+            </div>
+            
+            <div class="content-section">
+                <h2><i class="fas fa-vial"></i> Experimental Testing & Measurements</h2>
+                <p>
+                    The antenna PCB has been successfully manufactured by JLCPCB and received for testing. Initial measurements 
+                    have been performed using a <strong>nanoVNA (Vector Network Analyzer)</strong> to characterize the antenna's 
+                    impedance matching and return loss performance.
+                </p>
+                
+                <h3>S11 Measurement Using nanoVNA</h3>
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../assets/images/projects/gps-antenna/Testing a receiving signal which is transmitted by a VNA.jpg" 
+                         alt="GPS Antenna Testing Setup with nanoVNA" 
+                         style="width: 100%; max-width: 800px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.3);">
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--text-secondary); max-width: 800px; margin-left: auto; margin-right: auto;">
+                        <strong>Physical Testing Setup:</strong> The fabricated GPS antenna PCB connected to nanoVNA for S11 return loss measurement. 
+                        The antenna is positioned to receive test signals transmitted by the VNA, allowing characterization of impedance matching 
+                        and resonance behavior at GPS L1 frequency (1575.42 MHz). SMA connector is professionally soldered to ensure good RF connection.
+                    </p>
+                </div>
+                
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="../assets/images/projects/gps-antenna/VNA GUI when Solving.jpg" 
+                         alt="nanoVNA Measurement Interface showing S11 Results" 
+                         style="width: 100%; max-width: 800px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 245, 255, 0.3);">
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--text-secondary); max-width: 800px; margin-left: auto; margin-right: auto;">
+                        <strong>nanoVNA Measurement Interface:</strong> Real-time S11 return loss measurement displayed on the nanoVNA screen. 
+                        The Smith chart (left) shows impedance matching behavior across the frequency sweep, while the S11 magnitude plot (right) 
+                        indicates return loss in dB. The measurement confirms good impedance matching near the GPS L1 band, with the antenna 
+                        resonating close to the design frequency. The portable nanoVNA allows quick field testing and validation of antenna performance.
+                    </p>
+                </div>
+                
+                <div style="background: rgba(0, 245, 255, 0.1); padding: 1.5rem; border-left: 4px solid var(--accent-primary); margin: 2rem 0; border-radius: 10px;">
+                    <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">
+                        <i class="fas fa-check-circle"></i> Preliminary Measurement Results:
+                    </h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Measured with:</strong> nanoVNA (Portable Vector Network Analyzer) ✅</li>
+                        <li><strong>S11 Performance:</strong> Good impedance matching observed near GPS L1 frequency (1575.42 MHz) ✅</li>
+                        <li><strong>Resonance Behavior:</strong> Antenna exhibits expected resonant characteristics in target frequency band ✅</li>
+                        <li><strong>PCB Quality:</strong> JLCPCB manufacturing quality is excellent - clean traces, proper substrate thickness ✅</li>
+                        <li><strong>SMA Connection:</strong> Solid RF connection with minimal reflection at connector interface ✅</li>
+                        <li><strong>Next Steps:</strong> Awaiting access to professional equipment for gain and radiation pattern measurements ⏳</li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: var(--text-secondary);">
+                        <strong>Note on Gain Measurement:</strong> While S11 impedance matching can be measured with the nanoVNA, accurate gain 
+                        measurements require specialized equipment such as an anechoic chamber with calibrated reference antennas, or outdoor 
+                        comparative gain measurement setups. I am currently seeking access to such facilities or equipment to complete the 
+                        full antenna characterization including gain, radiation patterns, and axial ratio verification.
+                    </p>
+                </div>
+                
+                <h3>Testing Observations</h3>
+                <ul style="margin-left: 2rem;">
+                    <li><strong>Impedance Match Validation:</strong> The nanoVNA Smith chart shows the antenna impedance is well-matched to 
+                    50Ω transmission line near the GPS L1 frequency, confirming successful design translation from HFSS simulation to physical PCB</li>
+                    
+                    <li><strong>Manufacturing Accuracy:</strong> JLCPCB's 2-layer FR-4 fabrication met all design specifications with proper 
+                    trace widths, slot dimensions, and layer alignment - critical for maintaining circular polarization performance</li>
+                    
+                    <li><strong>Assembly Quality:</strong> The SMA edge-mount connector was carefully soldered to ensure good ground plane 
+                    contact and minimal discontinuity in the 50Ω feed line</li>
+                    
+                    <li><strong>Frequency Response:</strong> The measured S11 curve shows clear resonant behavior in the GPS L1 band, 
+                    though slight frequency shift from simulation may be present due to FR-4 dielectric constant variations (εr tolerance)</li>
+                    
+                    <li><strong>Portable Testing Advantage:</strong> The nanoVNA's compact form factor enables quick field measurements 
+                    and iterative testing, making it an invaluable tool for antenna prototyping and validation</li>
+                    
+                    <li><strong>Gain Measurement Challenge:</strong> Professional gain measurements require calibrated test equipment not 
+                    currently available. Alternative approaches being considered include GPS receiver signal strength testing (C/N₀ measurements) 
+                    or comparative testing with commercial GPS antennas</li>
+                </ul>
             </div>
             
             <div class="content-section">
