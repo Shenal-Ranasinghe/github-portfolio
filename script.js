@@ -36,8 +36,8 @@ if (mobileMenuToggle && navLinks) {
         mobileMenuToggle.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
+    // Close mobile menu when clicking a direct link (not dropdown toggles)
+    document.querySelectorAll('.nav-links > li > a:not(.dropdown-toggle)').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
             mobileMenuToggle.classList.remove('active');
@@ -604,6 +604,11 @@ function moveCarousel(category, direction) {
     const slideCount = slides.length;
     
     if (slideCount === 0) return;
+    
+    // Initialize position if not exists
+    if (carouselPositions[category] === undefined) {
+        carouselPositions[category] = 0;
+    }
     
     // Calculate slides visible based on screen width
     let slidesVisible = 3;
