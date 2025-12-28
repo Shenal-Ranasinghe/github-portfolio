@@ -250,8 +250,47 @@ document.querySelectorAll('.project-card, .skill-category, .experience-card, .ac
 });
 
 // ===== Contact Form Handling =====
-// Form now uses FormSubmit.co service to send emails directly
-// No JavaScript handling needed - form submits naturally to FormSubmit endpoint
+const contactForm = document.getElementById('contact-form');
+
+if (contactForm) {
+    // Show loading state when form is submitted
+    contactForm.addEventListener('submit', (e) => {
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const btnLoading = document.getElementById('btn-loading');
+        
+        if (btnText && btnLoading) {
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
+        }
+        
+        if (submitBtn) {
+            submitBtn.disabled = true;
+        }
+        
+        // Show notification
+        showNotification('Sending your message...', 'info');
+    });
+}
+
+// Check if user just returned from form submission
+if (window.location.hash === '#contact' && document.referrer.includes('formsubmit.co')) {
+    setTimeout(() => {
+        showNotification('Thank you for your message! I will get back to you soon. 📧', 'success');
+        // Clear the form if it still has data
+        if (contactForm) {
+            contactForm.reset();
+        }
+    }, 500);
+}
+
+// Also check URL parameter for success
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('submitted') === 'true') {
+    showNotification('Thank you for your message! I will get back to you soon. 📧', 'success');
+    // Remove the parameter from URL
+    window.history.replaceState({}, document.title, window.location.pathname + '#contact');
+}
 
 function showNotification(message, type) {
     const notification = document.createElement('div');
