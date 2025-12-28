@@ -1012,7 +1012,13 @@
         <h2 class="section-title">Get In Touch</h2>
         <div class="contact-content">
             <p>I'm currently open to new opportunities and interesting projects. Whether you have a question or just want to say hi, feel free to reach out!</p>
-            <form class="contact-form" id="contact-form">
+            <form class="contact-form" id="contact-form" action="https://formsubmit.co/shenalranasinghe2001@gmail.com" method="POST">
+                <!-- FormSubmit Configuration -->
+                <input type="hidden" name="_subject" value="New Portfolio Contact Message">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://shenal-ranasinghe.github.io/github-portfolio/#contact">
+                
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required />
@@ -1023,7 +1029,7 @@
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>

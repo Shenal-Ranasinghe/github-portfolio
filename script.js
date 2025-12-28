@@ -250,26 +250,8 @@ document.querySelectorAll('.project-card, .skill-category, .experience-card, .ac
 });
 
 // ===== Contact Form Handling =====
-const contactForm = document.getElementById('contact-form');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-        
-        // Basic validation
-        if (name && email && message) {
-            // Show success message
-            showNotification('Thank you for your message! I will get back to you soon.', 'success');
-            contactForm.reset();
-        } else {
-            showNotification('Please fill in all fields.', 'error');
-        }
-    });
-}
+// Form now uses FormSubmit.co service to send emails directly
+// No JavaScript handling needed - form submits naturally to FormSubmit endpoint
 
 function showNotification(message, type) {
     const notification = document.createElement('div');
