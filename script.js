@@ -647,7 +647,7 @@ function startAutoScroll(category) {
     
     carouselIntervals[category] = setInterval(() => {
         moveCarousel(category, 1);
-    }, 3000); // Move every 3 seconds
+    }, 5000); // Move every 5 seconds for better viewing
 }
 
 // Touch swipe support
@@ -666,8 +666,8 @@ function initTouchSupport(category) {
     carousel.addEventListener('touchend', (e) => {
         touchEndX[category] = e.changedTouches[0].screenX;
         handleSwipe(category);
-        // Resume auto-scroll after swipe
-        setTimeout(() => startAutoScroll(category), 1000);
+        // Resume auto-scroll after swipe with longer delay
+        setTimeout(() => startAutoScroll(category), 3000);
     });
 }
 

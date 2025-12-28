@@ -2380,8 +2380,9 @@ section {
 .carousel-slide img {
     width: 100%;
     height: 350px;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .carousel-caption {
@@ -3108,7 +3109,8 @@ section {
     }
     
     .carousel-slide img {
-        height: 140px;
+        height: 250px;
+        object-fit: contain;
     }
     
     .carousel-caption {
