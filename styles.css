@@ -13,8 +13,6 @@
     --glass-border: rgba(255, 255, 255, 0.1);
     --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
     --shadow-xl: 0 30px 80px rgba(0, 0, 0, 0.7);
-    --gradient-primary: linear-gradient(135deg, #00f5ff 0%, #7b2ff7 50%, #ff006e 100%);
-    --gradient-secondary: linear-gradient(135deg, rgba(0, 245, 255, 0.2) 0%, rgba(123, 47, 247, 0.2) 100%);
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'Fira Code', 'Courier New', monospace;
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -63,7 +61,7 @@ body {
 .btn i { font-size: 1rem; }
 
 .btn-primary {
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     color: var(--bg-primary);
     border: none;
 }
@@ -80,7 +78,7 @@ body {
 
 .logo-icon { color: var(--accent-primary); }
 
-/* ===== Animated Background ===== */
+/* ===== Subtle Background ===== */
 body::before {
     content: '';
     position: fixed;
@@ -88,17 +86,9 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 20% 50%, rgba(123, 47, 247, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 245, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 90%, rgba(255, 0, 110, 0.15) 0%, transparent 50%);
+    background: var(--bg-secondary);
     pointer-events: none;
     z-index: -1;
-    animation: gradientShift 15s ease infinite;
-}
-
-@keyframes gradientShift {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.1); }
 }
 
 /* ===== Glassmorphism Navigation ===== */
@@ -132,10 +122,7 @@ nav .container {
 .logo {
     font-size: 2rem;
     font-weight: 800;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--accent-primary);
     font-family: var(--font-mono);
     letter-spacing: -2px;
     cursor: pointer;
@@ -219,7 +206,7 @@ nav .container {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--gradient-secondary);
+    background: rgba(0, 245, 255, 0.1);
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: -1;
@@ -326,7 +313,7 @@ nav .container {
 .mobile-menu-toggle span {
     width: 30px;
     height: 3px;
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     border-radius: 3px;
     transition: var(--transition-smooth);
 }
@@ -395,10 +382,7 @@ nav .container {
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-primary);
     letter-spacing: -3px;
 }
 
@@ -468,7 +452,7 @@ nav .container {
     left: 50%;
     width: 0;
     height: 0;
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: var(--transition-smooth);
@@ -666,7 +650,7 @@ section {
     content: '';
     width: 80px;
     height: 5px;
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
 }
@@ -766,7 +750,7 @@ section {
     top: 0;
     height: 100%;
     width: 3px;
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
 }
@@ -812,7 +796,8 @@ section {
 .timeline-item .date {
     display: inline-block;
     padding: 0.5rem 1.5rem;
-    background: var(--gradient-secondary);
+    background: rgba(0, 245, 255, 0.1);
+    border: 1px solid var(--accent-primary);
     border-radius: 50px;
     font-family: var(--font-mono);
     font-size: 0.9rem;
@@ -868,7 +853,7 @@ section {
     right: -50%;
     width: 200%;
     height: 200%;
-    background: var(--gradient-secondary);
+    background: rgba(0, 245, 255, 0.05);
     transform: rotate(45deg);
     transition: var(--transition-smooth);
     opacity: 0;
@@ -957,7 +942,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--gradient-secondary);
+    background: rgba(0, 245, 255, 0.05);
     opacity: 0;
     transition: var(--transition-smooth);
 }
@@ -1052,6 +1037,7 @@ section {
     transition: var(--transition-bounce);
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .filter-btn::before {
@@ -1061,10 +1047,11 @@ section {
     left: 50%;
     width: 0;
     height: 0;
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: var(--transition-smooth);
+    z-index: -1;
 }
 
 .filter-btn:hover::before,
@@ -1075,7 +1062,7 @@ section {
 
 .filter-btn:hover,
 .filter-btn.active {
-    color: var(--text-primary);
+    color: #000000;
     border-color: var(--accent-primary);
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
@@ -1113,7 +1100,7 @@ section {
     left: -100%;
     width: 300%;
     height: 300%;
-    background: radial-gradient(circle, rgba(0, 245, 255, 0.15) 0%, transparent 70%);
+    background: rgba(0, 245, 255, 0.08);
     transition: var(--transition-smooth);
 }
 
@@ -1138,6 +1125,7 @@ section {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+    height: 60px;
 }
 
 .project-icon {
@@ -1186,16 +1174,23 @@ section {
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 1rem;
+    height: 4.5rem;
+    line-height: 1.25;
+    display: flex;
+    align-items: center;
 }
 
 .project-card .status {
-    display: inline-block;
+    display: block;
+    width: fit-content;
     padding: 0.5rem 1.5rem;
     border-radius: 50px;
     font-size: 0.85rem;
     font-family: var(--font-mono);
     font-weight: 600;
     margin-bottom: 1.5rem;
+    height: 2rem;
+    line-height: 1rem;
 }
 
 .status.ongoing {
@@ -1229,7 +1224,7 @@ section {
 
 .tech-stack li {
     padding: 0.6rem 1.2rem;
-    background: var(--gradient-secondary);
+    background: rgba(0, 245, 255, 0.1);
     border: 1px solid var(--accent-primary);
     border-radius: 50px;
     font-family: var(--font-mono);
@@ -1253,7 +1248,7 @@ section {
     gap: 0.5rem;
     padding: 0.8rem 1.5rem;
     margin-top: 1rem;
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     border: none;
     border-radius: 50px;
     color: var(--bg-primary);
@@ -1317,7 +1312,7 @@ section {
     left: 0;
     width: 4px;
     height: 100%;
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     opacity: 0;
     transition: var(--transition-smooth);
 }
@@ -1472,7 +1467,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--gradient-secondary);
+    background: rgba(0, 245, 255, 0.05);
     opacity: 0;
     transition: var(--transition-smooth);
 }
@@ -1499,7 +1494,8 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--gradient-secondary);
+    background: rgba(0, 245, 255, 0.1);
+    border: 1px solid var(--accent-primary);
     border-radius: 15px;
     transition: var(--transition-smooth);
 }
@@ -1594,7 +1590,7 @@ section {
     left: 50%;
     width: 0;
     height: 0;
-    background: var(--gradient-secondary);
+    background: rgba(0, 245, 255, 0.08);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: var(--transition-smooth);
@@ -1746,7 +1742,7 @@ section {
 .certificate-close:hover {
     transform: rotate(90deg) scale(1.1);
     color: var(--accent-primary);
-    background: var(--gradient-secondary);
+    background: rgba(0, 245, 255, 0.1);
 }
 
 .certificate-frame {
@@ -1824,7 +1820,7 @@ section {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: var(--gradient-secondary);
+    background: rgba(0, 245, 255, 0.05);
     transition: var(--transition-smooth);
     z-index: 0;
 }
@@ -1842,7 +1838,7 @@ section {
 .volunteering-card.featured {
     margin-bottom: 3rem;
     border: 2px solid var(--accent-primary);
-    background: linear-gradient(135deg, rgba(0, 245, 255, 0.05) 0%, rgba(123, 47, 247, 0.05) 100%);
+    background: rgba(0, 245, 255, 0.05);
 }
 
 .volunteering-card * {
@@ -1853,7 +1849,7 @@ section {
 .volunteering-icon {
     width: 70px;
     height: 70px;
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -2065,7 +2061,7 @@ section {
     left: 0;
     width: 150px;
     height: 3px;
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     border-radius: 10px;
 }
 
@@ -2096,7 +2092,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--gradient-secondary);
+    background: rgba(0, 245, 255, 0.05);
     opacity: 0;
     transition: var(--transition-smooth);
 }
@@ -2122,7 +2118,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     border-radius: 15px;
     margin-bottom: 0.5rem;
 }
@@ -2214,7 +2210,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--gradient-secondary);
+    background: rgba(0, 245, 255, 0.05);
     opacity: 0;
     transition: var(--transition-smooth);
     z-index: 0;
@@ -2238,7 +2234,7 @@ section {
 .life-icon {
     width: 80px;
     height: 80px;
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -2272,7 +2268,7 @@ section {
 /* Featured Life Cards with Buttons */
 .life-card-featured {
     border: 2px solid var(--accent-primary);
-    background: linear-gradient(135deg, rgba(0, 245, 255, 0.05) 0%, rgba(123, 47, 247, 0.05) 100%);
+    background: rgba(0, 245, 255, 0.05);
     position: relative;
     overflow: visible;
 }
@@ -2282,7 +2278,7 @@ section {
     position: absolute;
     top: -12px;
     right: 20px;
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     color: var(--bg-primary);
     padding: 0.4rem 1rem;
     border-radius: 20px;
@@ -2298,7 +2294,7 @@ section {
     gap: 0.75rem;
     margin-top: 2rem;
     padding: 1rem 2rem;
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     color: var(--bg-primary);
     text-decoration: none;
     border-radius: 50px;
@@ -2599,7 +2595,7 @@ section {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     border: none;
     width: 50px;
     height: 50px;
@@ -2697,7 +2693,7 @@ section {
 
 .submit-btn {
     padding: 1.5rem 3rem;
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     border: none;
     border-radius: 50px;
     color: var(--bg-primary);
@@ -2756,7 +2752,7 @@ section {
     right: 40px;
     width: 60px;
     height: 60px;
-    background: var(--gradient-primary);
+    background: var(--accent-primary);
     border: none;
     border-radius: 50%;
     color: var(--bg-primary);

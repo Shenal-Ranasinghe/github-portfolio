@@ -51,10 +51,7 @@
             font-size: 3.5rem;
             font-weight: 900;
             margin-bottom: 1.5rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
         }
         
         .project-meta {
@@ -108,9 +105,10 @@
             align-items: center;
             gap: 10px;
             padding: 1rem 2.5rem;
-            background: var(--gradient-primary);
+            background: rgba(0, 245, 255, 0.2);
+            border: 2px solid var(--accent-primary);
             border-radius: 50px;
-            color: #000;
+            color: var(--accent-primary);
             text-decoration: none;
             font-weight: 700;
             transition: var(--transition-smooth);
@@ -341,8 +339,7 @@
     </style>
 </head>
 <body>
-    <div class="circuit-bg"></div>
-    
+
     <section class="project-detail">
         <a href="../index.html#projects" class="back-button">
             <i class="fas fa-arrow-left"></i> Back to Projects
